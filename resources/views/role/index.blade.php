@@ -11,14 +11,14 @@
         </tr>
     </thead>
     <tbody>
-        @forelse ($roles as $roles)
+        @forelse ($rol as $roles)
             <tr>
                 <td>{{ $roles->Nombre }}</td>
                 <td>{{ $roles->Permisos }}</td>
                 
                 
                 <td>
-                    <a href="{{ route('billing.shows', $facturacion->id) }}">Ver</a>
+                    <a href="{{ route('role.show', $roles->ID_rol) }}">Ver</a>
                 </td>
             </tr>
         @empty

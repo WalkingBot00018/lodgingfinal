@@ -14,6 +14,17 @@ class rolController extends Controller
         return view("role.index", compact("rol"));
     }
 
+
+    public function store(Request $request)
+    {
+
+        roles::create($request->all());
+
+
+        return redirect()->route("role.index")->with("success","rol exitoso");
+    }
+
+
     public function show($ID_rol)
 {
     $roles = Rol::find($ID_rol);

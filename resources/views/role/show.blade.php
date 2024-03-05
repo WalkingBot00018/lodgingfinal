@@ -1,4 +1,4 @@
-@if ($roles)
+@if ($rol)
     <h1>Detalles de roles</h1>
     <p>Nombre de rol: {{ $roles->Nombre }}</p>
     <p>Permisos: {{ $roles->Permisos }}</p>
