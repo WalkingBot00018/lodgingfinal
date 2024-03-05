@@ -21,7 +21,7 @@ return new class extends Migration
             $table->date('FechaSalida');
             $table->string('Estado_Reserva');
             $table->foreign('Nro_Habitacion')->references('Nro_Habitacion')->on('habitacion')->onDelete('cascade')->onUpdate('cascade');
-            $table->foreign('ID_usuario')->references('ID_usuario')->on('usuarios')->onDelete('cascade')->onUpdate('cascade');
+            $table->foreign('ID_usuario')->references('ID_usuario')->on('users')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

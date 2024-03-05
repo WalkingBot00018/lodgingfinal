@@ -14,12 +14,18 @@ return new class extends Migration
     public function up()
     {
         Schema::create('users', function (Blueprint $table) {
-            $table->id();
-            $table->string('name');
+            $table->id('ID_Usuario');
+            $table->string('Nombre');
+            $table->string('Apellido');
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('Telefono');
+            $table->string('Estado');
+            $table->foreignId('ID_rol');
             $table->rememberToken();
+
+            $table->foreign('ID_rol')->references('ID_rol')->on('rol')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }
