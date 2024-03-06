@@ -11,6 +11,11 @@
     @endif
 
     
+    <input type="text" name="Nro_doc" id="" placeholder="Document Number" value="{{ old('Nro_doc') }}">
+    @error('Nro_doc')
+        <h6>{{ $message }}</h6>
+    @enderror
+
     <input type="text" name="Nombre" id="" placeholder="Nombre" value="{{ old('Nombre') }}">
     @error('Nombre')
         <h6>{{ $message }}</h6>
