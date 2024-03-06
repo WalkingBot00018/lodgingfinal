@@ -8,11 +8,11 @@ use Illuminate\Http\Request;
 
 class reservaController extends Controller
 {
-    public function index(){
-        
-        $reservas = Reserva::with('reservas')->get();
-        return view('reserva.index', ['reserva' => $reservas]);
-    }
+    public function index()
+{
+    $reservas = Reserva::all();
+    return view('reserva.index', ['reservas' => $reservas]);
+}
 
     public function create()
     {
@@ -70,7 +70,7 @@ public function destroy($Nro_Reserva)
         
         $reservas = Reserva::find($Nro_Reserva);
         $reservas->delete(); 
-        return redirect('/reserva')->with('success', 'Reserva eliminada correctamente');
+        return redirect('/reserva')->with('success', 'reserva eliminado correctamente');
         
     }
 }

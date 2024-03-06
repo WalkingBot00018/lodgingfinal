@@ -1,16 +1,16 @@
-@extends('layouts.app')
+{{-- @extends('layouts.app')
 
-@section('content')
+@section('content') --}}
 
 <body>
    <form action="{{ route('user.store') }}" method="post">
     @csrf
-    
+
     @if (session('mensaje'))
-        <h6>{{ session('mensaje') }}</h6>   
+        <h6>{{ session('mensaje') }}</h6>
     @endif
 
-    
+
     <input type="text" name="Nro_doc" id="" placeholder="Document Number" value="{{ old('Nro_doc') }}">
     @error('Nro_doc')
         <h6>{{ $message }}</h6>
@@ -24,7 +24,7 @@
     @error('Apellido')
         <h6>{{ $message }}</h6>
     @enderror
-  
+
     <input type="email" name="email" id="" placeholder="Email" value="{{ old('email') }}">
     @error('email')
         <h6>{{ $message }}</h6>
@@ -45,15 +45,15 @@
     @enderror
 
     <input type="text" name="ID_rol" id="" placeholder="Role Id" value="4">
-    
+
     @error('ID_rol')
         <h6>{{ $message }}</h6>
     @enderror
     <input type="submit" name="send" value="Send">
 
-    </form> 
+    </form>
 </body>
-
-@endsection
+{{--
+@endsection --}}
 
 </html>
