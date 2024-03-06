@@ -19,5 +19,4 @@ Route::get('/', function () {
 });
 
 
-Route::get('/rol', [rolController::class, 'index'])->name('role.index');
-Route::get('/rol/{role}', [rolController::class, 'show'])->name('role.show');
+Route::get('/role', [rolController::class, 'index'])->name('role.index');

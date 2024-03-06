@@ -15,25 +15,62 @@ class rolController extends Controller
     }
 
 
+/*    public function create()
+    {
+        return view("role.create");
+    }
+*/
+
     public function store(Request $request)
     {
 
-        roles::create($request->all());
+        Rol::create($request->all());
 
 
         return redirect()->route("role.index")->with("success","rol exitoso");
     }
 
-
-    public function show($ID_rol)
+    public function show($id_rol)
 {
-    $roles = Rol::find($ID_rol);
+    $roles = Rol::find($id_rol);
 
     if (!$roles) {
         // Manejar el caso cuando el usuario no existe
         return redirect()->route('role.index')->with('error', 'rol no encontrado');
     }
 
-    return view('role.shows', ['rol' => $roles]);
+    return view('role.show', ['roles' => $roles]);
 }
+
+
+
+    public function edit($id_rol)
+    {
+        $roles = Rol::find($id_rol);
+        return view('role.edit', compact('roles'));
+    }
+
+    public function update(Request $request, $id_rol)
+    {
+       
+
+        // Actualiza el usuario
+        Rol::where('id_rol', $id_rol)->update($request->except('_token', '_method'));
+
+        return redirect('/rol')->with('success', 'Usuario actualizado correctamente');
+    }
+
+        
+
+    
+
+public function destroy($id_rol)
+    {
+        
+        $users = Rol::find($id_rol);
+        $users->delete(); 
+        return redirect('/rol')->with('success', 'Usuario eliminado correctamente');
+        
+    }
+
 }

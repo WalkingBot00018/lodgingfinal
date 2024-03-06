@@ -1,32 +1,24 @@
-@extends('layouts.app')
-
-@section('content')
-
-<table>
+   <table>
     <thead>
         <tr>
-            <th>Nombre</th>
+            <th>identificacion de Rol</th>
+            <th>Nombre del Rol</th>
             <th>Permisos</th>
-
+            
         </tr>
     </thead>
     <tbody>
-        @forelse ($rol as $roles)
+        @forelse ($rol as $role)
             <tr>
-                <td>{{ $roles->Nombre }}</td>
-                <td>{{ $roles->Permisos }}</td>
+                <td>{{ $role->ID_rol }}</td>
+                <td>{{ $role->Nombre }}</td>
+                <td>{{ $role->Permisos }}</td>
                 
-                
-                <td>
-                    <a href="{{ route('role.show', $roles->ID_rol) }}">Ver</a>
-                </td>
             </tr>
         @empty
             <tr>
-                <td colspan="6">No hay datos</td>
+                <td colspan="3"><h6>No hay datos</h6></td>
             </tr>
         @endforelse
     </tbody>
 </table>
-
-@endsection
