@@ -33,6 +33,7 @@ class UserController extends Controller
         // User::create($request->all());
 
         $user = User::create([
+            'Nro_doc' =>$request->Nro_doc,
             "Nombre"=> $request->Nombre,
             "Apellido"=> $request->Apellido,
             "email"=> $request->email,
