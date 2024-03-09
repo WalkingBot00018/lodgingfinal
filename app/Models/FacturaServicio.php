@@ -22,6 +22,7 @@ class FacturaServicio extends Model
         return $this->brlongsTo(Factura::class, 'Nro_Factura_Servicio', 'Nro_Factura');
     }
     public function servicio(){
-        return $this->belongsTo(servicio::class, 'Nro_Factura_Servicio', 'ID_Servicio');
+        return $this->belongsTo(servicio::class, 'Nro_Factura_Servicio', 'ID_Servicio'
+    );
     }
 }
