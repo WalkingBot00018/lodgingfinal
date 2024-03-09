@@ -10,9 +10,9 @@ class Reserva extends Model
     use HasFactory;
     protected $table = 'reserva';
     protected $primaryKey = 'Nro_reserva';
-   
+
     protected $fillable = [
-        'ID_Usuario',
+        'Nro_doc',
         'Nro_Habitacion',
         'FechaEntrada',
         'FechaSalida',
@@ -22,7 +22,7 @@ class Reserva extends Model
 
     public function User()
     {
-        return $this->belongsTo(user::class, 'Nro_Reserva', 'ID_Usuario');
+        return $this->belongsTo(user::class, 'Nro_Reserva', 'Nro_doc');
     }
 
     public function habitacion()
