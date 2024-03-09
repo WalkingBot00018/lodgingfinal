@@ -25,8 +25,9 @@ class habitacion extends Model
     }
     public function servicio()
     {
-        return $this->hasMany(servicio::class, 'ID_Servicio', 'Nro_Habitacion');
+        return $this->hasMany(Servicio::class, 'Nro_Habitacion', 'Nro_Habitacion');
     }
+    
 }
 //hola
 
