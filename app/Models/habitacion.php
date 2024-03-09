@@ -11,9 +11,10 @@ class habitacion extends Model
     
     protected $table = 'habitacion';
 
-    protected $primaryKey = 'Nro_Habitacion';
+    protected $primaryKey = 'ID_Habitacion';
 
     protected $fillable = [
+        'Nro_Habitacion',
         'Id_Tipo_Habitacion',
         
 
@@ -25,7 +26,7 @@ class habitacion extends Model
     }
     public function servicio()
     {
-        return $this->hasMany(servicio::class, 'ID_Servicio', 'Nro_Habitacion');
+        return $this->hasMany(servicio::class, 'ID_Servicio', 'ID_Habitacion');
     }
 }
 //hola
