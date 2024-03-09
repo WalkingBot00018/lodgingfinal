@@ -16,7 +16,7 @@ return new class extends Migration
         Schema::create('reserva', function (Blueprint $table) {
             $table->id('Nro_Reserva');
             $table->string('Nro_doc');
-            $table->foreignId('Nro_Habitacion');
+            $table->string('Nro_Habitacion');
             $table->date('FechaEntrada');
             $table->date('FechaSalida');
             $table->string('Estado_Reserva');
