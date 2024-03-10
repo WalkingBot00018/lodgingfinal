@@ -25,34 +25,48 @@
                         </nav>                        
                 @elseif (auth()->user()->id_rol == 2)
                     <nav>
-                        <p>Rol: Recepcionista</p>
+                        <p>Rol: Cliente</p>
                         <menu>
-                            <a href="#">Cuenta recepcionista</a>
-                            <a href="{{ route('bookings.index') }}">Gestionar reservas</a>
+                            <a href="#"></a>
+                            <a href="#"></a>
                         </menu>
                     </nav> 
                 @elseif (auth()->user()->id_rol == 3)
-                    <p>Reclutador</p>
+                    <p>Recepsionista</p>
                     <nav>
                         <menu>
                             <a href="#">Mi Cuenta</a>
-                            <a href="{{ route('user.index') }}">Listar usuarios</a>
-                            <a href="#">Empresas</a>
-                            <a href="#">Requisiciones</a>
-                            <a href="#">Profesiones</a>
-                            <a href="#">Ocupaciones</a>
-                            <a href="#">Cargos</a>
-                            <a href="#">Ver candidatos</a>                                    
-                            <a href="#">Gestionar vacantes</a>
+                            <a href="#"></a>
+
                         </menu>
                     </nav>
 
                 @elseif (auth()->user()->id_rol == 4)
-                    <p>Clientes</p>
+                    <p>Mantenimineto </p>
                     <nav>
                         <menu>
                             <a href="#">Mi Cuenta</a>
-                            <a href="#">Reservar</a>
+                            <a href="#"></a>
+                            
+                        </menu>
+                    </nav>
+
+                @elseif (auth()->user()->id_rol == 5)
+                    <p>Limpieza </p>
+                    <nav>
+                        <menu>
+                            <a href="#">Mi Cuenta</a>
+                            <a href="#"></a>
+                            
+                        </menu>
+                    </nav>
+
+                @elseif (auth()->user()->id_rol == 6)
+                    <p>Seguridad </p>
+                    <nav>
+                        <menu>
+                            <a href="#">Mi Cuenta</a>
+                            <a href="#"></a>
                             
                         </menu>
                     </nav>

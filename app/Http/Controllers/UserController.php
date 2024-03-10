@@ -21,13 +21,14 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
+            "Nro_doc"=> "required|string|min:2|max:10",
             "Nombre"=> "required|string|min:5|max:20",
             "Apellido"=> "required|string|min:5|max:20",
             "email"=> "required|email|min:2|max:20",
             "password"=> "required|min:2|max:225",
             "Telefono"=> "required|string|min:2|max:10",
             "Estado"=> "required|string|min:5|max:20",
-            "ID_rol"=> "required|string|min:1|max:10",
+            "ID_rol"=> "required|exists:rol,ID_rol", // Asegura que el ID de rol enviado existe en la tabla de roles
         ]);
 
         // User::create($request->all());
@@ -38,12 +39,12 @@ class UserController extends Controller
             "Apellido"=> $request->Apellido,
             "email"=> $request->email,
             "password"=> Hash::make($request->password),
-            "Telefono"=> $request->Nombre,
-            "Estado"=> $request->Nombre,
-            "id_rol"=> $request->id_rol,
+            "Telefono"=> $request->Telefono,
+            "Estado"=> $request->Estado,
+            "ID_rol"=> $request->ID_rol,
         ]);
         
-        $users = User::with('roles')->get();
+        $users = User::with('rol')->get();
 
         auth()->attempt($request->only('','email','password'));
 

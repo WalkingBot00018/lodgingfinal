@@ -12,7 +12,8 @@
         <div class="user-actions">
             <a href="{{ route('user.shows', $user->ID_Usuario) }}">Ver</a>
             <a href="{{ route('user.edit', $user->ID_Usuario) }}">Editar</a>
-            <form method="POST" action="{{ route('user.destroy', $user->ID_usuario) }}">
+            <form method="POST" action="{{ route('user.destroy', $user) }}">
+
                 @csrf
                 @method('DELETE')
                 <input type="submit" class="btn btn-danger btn-sm" value="Eliminar">

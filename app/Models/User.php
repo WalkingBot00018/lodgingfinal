@@ -7,6 +7,7 @@ use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
 use Laravel\Sanctum\HasApiTokens;
+use App\models\rol;
 
 class User extends Authenticatable
 {
@@ -24,9 +25,9 @@ class User extends Authenticatable
         'Apellido',
         'email',
         'password',
-        'Telefono',
         'Estado',
-        'ID_rol'
+        'Telefono',
+        'ID_rol',
     ];
 
     public function rol()
