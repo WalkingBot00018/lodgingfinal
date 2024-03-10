@@ -11,9 +11,11 @@
     <input type="text" name="email" value="{{ $users->email }}">
     <label for="password">password</label>
     <input type="password" name="password" value="{{ $users->password }}">
-    <label for="id_rol">Id rol</label>
-    <label for="Telefono">Número DE TELEFONO</label>
+    <label for="Telefono">ESTADO</label>
+    <input type="text" name="Estado" value="{{ $users->Estado }}">
+    <label for="Estado">Estado</label>
     <input type="text" name="Telefono" value="{{ $users->Telefono }}">
+    <label for="ID_rol">Id rol</label>
     <input type="text" name="ID_rol" value="{{ $users->ID_rol }}">
 
     <button type="submit">Actualizar</button>

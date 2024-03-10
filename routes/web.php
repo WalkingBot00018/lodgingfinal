@@ -1,9 +1,13 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use Laravel\Socialite\Facades\Socialite;
 use App\Http\Controllers\rolController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\reservaController;
+use App\Http\Controllers\LoginController;
+use App\Http\Controllers\LogoutController;
+use App\Http\Controllers\HomeController;
 
 
 /*
@@ -43,3 +47,14 @@ Route::get('/reserva/{reservas}', [reservaController::class, 'show'])->name('res
 Route::get('/reserva/{reservas}/editar', [reservaController::class, 'edit'])->name('reserva.edit');
 Route::put('/reserva/{reservas}', [reservaController::class, 'update'])->name('reserva.update');
 Route::delete('/reserva/{reservas}', [reservaController::class, 'destroy'])->name('reserva.destroy');
+
+
+
+//Rutas de Login y Logout
+Route::get('login', [LoginController::class,'index'])->name('login');
+Route::post('logout', [LogoutController::class,'store'])->name('logout');
+Route::post('login', [LoginController::class,'store']);
+
+//Vista de usuario logueado
+Route::get('/home', [HomeController::class,'index'])->name('home.index')->middleware('auth');
+
