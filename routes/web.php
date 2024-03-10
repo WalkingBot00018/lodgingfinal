@@ -9,6 +9,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\HomeController;
 
+use App\Http\Controllers\FacturaController;
+use App\Http\Controllers\FacturaServicioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -58,3 +60,6 @@ Route::post('login', [LoginController::class,'store']);
 //Vista de usuario logueado
 Route::get('/home', [HomeController::class,'index'])->name('home.index')->middleware('auth');
 
+
+Route::resource('/factura',FacturaController::class);
+Route::resource('/factura_servicio',FacturaServicioController::class);
