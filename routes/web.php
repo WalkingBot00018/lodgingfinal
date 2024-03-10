@@ -39,4 +39,3 @@ Route::get('/usuarios/{user}', [UserController::class, 'show'])->name('user.show
 Route::get('/usuarios/{user}/editar', [UserController::class, 'edit'])->name('user.edit');
 Route::put('/usuarios/{user}', [UserController::class, 'update'])->name('user.update');
 Route::delete('/usuarios/{user}', [UserController::class, 'destroy'])->name('user.destroy');
-Route::resource('/factura',FacturaController::class);
