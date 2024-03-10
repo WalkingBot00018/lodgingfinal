@@ -10,35 +10,34 @@
     <link rel="stylesheet" href="/css/estilos.css">
 </head>
 <header>
-    <h1>FACTURAS</h1>
+    <h1>FACTURAS SERVICIOS</h1>
 <header>  
 <body>  
     <seciton class="contenido">
         <article>
-            <a href="{{ url('factura/create')}}">Nueva factura</a>
+            <a href="{{ url('factura_servicio/create')}}">Nueva factura de servicio</a>
             <table>
                 <thead>
                     <tr>
                         <td>#</td>
-                        <td>Nro_Reserva</td>
-                        <td>FechaEmision</td>
-                        <td>Monto_Total</td>
-                         <td>Id_Metodo_Pago</td>
+                        <td>Nro_Factura</td>
+                        <td>ID_Servicio</td>
+                        <td>Cantidad</td>
                         <td>Acciones</td>
                     </tr>
                 </thead>
                 <tbody>
-                    @foreach($facturas as $fac)
+                    @foreach($factura_s as $fac_s)
                     <tr>
-                        <td>{{$fac->Nro_Factura}}</td>
-                        <td>{{$fac->FechaEmision}}</td>
-                        <td>{{$fac->Monto_Total}}</td>
-                        <td>{{$fac->Id_Metodo_Pago}}</td>
+                        <td>{{$fac_s->Nro_Factura_Servicio}}</td>
+                        <td>{{$fac_s->Nro_Factura}}</td>
+                        <td>{{$fac_s->ID_Servicio}}</td>
+                        <td>{{$fac_s->Cantidad}}</td>
                         <td>
-                            <a href="{{url('/factura/'.$fac->Nro_Factura.'/edit')}}">Editar
-                            <a href="{{url('/factura/' . $fac->Nro_Factura)}}">ver
-                                
-                            <form action="{{url('/factura/'.$fac->Nro_Factura)}}" method="post">
+                            <a href="{{url('/factura_servicio/'.$fac_s->Nro_Factura_Servicio.'/edit')}}">Editar
+                            <a href="{{url('/factura_servicio/'.$fac_s->Nro_Factura_Servicio)}}">Ver
+
+                            <form action="{{url('/factura_servicio/'.$fac_s->Nro_Factura_Servicio)}}" method="post">
                                 @csrf
                                 {{method_field('DELETE')}}
                                 <input type="submit" onclick="return confirm('¿Quieres eliminar?')" value="Eliminar">
@@ -53,5 +52,3 @@
     </section>
 </body>
 </html>
-
-

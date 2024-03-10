@@ -51,9 +51,11 @@ class FacturaController extends Controller
      * @param  int  $id
      * @return \Illuminate\Http\Response
      */
-    public function show($id)
+    public function show($Nro_Factura)
     {
         //
+        $verFactura=Factura::find($Nro_Factura);
+        return view('factura.show',compact('verFactura'));
     }
 
     /**
