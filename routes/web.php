@@ -9,6 +9,11 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\HomeController;
 
+use App\Http\Controllers\tipoHabitacionController;
+use App\Http\Controllers\habitacionController;
+use App\Http\Controllers\serviciosController;
+
+
 use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\FacturaServicioController;
 
@@ -45,11 +50,10 @@ Route::delete('/usuarios/{user}', [UserController::class, 'destroy'])->name('use
 Route::get('/reserva', [reservaController::class, 'index'])->name('reserva.index');
 Route::get('/reserva/create', [reservaController::class, 'create'])->name('reserva.create');
 Route::post('/reserva/store', [reservaController::class, 'store'])->name('reserva.store');
-Route::get('/reserva/{reservas}', [reservaController::class, 'show'])->name('reserva.shows');
-Route::get('/reserva/{reservas}/editar', [reservaController::class, 'edit'])->name('reserva.edit');
-Route::put('/reserva/{reservas}', [reservaController::class, 'update'])->name('reserva.update');
-Route::delete('/reserva/{reservas}', [reservaController::class, 'destroy'])->name('reserva.destroy');
-
+Route::get('/reserva/{reserva}', [reservaController::class, 'show'])->name('reserva.show');
+Route::get('/reserva/{reserva}/editar', [reservaController::class, 'edit'])->name('reserva.edit');
+Route::put('/reserva/{reserva}', [reservaController::class, 'update'])->name('reserva.update');
+Route::delete('/reserva/{reserva}', [reservaController::class, 'destroy'])->name('reserva.destroy');
 
 
 //Rutas de Login y Logout
@@ -63,3 +67,29 @@ Route::get('/home', [HomeController::class,'index'])->name('home.index')->middle
 
 Route::resource('/factura',FacturaController::class);
 Route::resource('/factura_servicio',FacturaServicioController::class);
+
+
+
+Route::get('/tipo_habitacion', [tipoHabitacionController::class, 'index'])->name('tipo_habitacion.index');
+Route::get('/tipo_habitacion/create',[tipoHabitacionController::class, 'create'])->name('tipo_habitacion.create');
+Route::post('/tipo_habitacion/store', [habitacionController::class, 'store'])->name('tipo_habitacion.store');
+Route::get('/tipo_habitacion/{tipo_habitacion}', [habitacionController::class, 'show'])->name('tipo_habitacion.show');
+Route::get('/tipo_habitacion/{tipo_habitacion}/editar', [habitacionController::class, 'edit'])->name('tipo_habitacion.edit');
+Route::put('/tipo_habitacion/{tipo_habitacion}', [habitacionController::class, 'update'])->name('tipo_habitacion.update');
+Route::delete('/tipo_habitacion/{tipo_habitacion}', [habitacionController::class, 'destroy'])->name('tipo_habitacion.destroy');
+
+Route::get('/habitacion', [habitacionController::class, 'index'])->name('habitacion.index');
+Route::get('/habitacion/create', [habitacionController::class, 'create'])->name('habitacion.create');
+Route::post('/habitacion/store', [habitacionController::class, 'store'])->name('habitacion.store');
+Route::get('/habitacion/{habitaciones}', [habitacionController::class, 'show'])->name('habitacion.show');
+Route::get('/habitacion/{habitaciones}/editar', [habitacionController::class, 'edit'])->name('habitacion.edit');
+Route::put('/habitacion/{habitaciones}', [habitacionController::class, 'update'])->name('habitacion.update');
+Route::delete('/habitacion/{habitaciones}', [habitacionController::class, 'destroy'])->name('habitacion.destroy');
+
+Route::get('/servicio', [serviciosController::class, 'index'])->name('servicio.index');
+Route::get('/servicio/create', [serviciosController::class, 'create'])->name('servicio.create');
+Route::post('/servicio/store', [serviciosController::class, 'store'])->name('servicio.store');
+Route::get('/servicio/{servicio}', [serviciosController::class, 'show'])->name('servicio.show');
+Route::get('/servicio/{servicio}/editar', [serviciosController::class, 'edit'])->name('servicio.edit');
+Route::put('/servicio/{servicio}', [serviciosController::class, 'update'])->name('servicio.update');
+Route::delete('/servicio/{servicio}', [serviciosController::class, 'destroy'])->name('servicio.destroy');

@@ -1,76 +1,70 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Reserva;
 
-use App\Http\Controllers\Controller;
+use App\Models\Reserva;
 use Illuminate\Http\Request;
 
-class reservaController extends Controller
+class ReservaController extends Controller
 {
     public function index()
-{
-    $reservas = Reserva::all();
-    return view('reserva.index', ['reservas' => $reservas]);
-}
+    {
+        $reservas = Reserva::all();
+        return view('reserva.index', ['reservas' => $reservas]);
+    }
 
     public function create()
     {
         return view("reserva.create");
     }
 
-
     public function store(Request $request)
     {
-
         Reserva::create($request->all());
-        
-        $reserva = Reserva::with('reserva')->get();
 
-        return redirect()->route("reserva.index")->with("success","reserva creada exitosamente");
-
-        
-        
+        return redirect()->route("reserva.index")->with("success", "Reserva creada exitosamente");
     }
 
     public function show($Nro_Reserva)
-{
-    $reservas = Reserva::find($Nro_Reserva);
+    {
+        $reserva = Reserva::find($Nro_Reserva);
 
-    if (!$reservas) {
-        // Manejar el caso cuando la reserva  no exista
-        return redirect()->route('reserva.index')->with('error', 'reserva no encontrado');
+        if (!$reserva) {
+            return redirect()->route('reserva.index')->with('error', 'Reserva no encontrada');
+        }
+
+        return view('reserva.show', ['reserva' => $reserva]);
     }
-
-    return view('reserva.shows', ['reservas' => $reservas]);
-}
 
     public function edit($Nro_Reserva)
     {
-        $reservas = Reserva::find($Nro_Reserva);
-        return view('reserva.edit', compact('reservas'));
+        $reserva = Reserva::find($Nro_Reserva);
+        return view('reserva.edit', compact('reserva'));
     }
 
     public function update(Request $request, $Nro_Reserva)
     {
-       
+        $reserva = Reserva::find($Nro_Reserva);
+        
+        if (!$reserva) {
+            return redirect('/reserva')->with('error', 'Reserva no encontrada');
+        }
 
-        // Actualiza el usuario
-        Reserva::where('Nro_Reserva', $Nro_Reserva)->update($request->except('_token', '_method'));
+        $reserva->update($request->all());
 
         return redirect('/reserva')->with('success', 'Reserva actualizada correctamente');
     }
 
-        
-
-    
-
-public function destroy($Nro_Reserva)
+    public function destroy($Nro_Reserva)
     {
-        
-        $reservas = Reserva::find($Nro_Reserva);
-        $reservas->delete(); 
-        return redirect('/reserva')->with('success', 'reserva eliminado correctamente');
-        
+        $reserva = Reserva::find($Nro_Reserva);
+
+        if (!$reserva) {
+            return redirect('/reserva')->with('error', 'Reserva no encontrada');
+        }
+
+        $reserva->delete(); 
+
+        return redirect('/reserva')->with('success', 'Reserva eliminada correctamente');
     }
 }
