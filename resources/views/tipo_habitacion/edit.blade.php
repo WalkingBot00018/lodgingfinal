@@ -16,4 +16,4 @@ h1>Editar habitacion</h1>
 
     <button type="submit">Actualizar</button>
 </form>
-<a href="{{ route('habitacion.shows', $tipo_habitacion->Id_Tipo_Habitacion) }}">Ver Detalles</a>
+<a href="{{ route('habitacion.show', $tipo_habitacion->Id_Tipo_Habitacion) }}">Ver Detalles</a>

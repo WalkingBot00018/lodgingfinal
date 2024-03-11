@@ -1,11 +1,11 @@
 <?php
-
 namespace App\Models;
+use App\models\Tipo_habitacion;
 
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
-class habitacion extends Model
+class Habitacion extends Model
 {
     use HasFactory;
     
@@ -16,19 +16,18 @@ class habitacion extends Model
     protected $fillable = [
         'Nro_Habitacion',
         'Id_Tipo_Habitacion',
-        
-
     ];
 
-    public function Tipo_habitacion()
+    public function tipoHabitacion()
     {
         return $this->belongsTo(Tipo_habitacion::class, 'Id_Tipo_Habitacion', 'Id_Tipo_Habitacion');
     }
-    public function servicio()
+
+    public function servicios()
     {
-        return $this->hasMany(servicio::class, 'ID_Servicio', 'Nro_Habitacion');
+        return $this->hasMany(Servicio::class, 'Nro_Habitacion', 'Nro_Habitacion');
     }
-    
 }
+
 //hola
 

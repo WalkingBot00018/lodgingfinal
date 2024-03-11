@@ -11,8 +11,8 @@ class tipoHabitacionController extends Controller
     
     public function index()
     {
-        $tipoHabitaciones = Tipo_habitacion::all();
-        return view('tipo_habitacion.index', ['tipo_habitacion' => $tipoHabitaciones]);
+        $tipoHabitacion = Tipo_habitacion::all();
+        return view('tipo_habitacion.index', ['tipo_habitacion' => $tipoHabitacion]);
     }
     
         public function create()
@@ -26,27 +26,28 @@ class tipoHabitacionController extends Controller
     
             Tipo_habitacion::create($request->all());
             
-            $tipoHabitaciones = Tipo_habitacion::with('tipo_habitacion')->get();
+            $tipoHabitacion = Tipo_habitacion::with('tipo_habitacion')->get();
     
             return redirect()->route("tipo_habitacion.index")->with("success","habitacion creada exitosamente");
       
         }
     
         public function show($Id_Tipo_Habitacion)
-    {
-        $tipoHabitaciones = Tipo_habitacion::find($Id_Tipo_Habitacion);
-    
-        if (!$tipoHabitaciones) {
-            // Manejar el caso cuando la reserva  no exista
-            return redirect()->route('tipo_habitacion.index')->with('error', 'habitacion no encontrado');
-        }
-    
-        return view('tipo_habitacion.shows', ['tipo_habitacion' => $tipoHabitaciones]);
+{
+    $tipoHabitacion = Tipo_habitacion::find($Id_Tipo_Habitacion);
+
+    if (!$tipoHabitacion) {
+        // Manejar el caso cuando la habitación no exista
+        return redirect()->route('tipo_habitacion.index')->with('error', 'Habitación no encontrada');
     }
+
+    return view('tipo_habitacion.show', ['tipo_habitacion' => $tipoHabitacion]);
+}
+
     
         public function edit($Id_Tipo_Habitacion)
         {
-            $tipoHabitaciones = Tipo_habitacion::find($Id_Tipo_Habitacion);
+            $tipoHabitacion = Tipo_habitacion::find($Id_Tipo_Habitacion);
             return view('tipo_habitacion.edit', compact('tipo_habitacion'));
         }
     
@@ -65,8 +66,8 @@ class tipoHabitacionController extends Controller
     public function destroy($Id_Tipo_Habitacion)
         {
             
-            $tipoHabitaciones = Tipo_habitacion::find($Id_Tipo_Habitacion);
-            $tipoHabitaciones->delete(); 
+            $tipoHabitacion = Tipo_habitacion::find($Id_Tipo_Habitacion);
+            $tipoHabitacion->delete(); 
             return redirect('/tipo_habitacion')->with('success', 'Habitacion eliminada correctamente');
             
         }

@@ -26,7 +26,7 @@
                     <td>{{ $reservas->Estado_Reserva }}</td>
                     <td>{{ $reservas->users ? $reservas->users->Nombre : 'sin nada' }}</td>
                     <td>
-                        <a href="{{ route('reserva.shows', $reservas->Nro_Reserva) }}">Ver</a>
+                        <a href="{{ route('reserva.show', $reservas->Nro_Reserva) }}">Ver</a>
                         <a href="{{ route('reserva.edit', $reservas->Nro_Reserva) }}">Editar</a>
 
                         <form method="POST" action="{{ route('reserva.destroy', $reservas->Nro_Reserva) }}">

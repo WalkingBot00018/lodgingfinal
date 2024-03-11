@@ -7,8 +7,6 @@
 
     @csrf
     
-    <label for="Id_Tipo_Habitacion">id numero de habitacion</label>
-    <input type="text" name="Id_Tipo_Habitacion" id="Id_Tipo_Habitacion" >
 
     <label for="Descripcion">Descripcion</label>
     <input type="text" name="Descripcion" id="Descripcion">

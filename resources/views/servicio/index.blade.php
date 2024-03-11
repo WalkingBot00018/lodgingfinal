@@ -21,9 +21,8 @@
                 <td>{{ $servicio->Descripcion }}</td>
                 <td>{{ $servicio->Nro_Habitacion }}</td>
                 
-                <td>{{ $servicio->habitacion ? $servicio->habitacion->Nro_Habitacion : 'sin nada' }}</td>
                 <td>
-                    <a href="{{ route('servicio.shows', $servicio->ID_Servicio) }}">Ver</a>
+                    <a href="{{ route('servicio.show', $servicio->ID_Servicio) }}">Ver</a>
                     <a href="{{ route('servicio.edit', $servicio->ID_Servicio) }}">Editar</a>
 
                     <form method="POST" action="{{ route('servicio.destroy', $servicio->ID_Servicio) }}">

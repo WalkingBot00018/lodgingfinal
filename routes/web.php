@@ -9,6 +9,8 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\HomeController;
 
+
+
 /*
 |--------------------------------------------------------------------------
 | Web Routes
@@ -42,10 +44,10 @@ Route::delete('/usuarios/{user}', [UserController::class, 'destroy'])->name('use
 Route::get('/reserva', [reservaController::class, 'index'])->name('reserva.index');
 Route::get('/reserva/create', [reservaController::class, 'create'])->name('reserva.create');
 Route::post('/reserva/store', [reservaController::class, 'store'])->name('reserva.store');
-Route::get('/reserva/{reservas}', [reservaController::class, 'show'])->name('reserva.shows');
-Route::get('/reserva/{reservas}/editar', [reservaController::class, 'edit'])->name('reserva.edit');
-Route::put('/reserva/{reservas}', [reservaController::class, 'update'])->name('reserva.update');
-Route::delete('/reserva/{reservas}', [reservaController::class, 'destroy'])->name('reserva.destroy');
+Route::get('/reserva/{reserva}', [reservaController::class, 'show'])->name('reserva.show');
+Route::get('/reserva/{reserva}/editar', [reservaController::class, 'edit'])->name('reserva.edit');
+Route::put('/reserva/{reserva}', [reservaController::class, 'update'])->name('reserva.update');
+Route::delete('/reserva/{reserva}', [reservaController::class, 'destroy'])->name('reserva.destroy');
 
 
 //Rutas de Login y Logout
@@ -55,3 +57,5 @@ Route::post('login', [LoginController::class,'store']);
 
 //Vista de usuario logueado
 Route::get('/home', [HomeController::class,'index'])->name('home.index')->middleware('auth');
+
+

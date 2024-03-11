@@ -11,16 +11,16 @@
         </tr>
     </thead>
     <tbody>
-        @forelse ($habitacion as $habitacion)
+        @forelse ($habitaciones as $habitaciones)
             <tr>
-                <td>{{ $habitacion->Nro_Habitacion }}</td>
-                <td>{{ $habitacion->Id_Tipo_Habitacion }}</td>
-                <td>{{ $habitacion->tipo_habitacion ? $habitacion->tipo_habitacion->Descripcion : 'sin nada' }}</td>
+                <td>{{ $habitaciones->Nro_Habitacion }}</td>
+                <td>{{ $habitaciones->Id_Tipo_Habitacion }}</td>
+                
                 <td>
-                    <a href="{{ route('habitacion.shows', $habitacion->Nro_Habitacion) }}">Ver</a>
-                    <a href="{{ route('habitacion.edit', $habitacion->Nro_Habitacion) }}">Editar</a>
+                    <a href="{{ route('habitacion.show', $habitaciones->Nro_Habitacion) }}">Ver</a>
+                    <a href="{{ route('habitacion.edit', $habitaciones->Nro_Habitacion) }}">Editar</a>
 
-                    <form method="POST" action="{{ route('habitacion.destroy', $habitacion->Nro_Habitacion) }}">
+                    <form method="POST" action="{{ route('habitacion.destroy', $habitaciones->Nro_Habitacion) }}">
                         @csrf
                         @method('DELETE')
                         <input type="submit" class="btn btn-danger btn-sm" value="Eliminar">

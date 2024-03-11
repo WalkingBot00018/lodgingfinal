@@ -21,7 +21,7 @@
                 <td>{{ $tipo_habitacion->Precio }}</td>
                 <td>{{ $tipo_habitacion->Disponibilidad }}</td>
             
-                    <a href="{{ route('tipo_habitacion.shows', $tipo_habitacion->Id_Tipo_Habitacion) }}">Ver</a>
+                    <a href="{{ route('tipo_habitacion.show', $tipo_habitacion->Id_Tipo_Habitacion) }}">Ver</a>
                     <a href="{{ route('tipo_habitacion.edit', $tipo_habitacion->Id_Tipo_Habitacion) }}">Editar</a>
 
                     <form method="POST" action="{{ route('tipo_habitacion.destroy', $tipo_habitacion->Id_Tipo_Habitacion) }}">
