@@ -15,8 +15,21 @@
 <script src="/js/alojamientos.js"></script>
 <body>
   <header>
-    <h1>LODGING</h1>
-    <h2>Reservas</h2>
+    <section class="contenido">
+        <article>
+            <h1>LODGING</h1>
+            <h2>Reservas</h2>
+        </article>
+    </section>
+    <nav>
+        <menu>
+            <a href="{{ route('user.create') }}">Crear cuenta</a>
+            <a href="{{ route('login') }}">Iniciar sesión</a>
+            <a href="#">Misión...</a>
+            <a href="#">Visión...</a>
+            <a href="#">Quienes somos...</a>
+        </menu>
+    </nav>
   </header>
   <main>
     <section class="hero">
@@ -43,19 +56,19 @@
     <section class="seccion-alojamientos">
       <h2>Alojamientos disponibles</h2>
       <div class="alojamiento">
-        <img src="images/alojamiento1.jpg" alt="Imagen del alojamiento">
+        <img src="{{ asset('image/alojamiento1.jpg') }}" alt="Imagen del alojamiento">
         <h3>Alojamiento 1</h3>
         <p>Descripción del alojamiento 1.</p>
         <a href="#">Ver más</a>
       </div>
       <div class="alojamiento">
-        <img src="images/alojamiento2.jpg" alt="Imagen del alojamiento">
+        <img src="{{ asset('image/alojamiento2.jpg') }}" alt="Imagen del alojamiento">
         <h3>Alojamiento 2</h3>
         <p>Descripción del alojamiento 2.</p>
         <a href="#">Ver más</a>
       </div>
       <div class="alojamiento">
-        <img src="images/alojamiento3.jpg" alt="Imagen del alojamiento">
+        <img src="{{ asset('image/alojamiento3.jpg') }}" alt="Imagen del alojamiento">
         <h3>Alojamiento 3</h3>
         <p>Descripción del alojamiento 3.</p>
         <a href="#">Ver más</a>

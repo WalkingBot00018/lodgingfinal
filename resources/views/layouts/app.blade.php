@@ -11,10 +11,9 @@
 <body>
     <main>
         <h2>
-            HOTEL LODGING
         </h2>
         @auth
-            <p>Bienvenido {{ auth()->user()->Nombre }}</p>            
+            <p>Bienvenido {{ auth()->user()->Nombre }}</p>
                 @if (auth()->user()->ID_rol == 1)
                     <p>Administrador</p>
                         <nav>
@@ -22,7 +21,7 @@
                                 <a href="#">Mi Cuenta</a>
                                 <a href="{{ route('role.index') }}">Gestionar roles</a>
                             </menu>
-                        </nav>                        
+                        </nav>
                 @elseif (auth()->user()->ID_rol == 2)
                     <nav>
                         <p>Rol: Cliente</p>
@@ -30,7 +29,7 @@
                             <a href="#"></a>
                             <a href="#"></a>
                         </menu>
-                    </nav> 
+                    </nav>
                 @elseif (auth()->user()->ID_rol == 3)
                     <p>Recepsionista</p>
                     <nav>
@@ -47,7 +46,7 @@
                         <menu>
                             <a href="#">Mi Cuenta</a>
                             <a href="#"></a>
-                            
+
                         </menu>
                     </nav>
 
@@ -57,7 +56,7 @@
                         <menu>
                             <a href="#">Mi Cuenta</a>
                             <a href="#"></a>
-                            
+
                         </menu>
                     </nav>
 
@@ -67,13 +66,13 @@
                         <menu>
                             <a href="#">Mi Cuenta</a>
                             <a href="#"></a>
-                            
+
                         </menu>
                     </nav>
                 @else
                     <p>Rol no encontrado</p>
                 @endif
-                
+
                 <form action="{{ route('logout') }}" method="POST">
                     @csrf
                     <button>
@@ -82,18 +81,6 @@
                 </form>
         @endauth
 
-        @guest
-            <p>Usuario invitado</p>  
-            <nav>
-                <menu>
-                    <a href="{{ route('user.create') }}">Crear cuenta</a>
-                    <a href="{{ route('login') }}">Iniciar sesión</a>
-                    <a href="#">Misión...</a>
-                    <a href="#">Visión...</a>
-                    <a href="#">Quienes somos...</a>
-                </menu>  
-            </nav>
-        @endguest
     </main>
     @yield('content')
 
