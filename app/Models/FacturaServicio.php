@@ -11,7 +11,7 @@ class FacturaServicio extends Model
 {
     use HasFactory;
     protected $table = 'factura_servicio';
-    protected $primarykey = 'Nro_Factura_Servicio';
+    protected $primaryKey = 'Nro_Factura_Servicio';
     protected $fillable = [
         'Nro_Factura',
         'ID_Servicio',
@@ -19,7 +19,7 @@ class FacturaServicio extends Model
     ];
     
     public function factura(){
-        return $this->brlongsTo(Factura::class, 'Nro_Factura_Servicio', 'Nro_Factura');
+        return $this->belongsTo(Factura::class, 'Nro_Factura_Servicio', 'Nro_Factura');
     }
     public function servicio(){
         return $this->belongsTo(servicio::class, 'Nro_Factura_Servicio', 'ID_Servicio'

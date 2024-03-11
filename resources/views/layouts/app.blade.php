@@ -6,7 +6,6 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
-    <link rel="stylesheet" href="{{ asset('css/estilos.css'}}"
     <title> @yield('title', 'Sistema Hotelero Lodging') </title>
 </head>
 <body>
@@ -15,8 +14,8 @@
             HOTEL LODGING
         </h2>
         @auth
-            <p>Bienvenido {{ auth()->user()->nombre_usuario }}</p>            
-                @if (auth()->user()->id_rol == 1)
+            <p>Bienvenido {{ auth()->user()->Nombre }}</p>            
+                @if (auth()->user()->ID_rol == 1)
                     <p>Administrador</p>
                         <nav>
                             <menu>
@@ -24,7 +23,7 @@
                                 <a href="{{ route('role.index') }}">Gestionar roles</a>
                             </menu>
                         </nav>                        
-                @elseif (auth()->user()->id_rol == 2)
+                @elseif (auth()->user()->ID_rol == 2)
                     <nav>
                         <p>Rol: Cliente</p>
                         <menu>
@@ -32,7 +31,7 @@
                             <a href="#"></a>
                         </menu>
                     </nav> 
-                @elseif (auth()->user()->id_rol == 3)
+                @elseif (auth()->user()->ID_rol == 3)
                     <p>Recepsionista</p>
                     <nav>
                         <menu>
@@ -42,7 +41,7 @@
                         </menu>
                     </nav>
 
-                @elseif (auth()->user()->id_rol == 4)
+                @elseif (auth()->user()->ID_rol == 4)
                     <p>Mantenimineto </p>
                     <nav>
                         <menu>
@@ -52,7 +51,7 @@
                         </menu>
                     </nav>
 
-                @elseif (auth()->user()->id_rol == 5)
+                @elseif (auth()->user()->ID_rol == 5)
                     <p>Limpieza </p>
                     <nav>
                         <menu>
@@ -62,7 +61,7 @@
                         </menu>
                     </nav>
 
-                @elseif (auth()->user()->id_rol == 6)
+                @elseif (auth()->user()->ID_rol == 6)
                     <p>Seguridad </p>
                     <nav>
                         <menu>
