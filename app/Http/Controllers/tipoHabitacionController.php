@@ -11,64 +11,66 @@ class tipoHabitacionController extends Controller
     
     public function index()
     {
-        $tipoHabitacion = Tipo_habitacion::all();
-        return view('tipo_habitacion.index', ['tipo_habitacion' => $tipoHabitacion]);
+        $rol = Tipo_habitacion::all();
+        return view("tipo_habitacion.index", compact("tipo_habitacion"));
     }
-    
-        public function create()
-        {
-            return view("tipo_habitacion.create");
-        }
-    
-    
-        public function store(Request $request)
-        {
-    
-            Tipo_habitacion::create($request->all());
-            
-            $tipoHabitacion = Tipo_habitacion::with('tipo_habitacion')->get();
-    
-            return redirect()->route("tipo_habitacion.index")->with("success","habitacion creada exitosamente");
-      
-        }
-    
-        public function show($Id_Tipo_Habitacion)
+
+
+    public function create()
+    {
+        return view("tipo_habitacion.create");
+    }
+
+
+    public function store(Request $request)
+    {
+
+        Tipo_habitacion::create($request->all());
+
+
+        return redirect()->route("tipo_habitacion.index")->with("success","tipo habitacion exitoso");
+    }
+
+    public function show($Id_Tipo_Habitacion)
 {
-    $tipoHabitacion = Tipo_habitacion::find($Id_Tipo_Habitacion);
+    $tipo_habitacion = Tipo_habitacion::find($Id_Tipo_Habitacion);
 
-    if (!$tipoHabitacion) {
-        // Manejar el caso cuando la habitación no exista
-        return redirect()->route('tipo_habitacion.index')->with('error', 'Habitación no encontrada');
+    if (!$tipo_habitacion) {
+        // Manejar el caso cuando el usuario no existe
+        return redirect()->route('tipo_habitacion.index')->with('error', 'rol no encontrado');
     }
 
-    return view('tipo_habitacion.show', ['tipo_habitacion' => $tipoHabitacion]);
+    return view('tipo_habitacion.show', ['tipo_habitacion' => $tipo_habitacion]);
 }
 
-    
-        public function edit($Id_Tipo_Habitacion)
-        {
-            $tipoHabitacion = Tipo_habitacion::find($Id_Tipo_Habitacion);
-            return view('tipo_habitacion.edit', compact('tipo_habitacion'));
-        }
-    
-        public function update(Request $request, $Id_Tipo_Habitacion)
-        {
-            // Actualiza el usuario
-            Tipo_habitacion::where('Id_Tipo_Habitacion', $Id_Tipo_Habitacion)->update($request->except('_token', '_method'));
-    
-            return redirect('/tipo_habitacion')->with('success', 'habitacion actualizada correctamente');
-        }
-    
-            
-    
+
+
+    public function edit($Id_Tipo_Habitacion)
+    {
+        $roles = Tipo_habitacion::find($Id_Tipo_Habitacion);
+        return view('tipo_habitacion.edit', compact('tipo_habitacion'));
+    }
+
+    public function update(Request $request, $Id_Tipo_Habitacion)
+    {
+       
+
+        // Actualiza el usuario
+        Tipo_habitacion::where('Id_Tipo_Habitacion', $Id_Tipo_Habitacion)->update($request->except('_token', '_method'));
+
+        return redirect('/tipo_habitacion')->with('success', 'Usuario actualizado correctamente');
+    }
+
         
+
     
+
     public function destroy($Id_Tipo_Habitacion)
-        {
-            
-            $tipoHabitacion = Tipo_habitacion::find($Id_Tipo_Habitacion);
-            $tipoHabitacion->delete(); 
-            return redirect('/tipo_habitacion')->with('success', 'Habitacion eliminada correctamente');
-            
-        }
+    {
+        
+        $users = Tipo_habitacion::find($Id_Tipo_Habitacion);
+        $users->delete(); 
+        return redirect('/rol')->with('success', 'Usuario eliminado correctamente');
+        
+    }
 }

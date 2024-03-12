@@ -7,14 +7,12 @@
     <thead>
         <tr>
             <th>Numero de Habitacion</th>
-            <th>Id de Tipo de habitación</th>
         </tr>
     </thead>
     <tbody>
         @forelse ($habitaciones as $habitaciones)
             <tr>
                 <td>{{ $habitaciones->Nro_Habitacion }}</td>
-                <td>{{ $habitaciones->Id_Tipo_Habitacion }}</td>
                 
                 <td>
                     <a href="{{ route('habitacion.show', $habitaciones->Nro_Habitacion) }}">Ver</a>

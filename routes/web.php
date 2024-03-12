@@ -61,6 +61,8 @@ Route::get('login', [LoginController::class,'index'])->name('login');
 Route::post('logout', [LogoutController::class,'store'])->name('logout');
 Route::post('login', [LoginController::class,'store']);
 
+
+
 //Vista de usuario logueado
 Route::get('/home', [HomeController::class,'index'])->name('home.index')->middleware('auth');
 

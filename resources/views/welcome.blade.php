@@ -59,7 +59,7 @@
         <img src="{{ asset('image/alojamiento1.jpg') }}" alt="Imagen del alojamiento">
         <h3>Alojamiento 1</h3>
         <p>Descripción del alojamiento 1.</p>
-        <a href="#">Ver más</a>
+        <a href="{{ route('login') }}">reservar</a>
       </div>
       <div class="alojamiento">
         <img src="{{ asset('image/alojamiento2.jpg') }}" alt="Imagen del alojamiento">

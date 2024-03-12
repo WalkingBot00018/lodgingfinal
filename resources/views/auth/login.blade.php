@@ -34,7 +34,9 @@
             <h6>{{ $message }}</h6>
         @enderror
 
-        <input type="submit" name="login" value="Iniciar sesión">
+        <a href="{{ route('user.create') }}">crear cuenta</a>
+
+        <input  type="submit" name="login" value="Iniciar sesión">
     </form>
 
     <div class="social-login">

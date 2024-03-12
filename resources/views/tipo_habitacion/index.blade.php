@@ -7,6 +7,7 @@
     <thead>
         <tr>
             <th>Id de Tipo de habitación</th>
+            <th>Numero de habitación</th>
             <th>Descripcion</th>
             <th>Precio</th>
             <th>Disponibilidad</th>
@@ -17,6 +18,7 @@
         @forelse ($tipo_habitacion as $tipo_habitacion)
             <tr>
                 <td>{{ $tipo_habitacion->Id_Tipo_Habitacion }}</td>
+                <td>{{ $tipo_habitacion->Nro_Habitacion }}</td>
                 <td>{{ $tipo_habitacion->Descripcion }}</td>
                 <td>{{ $tipo_habitacion->Precio }}</td>
                 <td>{{ $tipo_habitacion->Disponibilidad }}</td>

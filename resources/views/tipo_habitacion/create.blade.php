@@ -6,7 +6,8 @@
 <form method="post" action="{{ route('tipo_habitacion.store') }}" class="my-form">
 
     @csrf
-    
+    <label for="Nro_Habitacion">Numero Habitacion</label>
+    <input type="text" name="Nro_Habitacion" id="Nro_Habitacion">
 
     <label for="Descripcion">Descripcion</label>
     <input type="text" name="Descripcion" id="Descripcion">

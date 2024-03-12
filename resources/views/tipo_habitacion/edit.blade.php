@@ -5,6 +5,9 @@ h1>Editar habitacion</h1>
     <label for="Id_Tipo_Habitacion">Id Tipo Habitacion</label>
     <input type="text" name="Id_Tipo_Habitacion" value="{{ $tipo_habitacion->Id_Tipo_Habitacion }}">
 
+    <label for="Nro_Habitacion">Id Tipo Habitacion</label>
+    <input type="text" name="Nro_Habitacion" value="{{ $tipo_habitacion->Nro_Habitacion }}">
+
     <label for="Descripcion">Id_Tipo_Habitacion</label>
     <input type="text" name="Descripcion" value="{{ $tipo_habitacion->Descripcion }}">
 

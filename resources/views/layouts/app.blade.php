@@ -9,6 +9,8 @@
     <title> @yield('title', 'Sistema Hotelero Lodging') </title>
 </head>
 <body>
+
+
     <main>
         <h2>
         </h2>
@@ -20,14 +22,19 @@
                             <menu>
                                 <a href="#">Mi Cuenta</a>
                                 <a href="{{ route('role.index') }}">Gestionar roles</a>
+                                <a href="{{ route('reserva.index') }}">Gestionar reservas</a>
+                                <a href="{{ route('habitacion.index') }}">Gestionar habitaciones</a>
+                                <a href="{{ route('servicio.index') }}">Gestionar servicios</a>
+                                <a href="{{ route('factura.create') }}">Generar facturas</a>
+                                <a href="{{ route('user.index') }}">Gestionar usarios</a>
                             </menu>
                         </nav>
                 @elseif (auth()->user()->ID_rol == 2)
                     <nav>
                         <p>Rol: Cliente</p>
                         <menu>
-                            <a href="#"></a>
-                            <a href="#"></a>
+                            <a href="{{ route('reserva.create') }}"> reservar habitacion elegida</a>
+                            <a href="{{ route('reserva.store') }}">ver tus reservas</a>
                         </menu>
                     </nav>
                 @elseif (auth()->user()->ID_rol == 3)

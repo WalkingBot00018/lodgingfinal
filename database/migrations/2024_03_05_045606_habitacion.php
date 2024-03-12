@@ -16,8 +16,6 @@ return new class extends Migration
         Schema::create('habitacion', function (Blueprint $table) {
             $table->id('ID_Habitacion');
             $table->string('Nro_Habitacion')->unique();
-            $table->foreignId('Id_Tipo_Habitacion');
-            $table->foreign('Id_Tipo_Habitacion')->references('Id_Tipo_Habitacion')->on('tipo_habitacion')->onDelete('cascade')->onUpdate('cascade');
             $table->timestamps();
         });
     }

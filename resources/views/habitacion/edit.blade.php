@@ -5,8 +5,6 @@ h1>Editar habitacion</h1>
     <label for="Nro_Habitacion">Número de Habitacion</label>
     <input type="text" name="Nro_Habitacion" value="{{ $habitacion->Nro_Habitacion }}">
 
-    <label for="Id_Tipo_Habitacion">Jd de tipo de habitacion</label>
-    <input type="text" name="Id_Tipo_Habitacion" value="{{ $habitacion->Id_Tipo_Habitacion }}">
 
 
     <button type="submit">Actualizar</button>
