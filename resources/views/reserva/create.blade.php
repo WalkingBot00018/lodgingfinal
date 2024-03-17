@@ -7,9 +7,6 @@
 
     @csrf
     
-    <label for="Nro_Reserva">Número de Reserva</label>
-    <input type="text" name="Nro_Reserva" id="Nro_Reserva" >
-
     <label for="Nro_doc">Numero de Documento</label>
     <input type="text" name="Nro_doc" id="Nro_doc">
 
