@@ -16,6 +16,7 @@ use App\Http\Controllers\serviciosController;
 
 use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\FacturaServicioController;
+use App\Http\Controllers\MetodoPagoController;
 
 /*
 |--------------------------------------------------------------------------
@@ -95,3 +96,5 @@ Route::get('/servicio/{servicio}', [serviciosController::class, 'show'])->name('
 Route::get('/servicio/{servicio}/editar', [serviciosController::class, 'edit'])->name('servicio.edit');
 Route::put('/servicio/{servicio}', [serviciosController::class, 'update'])->name('servicio.update');
 Route::delete('/servicio/{servicio}', [serviciosController::class, 'destroy'])->name('servicio.destroy');
+
+Route::resource('/metodo_pago',MetodoPagoController::class);

@@ -13,7 +13,7 @@
     <h1>FACTURAS</h1>
 <header>  
 <body>  
-    <seciton class="contenido">
+    <section class="contenido">
         <article>
             <a href="{{ url('factura/create')}}">Nueva factura</a>
             <table>
@@ -23,7 +23,7 @@
                         <td>Nro_Reserva</td>
                         <td>FechaEmision</td>
                         <td>Monto_Total</td>
-                         <td>Id_Metodo_Pago</td>
+                        <td>Id_Metodo_Pago</td>
                         <td>Acciones</td>
                     </tr>
                 </thead>
