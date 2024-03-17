@@ -1,4 +1,4 @@
- /* Estilos generales */
+ /* Estilos generales
  body {
     font-family: Arial, sans-serif;
     margin: 0;
@@ -25,7 +25,7 @@ nav a {
     display: block;
     margin-bottom: 10px;
     padding: 10px;
-    background-color: #007bff;
+    background-color: #09cd3a;
     color: #fff;
     text-decoration: none;
     border-radius: 5px;
@@ -56,4 +56,4 @@ nav a:hover {
     .btn-logout {
         padding: 8px 16px;
     }
-}
+} */
