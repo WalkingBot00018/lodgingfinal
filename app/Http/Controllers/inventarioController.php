@@ -35,7 +35,7 @@ class InventarioController extends Controller
             // Manejar el caso cuando el inventario no existe
             return redirect()->route('inventario.index')->with('error', 'Inventario no encontrado');
         }
-        return view('inventario.shows', ['inventario' => $inventario]);
+        return view('inventario.show', ['inventario' => $inventario]);
     }
 
     public function edit($id_inventario)

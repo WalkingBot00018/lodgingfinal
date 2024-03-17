@@ -15,3 +15,13 @@ table{
     margin: auto;
     width: 30%;
 }
+.contenedor {
+    display: flex;
+    justify-content: center;
+}
+label{
+    margin-top: 20px;
+}
+input{
+    margin-bottom: 20px;
+}
