@@ -7,9 +7,6 @@
 
     @csrf
     
-    <label for="ID_Servicio">Id de servicio</label>
-    <input type="text" name="ID_Servicio" id="ID_Servicio" >
-
     <label for="Nombre">Nombre del servicio</label>
     <input type="text" name="Nombre" id="Nombre">
 
