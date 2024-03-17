@@ -14,8 +14,9 @@ use App\Http\Controllers\habitacionController;
 use App\Http\Controllers\serviciosController;
 
 
+
 use App\Http\Controllers\FacturaController;
-use App\Http\Controllers\FacturaServicioController;
+use App\Http\Controllers\Factura_ServicioController;
 
 /*
 |--------------------------------------------------------------------------
@@ -67,8 +68,26 @@ Route::post('login', [LoginController::class,'store']);
 Route::get('/home', [HomeController::class,'index'])->name('home.index')->middleware('auth');
 
 
-// Route::resource('/factura',FacturaController::class);
-// Route::resource('/factura_servicio',FacturaServicioController::class);
+Route::get('/factura', [FacturaController::class, 'index'])->name('factu.index');
+Route::get('/factura/create',[FacturaController::class, 'create'])->name('factu.create');
+Route::post('/factura/store', [FacturaController::class, 'store'])->name('factu.store');
+Route::get('/factura/{factura}', [FacturaController::class, 'show'])->name('factu.show');
+Route::get('/factura/{factura}/editar', [FacturaController::class, 'edit'])->name('factu.edit');
+Route::put('/factura/{factura}', [FacturaController::class, 'update'])->name('factu.update');
+Route::delete('/factura/{factura}', [FacturaController::class, 'destroy'])->name('factu.destroy');
+
+
+Route::get('/facturaservicio', [Factura_ServicioController::class, 'index'])->name('factuser.index');
+Route::get('/facturaservicio/create',[Factura_ServicioController::class, 'create'])->name('factuser.create');
+Route::post('/facturaservicio/store', [Factura_ServicioController::class, 'store'])->name('factuser.store');
+Route::get('/facturaservicio/{factura_servicio}', [Factura_ServicioController::class, 'show'])->name('factuser.show');
+Route::get('/facturaservicio/{factura_servicio}/editar', [Factura_ServicioController::class, 'edit'])->name('factuser.edit');
+Route::put('/facturaservicio/{factura_servicio}', [Factura_ServicioController::class, 'update'])->name('factuser.update');
+Route::delete('/facturaservicio/{factura_servicio}', [Factura_ServicioController::class, 'destroy'])->name('factuser.destroy');
+
+
+
+
 
 
 
