@@ -1,57 +1,72 @@
 <?php
 
 namespace App\Http\Controllers;
-use App\Models\Habitacion;
 
 use App\Http\Controllers\Controller;
+use App\Models\Habitacion;
 use Illuminate\Http\Request;
 
 class HabitacionController extends Controller
 {
     public function index()
     {
-        $habitaciones = Habitacion::all();
-        return view('habitacion.index', ['habitaciones' => $habitaciones]);
+        $habitacion = Habitacion::all();
+        return view("habitacion.index", compact("habitacion"));
     }
-    
+
+
     public function create()
     {
         return view("habitacion.create");
     }
-    
+
     public function store(Request $request)
     {
+
         Habitacion::create($request->all());
-        return redirect()->route("habitacion.index")->with("success","Habitación creada exitosamente");
+
+
+        return redirect()->route("habitacion.index")->with("success","habitacion creada con exito");
     }
-    
-    public function show($ID_Habitacion)
-    {
-        $habitaciones = Habitacion::find($ID_Habitacion);
-        if (!$habitaciones) {
-            return redirect()->route('habitacion.index')->with('error', 'Habitación no encontrada');
-        }
-        return view('habitacion.show', ['habitacion' => $habitaciones]);
+
+    public function show($id)
+{
+    $habitaciones = Habitacion::find($id);
+
+    if (!$habitaciones) {
+        // Manejar el caso cuando el usuario no existe
+        return redirect()->route('habitacion.index')->with('error', 'habitacion no encontrada');
     }
-    
-    public function edit($ID_Habitacion)
-    {
-        $habitacion = Habitacion::find($ID_Habitacion);
-        return view('habitacion.edit', compact('habitacion'));
-    }
-    
-    public function update(Request $request, $ID_Habitacion)
-    {
-        $habitacion = Habitacion::find($ID_Habitacion);
-        $habitacion->update($request->all());
-        return redirect('/habitacion')->with('success', 'Habitación actualizada correctamente');
-    }
-    
-    public function destroy($ID_Habitacion)
-    {
-        $habitacion = Habitacion::find($ID_Habitacion);
-        $habitacion->delete(); 
-        return redirect('/habitacion')->with('success', 'Habitación eliminada correctamente');
-    }
+
+    return view('habitacion.show', ['habitaciones' => $habitaciones]);
 }
 
+    public function edit($id)
+    {
+        $habitaciones = Habitacion::find($id);
+        return view('habitacion.edit', compact('habitaciones'));
+    }
+
+    public function update(Request $request, $id)
+    {
+       
+
+        // Actualiza el usuario
+        Habitacion::where('id', $id)->update($request->except('_token', '_method'));
+
+        return redirect('/habitacion')->with('success', 'Usuario actualizado correctamente');
+    }
+
+        
+
+    
+
+public function destroy($id)
+    {
+        
+        $users = Habitacion::find($id);
+        $users->delete(); 
+        return redirect('/habitacion')->with('success', 'Usuario eliminado correctamente');
+        
+    }
+}

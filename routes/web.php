@@ -9,7 +9,7 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\HomeController;
 
-use App\Http\Controllers\tipoHabitacionController;
+use App\Http\Controllers\Tipo_HabitacionController;
 use App\Http\Controllers\habitacionController;
 use App\Http\Controllers\serviciosController;
 
@@ -67,18 +67,18 @@ Route::post('login', [LoginController::class,'store']);
 Route::get('/home', [HomeController::class,'index'])->name('home.index')->middleware('auth');
 
 
-Route::resource('/factura',FacturaController::class);
-Route::resource('/factura_servicio',FacturaServicioController::class);
+// Route::resource('/factura',FacturaController::class);
+// Route::resource('/factura_servicio',FacturaServicioController::class);
 
 
 
-Route::get('/tipo_habitacion', [tipoHabitacionController::class, 'index'])->name('tipo_habitacion.index');
-Route::get('/tipo_habitacion/create',[tipoHabitacionController::class, 'create'])->name('tipo_habitacion.create');
-Route::post('/tipo_habitacion/store', [habitacionController::class, 'store'])->name('tipo_habitacion.store');
-Route::get('/tipo_habitacion/{tipo_habitacion}', [habitacionController::class, 'show'])->name('tipo_habitacion.show');
-Route::get('/tipo_habitacion/{tipo_habitacion}/editar', [habitacionController::class, 'edit'])->name('tipo_habitacion.edit');
-Route::put('/tipo_habitacion/{tipo_habitacion}', [habitacionController::class, 'update'])->name('tipo_habitacion.update');
-Route::delete('/tipo_habitacion/{tipo_habitacion}', [habitacionController::class, 'destroy'])->name('tipo_habitacion.destroy');
+Route::get('/tipo_habitacion', [Tipo_HabitacionController::class, 'index'])->name('tipoha.index');
+Route::get('/tipo_habitacion/create',[Tipo_HabitacionController::class, 'create'])->name('tipoha.create');
+Route::post('/tipo_habitacion/store', [Tipo_HabitacionController::class, 'store'])->name('tipoha.store');
+Route::get('/tipo_habitacion/{tipo_habitacion}', [Tipo_HabitacionController::class, 'show'])->name('tipoha.show');
+Route::get('/tipo_habitacion/{tipo_habitacion}/editar', [Tipo_HabitacionController::class, 'edit'])->name('tipoha.edit');
+Route::put('/tipo_habitacion/{tipo_habitacion}', [Tipo_HabitacionController::class, 'update'])->name('tipoha.update');
+Route::delete('/tipo_habitacion/{tipo_habitacion}', [Tipo_HabitacionController::class, 'destroy'])->name('tipoha.destroy');
 
 Route::get('/habitacion', [habitacionController::class, 'index'])->name('habitacion.index');
 Route::get('/habitacion/create', [habitacionController::class, 'create'])->name('habitacion.create');
