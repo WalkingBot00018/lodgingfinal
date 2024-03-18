@@ -1,62 +1,71 @@
-body {
-    font-family: sans-serif; /* Set a basic font family */
-    margin: 0; /* Remove default body margin */
-    padding: 0; /* Remove default body padding */
-    background: #ccc;
-  }
-  
-  form {
-    display: flex; /* Arrange form elements in a row */
-    flex-direction: column; /* Stack elements vertically */
-    width: 400px; /* Set a reasonable form width */
-    margin: 50px auto; /* Center the form horizontally */
-    padding: 50px; /* Add some padding inside the form */
-    border: 1px solid #ddd; /* Create a subtle border */
-    border-radius: 5px; /* Add rounded corners for a softer look */
-    background: gray;
-  }
-  
-  label {
-    margin-bottom: 10px; /* Add space between labels and inputs */
-    display: block; /* Make labels take up a full line */
-  }
-  
-  input[type="text"],
-  input[type="email"],
-  input[type="password"],
-  select {
-    width: 100%; /* Make input fields and select element full width */
-    padding: 10px; /* Add padding for better user interaction */
-    border: 1px solid #ccc; /* Create borders for each field */
-    border-radius: 3px; /* Add rounded corners to input elements */
-    font-size: 16px; /* Set a consistent font size */
-  }
-  
-  input[type="submit"] {
-    background-color: #4CAF50; /* Green submit button color */
-    color: white; /* White text for submit button */
-    padding: 10px 20px; /* Adjust padding for submit button */
-    border: none; /* Remove default button border */
-    border-radius: 5px; /* Add rounded corners to submit button */
-    cursor: pointer; /* Indicate clickable behavior */
-    margin-top: 20px; /* Add space after the last input field */
-  }
-  
-  h6 {
-    color: red; 
-    font-size: 14px; 
-    margin-bottom: 5px; 
-  }
+/* public/css/register.css */
 
-a.regresar {
-    background: rgb(216, 241, 241);
-    padding: 10px;
+body {
+    display:flex;
+    justify-content: center;
+    align-items: center;
+    background: url('/image/fondo.jpg') no-repeat;
+    background-size: 100% auto;
+}
+
+.contenidoC{
+    width: 520px;
+    height: 820px;
+    background:transparent;
+    padding: 30px 40px;
+    backdrop-filter: blur(20px);
+    box-shadow: 0 0 10px black;
+    border: 2px solid white;
+    border-radius: 40px;
+    color: white;
+
+}
+
+.regresar{
     text-decoration: none;
-    color: #090909;
-    border-radius: 30px;
-    position: relative;
-    top: 20px;
-    left: 30px;
-    font-family: sans-serif;
-  
-  }
+    position: absolute;
+    top: 10px;
+    left: 20px;
+    color: #000;
+    font-weight: bold;
+    background: transparent;
+    width: 160px;
+    height: 50px;
+    font-size: 40px;
+}
+.regresar:hover {
+    color: white;
+}
+h1{
+    text-align: center;
+}
+input{
+    width: 100%;
+    height: 100%;
+    padding: 20px;
+    height: 20px;
+    background:transparent;
+    margin: 3px 0px;
+    border: none;
+    outline: none;
+    border: 2px solid grey;
+    border-radius: 40px;
+    color: white;
+}
+.crear{
+    margin-left: 12%;
+    width: 400px;
+    background-color: #000;
+    color: white;
+}
+.crear:hover{
+    background-color: white;
+    color: #000;
+    transform: scale(1.05);
+}
+::placeholder{
+    color: white;
+}
+
+
+
