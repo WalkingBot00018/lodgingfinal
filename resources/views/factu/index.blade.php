@@ -1,5 +1,10 @@
+<style>
+ 
+</style>
 
 <a href="{{ route('factu.create') }}">Crear nueva factura</a>
+
+<link rel="stylesheet" href="{{ asset('css/factu/index.css') }}"> 
 
 
     <table>
