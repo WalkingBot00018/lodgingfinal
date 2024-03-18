@@ -1,0 +1,46 @@
+table {
+    width: 70%;
+    border-collapse: 20px black;
+    margin-bottom: 20px;
+    background:grey;
+}
+
+th, td {
+    padding: 10px;
+    text-align: left;
+    border-bottom: 1px solid #ddd;
+    background: #999;
+}
+
+th {
+    background-color:#999;
+    font-weight: bold;
+}
+
+tbody tr:hover {
+    background-color: #f2f2f2;
+}
+
+a {
+    color: #007bff;
+    text-decoration: none;
+    margin-right: 5px;
+}
+
+.btn-danger {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 3px;
+    cursor: pointer;
+}
+
+.btn-danger:hover {
+    background-color: #c82333;
+}
+
+h6 {
+    color: #999;
+    margin: 0;
+}

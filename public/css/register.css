@@ -1,52 +1,62 @@
-/* public/css/register.css */
-
 body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    min-height: 100vh;
-    background-color: #f4f4f4;
-}
+    font-family: sans-serif; /* Set a basic font family */
+    margin: 0; /* Remove default body margin */
+    padding: 0; /* Remove default body padding */
+    background: #ccc;
+  }
+  
+  form {
+    display: flex; /* Arrange form elements in a row */
+    flex-direction: column; /* Stack elements vertically */
+    width: 400px; /* Set a reasonable form width */
+    margin: 50px auto; /* Center the form horizontally */
+    padding: 50px; /* Add some padding inside the form */
+    border: 1px solid #ddd; /* Create a subtle border */
+    border-radius: 5px; /* Add rounded corners for a softer look */
+    background: gray;
+  }
+  
+  label {
+    margin-bottom: 10px; /* Add space between labels and inputs */
+    display: block; /* Make labels take up a full line */
+  }
+  
+  input[type="text"],
+  input[type="email"],
+  input[type="password"],
+  select {
+    width: 100%; /* Make input fields and select element full width */
+    padding: 10px; /* Add padding for better user interaction */
+    border: 1px solid #ccc; /* Create borders for each field */
+    border-radius: 3px; /* Add rounded corners to input elements */
+    font-size: 16px; /* Set a consistent font size */
+  }
+  
+  input[type="submit"] {
+    background-color: #4CAF50; /* Green submit button color */
+    color: white; /* White text for submit button */
+    padding: 10px 20px; /* Adjust padding for submit button */
+    border: none; /* Remove default button border */
+    border-radius: 5px; /* Add rounded corners to submit button */
+    cursor: pointer; /* Indicate clickable behavior */
+    margin-top: 20px; /* Add space after the last input field */
+  }
+  
+  h6 {
+    color: red; 
+    font-size: 14px; 
+    margin-bottom: 5px; 
+  }
 
-form {
-    background-color: #fff;
-    padding: 20px;
-    border-radius: 5px;
-    box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
-    max-width: 400px;
-    width: 100%;
-}
-
-input,
-select {
-    width: 100%;
-    margin-bottom: 10px;
+a.regresar {
+    background: rgb(216, 241, 241);
     padding: 10px;
-    border-radius: 5px;
-    border: 1px solid #ccc;
-    box-sizing: border-box;
-}
-
-select {
-    appearance: none;
-}
-
-input[type="submit"] {
-    background-color: #007bff;
-    color: #fff;
-    border: none;
-    cursor: pointer;
-}
-
-input[type="submit"]:hover {
-    background-color: #0056b3;
-}
-
-h6 {
-    color: red;
-    margin-top: 5px;
-    font-size: 12px;
-}
+    text-decoration: none;
+    color: #090909;
+    border-radius: 30px;
+    position: relative;
+    top: 20px;
+    left: 30px;
+    font-family: sans-serif;
+  
+  }
