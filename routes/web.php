@@ -16,6 +16,7 @@ use App\Http\Controllers\serviciosController;
 
 
 use App\Http\Controllers\FacturaController;
+use App\Http\Controllers\FacturaServicioController;
 use App\Http\Controllers\inventarioController;
 use App\Http\Controllers\MetodoPagoController;
 use App\Http\Controllers\Factura_ServicioController;

@@ -65,7 +65,10 @@
     @enderror
     <input type="submit" name="send" value="Send">
 
-    </form> 
+            </form> 
+        </article>
+    </section>
+   
 </body>
 
 
