@@ -34,10 +34,10 @@
                         <a href="{{ route('reserva.edit', $reservas->Nro_Reserva) }}">Editar</a>
 
                         <form method="POST" action="{{ route('reserva.destroy', $reservas->Nro_Reserva) }}">
-                            @csrf
-                            @method('DELETE')
-                            <input type="submit" class="btn btn-danger btn-sm" value="Eliminar">
-                            </form>
+                        @csrf
+                        @method('DELETE')
+                        <input type="submit" class="btn btn-danger btn-sm" value="Eliminar">
+                    </form>
                     </td>
                 </tr>
             @empty

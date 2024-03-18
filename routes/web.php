@@ -9,9 +9,10 @@ use App\Http\Controllers\LoginController;
 use App\Http\Controllers\LogoutController;
 use App\Http\Controllers\HomeController;
 
-use App\Http\Controllers\tipoHabitacionController;
+use App\Http\Controllers\Tipo_HabitacionController;
 use App\Http\Controllers\habitacionController;
 use App\Http\Controllers\serviciosController;
+
 
 
 use App\Http\Controllers\FacturaController;
@@ -71,18 +72,36 @@ Route::post('login', [LoginController::class,'store']);
 Route::get('/home', [HomeController::class,'index'])->name('home.index')->middleware('auth');
 
 
-Route::resource('/factura',FacturaController::class);
-Route::resource('/factura_servicio',FacturaServicioController::class);
+Route::get('/factura', [FacturaController::class, 'index'])->name('factu.index');
+Route::get('/factura/create',[FacturaController::class, 'create'])->name('factu.create');
+Route::post('/factura/store', [FacturaController::class, 'store'])->name('factu.store');
+Route::get('/factura/{factura}', [FacturaController::class, 'show'])->name('factu.show');
+Route::get('/factura/{factura}/editar', [FacturaController::class, 'edit'])->name('factu.edit');
+Route::put('/factura/{factura}', [FacturaController::class, 'update'])->name('factu.update');
+Route::delete('/factura/{factura}', [FacturaController::class, 'destroy'])->name('factu.destroy');
+
+
+Route::get('/facturaservicio', [Factura_ServicioController::class, 'index'])->name('factuser.index');
+Route::get('/facturaservicio/create',[Factura_ServicioController::class, 'create'])->name('factuser.create');
+Route::post('/facturaservicio/store', [Factura_ServicioController::class, 'store'])->name('factuser.store');
+Route::get('/facturaservicio/{factura_servicio}', [Factura_ServicioController::class, 'show'])->name('factuser.show');
+Route::get('/facturaservicio/{factura_servicio}/editar', [Factura_ServicioController::class, 'edit'])->name('factuser.edit');
+Route::put('/facturaservicio/{factura_servicio}', [Factura_ServicioController::class, 'update'])->name('factuser.update');
+Route::delete('/facturaservicio/{factura_servicio}', [Factura_ServicioController::class, 'destroy'])->name('factuser.destroy');
 
 
 
-Route::get('/tipo_habitacion', [tipoHabitacionController::class, 'index'])->name('tipo_habitacion.index');
-Route::get('/tipo_habitacion/create',[tipoHabitacionController::class, 'create'])->name('tipo_habitacion.create');
-Route::post('/tipo_habitacion/store', [habitacionController::class, 'store'])->name('tipo_habitacion.store');
-Route::get('/tipo_habitacion/{tipo_habitacion}', [habitacionController::class, 'show'])->name('tipo_habitacion.show');
-Route::get('/tipo_habitacion/{tipo_habitacion}/editar', [habitacionController::class, 'edit'])->name('tipo_habitacion.edit');
-Route::put('/tipo_habitacion/{tipo_habitacion}', [habitacionController::class, 'update'])->name('tipo_habitacion.update');
-Route::delete('/tipo_habitacion/{tipo_habitacion}', [habitacionController::class, 'destroy'])->name('tipo_habitacion.destroy');
+
+
+
+
+Route::get('/tipo_habitacion', [Tipo_HabitacionController::class, 'index'])->name('tipoha.index');
+Route::get('/tipo_habitacion/create',[Tipo_HabitacionController::class, 'create'])->name('tipoha.create');
+Route::post('/tipo_habitacion/store', [Tipo_HabitacionController::class, 'store'])->name('tipoha.store');
+Route::get('/tipo_habitacion/{tipo_habitacion}', [Tipo_HabitacionController::class, 'show'])->name('tipoha.show');
+Route::get('/tipo_habitacion/{tipo_habitacion}/editar', [Tipo_HabitacionController::class, 'edit'])->name('tipoha.edit');
+Route::put('/tipo_habitacion/{tipo_habitacion}', [Tipo_HabitacionController::class, 'update'])->name('tipoha.update');
+Route::delete('/tipo_habitacion/{tipo_habitacion}', [Tipo_HabitacionController::class, 'destroy'])->name('tipoha.destroy');
 
 Route::get('/habitacion', [habitacionController::class, 'index'])->name('habitacion.index');
 Route::get('/habitacion/create', [habitacionController::class, 'create'])->name('habitacion.create');

@@ -1,7 +1,9 @@
 @if ($habitaciones)
-    <h1>Detalles de las habitaciones</h1>
-    <p>Numero de reserva: {{ $habitaciones->Nro_Habitacion }}</p>
+
+    <h1>Room DETAILS</h1>
+    <p>Numero de Habitacion: {{ $habitaciones->Nro_Habitacion }}</p>
+    
     <a href="{{ route('habitacion.index') }}">Volver al Listado</a>
 @else
-    <p>habitacion no encontrado</p>
+    <p>Rol no encontrado</p>
 @endif

@@ -1,9 +1,8 @@
 @extends('layouts.app')
 
 @section('content') 
-
 <body>
-   <form action="{{ route('user.store') }}" method="post">
+    <form action="{{ route('user.store') }}" method="post">
     @csrf
 
     @if (session('mensaje'))
@@ -11,7 +10,7 @@
     @endif
 
 
-    <input type="text" name="Nro_doc" id="" placeholder="Document Number" value="{{ old('Nro_doc') }}">
+    <input type="text" name="Nro_doc" id="" placeholder="Numero de documento" value="{{ old('Nro_doc') }}">
     @error('Nro_doc')
         <h6>{{ $message }}</h6>
     @enderror
@@ -25,11 +24,11 @@
         <h6>{{ $message }}</h6>
     @enderror
 
-    <input type="email" name="email" id="" placeholder="Email" value="{{ old('email') }}">
+    <input type="email" name="email" id="" placeholder="Correo electronico:" value="{{ old('email') }}">
     @error('email')
         <h6>{{ $message }}</h6>
     @enderror
-    <input type="password" name="password" id="" placeholder="Password" value="{{ old('password') }}">
+    <input type="password" name="password" id="" placeholder="Contraseña:" value="{{ old('password') }}">
 
     @error('password')
         <h6>{{ $message }}</h6>
@@ -56,7 +55,7 @@
     @error('ID_rol')
         <h6>{{ $message }}</h6>
     @enderror
-    <input type="submit" name="send" value="Send">
+    <input type="submit" name="send" value="Crear">
 
     </form>
 </body>

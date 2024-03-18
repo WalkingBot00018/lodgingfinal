@@ -14,7 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('factura', function (Blueprint $table) {
-            $table->id('Nro_Factura');
+            $table->id();
+            $table->string('Nro_Factura')->unique();
             $table->foreignId('Nro_Reserva');
             $table->date('FechaEmision');
             $table->decimal('Monto_Total', 10, 2);

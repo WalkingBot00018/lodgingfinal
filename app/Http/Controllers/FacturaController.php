@@ -8,96 +8,65 @@ use Illuminate\Http\Request;
 
 class FacturaController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
     public function index()
     {
-        //
-        $DFactura['facturas']=Factura::paginate(5);
-        return view('factura.index',$DFactura);
+        $factura = Factura::all();
+        return view("factu.index", compact("factura"));
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+
     public function create()
     {
-        //
-        return view('factura.create');
+        return view("factu.create");
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
     public function store(Request $request)
     {
-        //
-        $insertarFactura= request()->except('_token');
-        Factura::insert($insertarFactura);
-        return redirect('factura')->with('mensaje','La factura fue agregada con exito');
+
+        Factura::create($request->all());
+
+
+        return redirect()->route("factu.index")->with("success","factura creada con exito");
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function show($Nro_Factura)
-    {
-        //
-        $verFactura=Factura::find($Nro_Factura);
-        return view('factura.show',compact('verFactura'));
+    public function show($id)
+{
+    $factura = Factura::find($id);
+
+    if (!$factura) {
+        // Manejar el caso cuando el usuario no existe
+        return redirect()->route('factu.index')->with('error', 'factura no encontrada');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function edit($Nro_Factura)
+    return view('factu.show', ['factura' => $factura]);
+}
+
+    public function edit($id)
     {
-        //
-        $fact=Factura::findOrFail($Nro_Factura);
-        return view('factura.edit',compact('fact'));
+        $factura = Factura::find($id);
+        return view('factu.edit', compact('factura'));
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, $Nro_Factura)
+    public function update(Request $request, $id)
     {
-        //
-        $insertarFactura= request()->except(['_token','_method']);
-        Factura::where('Nro_Factura','=',$Nro_Factura)->update($insertarFactura);        
+       
 
-        $fact=Factura::findOrFail($Nro_Factura);
-        return view('factura.edit',compact('fact'));
+        // Actualiza el usuario
+        Factura::where('id', $id)->update($request->except('_token', '_method'));
+
+        return redirect('/factura')->with('success', 'Usuario actualizado correctamente');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  int  $id
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy($Nro_Factura)
+        
+
+    
+
+public function destroy($id)
     {
-        //
-        Factura::destroy($Nro_Factura);
-        return redirect('factura')->with('mensaje','La factura fue eliminada con exito');
+        
+        $users = Factura::find($id);
+        $users->delete(); 
+        return redirect('/factura')->with('success', 'Usuario eliminado correctamente');
+        
     }
 }

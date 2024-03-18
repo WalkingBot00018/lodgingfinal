@@ -25,7 +25,7 @@
                                 <a href="{{ route('reserva.index') }}">Gestionar reservas</a>
                                 <a href="{{ route('habitacion.index') }}">Gestionar habitaciones</a>
                                 <a href="{{ route('servicio.index') }}">Gestionar servicios</a>
-                                <a href="{{ route('factura.create') }}">Generar facturas</a>
+                                <a href="{{ route('factu.create') }}">Generar facturas</a>
                                 <a href="{{ route('user.index') }}">Gestionar usarios</a>
                             </menu>
                         </nav>

@@ -1,0 +1,25 @@
+body{
+    background-color: white;
+}
+.contenedor2{
+    width: 50%;
+    margin: 0 auto;
+    padding: 40px;
+    background-color: #929292;
+    border-radius: 30px;
+    transition: transform 0.8s ease;
+    box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5);
+}
+.contenedor2:hover {
+    transform: scale(1.05); 
+}
+h1,p{
+    color:white;
+    text-align: center;
+}
+.regresar2{
+    text-decoration: none;
+    box-shadow: 0px 0px 35px black;
+    background-color: #000000;
+    color:white;
+}

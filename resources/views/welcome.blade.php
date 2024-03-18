@@ -1,698 +1,417 @@
-@extends('layouts.app')
-
+@extends('layouts.app') 
 
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" dir="ltr">
 
 <head>
-    <title>Kilber Marcano</title>
-    <!-- for-mobile-apps -->
-    <meta name="viewport" content="width=device-width, initial-scale=1">
-    <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
-    <meta name="keywords" content="Resort Inn Responsive , Smartphone Compatible web template , Samsung, LG, Sony Ericsson, Motorola web design" />
-    <script type="application/x-javascript">
-        addEventListener("load", function() {
-            setTimeout(hideURLbar, 0);
-        }, false);
+  <title>Hotel Lodging</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="{{ asset('css/style.css') }}">
 
-        function hideURLbar() {
-            window.scrollTo(0, 1);
-        }
-    </script>
-    <!-- //for-mobile-apps -->
-    <link href="{{ asset('css/bootstrap.css') }}" rel="stylesheet" type="text/css" media="all" />
-    <link href="{{ asset('css/font-awesome.css') }}" rel="stylesheet">
-    <link rel="stylesheet" href="{{ asset('css/chocolat.css') }}" type="text/css" media="screen">
-    <link href="{{ asset('css/easy-responsive-tabs.css') }}" rel='stylesheet' type='text/css' />
-    <link rel="stylesheet" href="{{ asset('css/flexslider.css') }}" type="text/css" media="screen" property="" />
-    <link rel="stylesheet" href="{{ asset('css/jquery-ui.css') }}" />
-    <link href="{{ asset('css/style.css') }}" rel="stylesheet" type="text/css" media="all" />
-    <script type="text/javascript" src="{{ asset('js/modernizr-2.6.2.min.js') }}"></script>
-    <!--fonts-->
-    <link href="https://fonts.googleapis.com/css?family=Oswald:300,400,700" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Federo" rel="stylesheet">
-<link href="https://fonts.googleapis.com/css?family=Lato:300,400,700,900" rel="stylesheet">
+  <link rel="stylesheet" href="https://pro.fontawesome.com/releases/v5.10.0/css/all.css" integrity="sha384-AYmEC3Yw5cVb3ZcuHtOA93w35dYTsvhLPVnYs9eStHfGJvOvKxVfELGroGkvsg+p" crossorigin="anonymous" />
 
-    <!-- Agrega jQuery -->
-<!-- Agrega jQuery -->
-<script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
 
-    <!--//fonts-->
-
-    <style>
-        /* Estilos adicionales para el botón flotante de WhatsApp */
-        .whatsapp-btn {
-            position: fixed;
-            bottom: 20px;
-            left: 20px;
-            background-color: #25d366;
-            color: #fff;
-            padding: 20px;
-            border-radius: 50%;
-            text-align: center;
-            font-size: 24px;
-            box-shadow: 0 2px 10px rgba(0, 0, 0, 0.2);
-            cursor: pointer;
-            text-decoration: none;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-    </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.carousel.css" integrity="sha512-UTNP5BXLIptsaj5WdKFrkFov94lDx+eBvbKyoe1YAfjeRPC+gT5kyZ10kOHCfNZqEui1sxmqvodNUx3KbuYI/A==" crossorigin="anonymous"
+    referrerpolicy="no-referrer" />
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/assets/owl.theme.default.min.css" integrity="sha512-sMXtMNL1zRzolHYKEujM2AqCLUR9F2C4/05cdbxjjLSRvMQIciEPCQZo++nk7go3BtSuK9kfa/s+a4f4i5pLkw=="
+    crossorigin="anonymous" referrerpolicy="no-referrer" />
+  <script src="https://code.jquery.com/jquery-1.12.4.min.js" integrity="sha256-ZosEbRLbNQzLpnKIkEdrPv7lOy9C27hHQ+Xp8a4MxAQ=" crossorigin="anonymous"></script>
 
 </head>
 
 <body>
-    <!-- Tu contenido HTML aquí -->
-    <body>
-    <div class="w3_navigation">
-        <div class="container">
-            <nav class="navbar navbar-default">
-                <div class="navbar-header navbar-left">
-                    <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
-                        <span class="sr-only">Palanca de navegacion</span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                        <span class="icon-bar"></span>
-                    </button>
-                    <h1><a class="navbar-brand" href="{{ url('/') }}"> Lod <span>ging</span>
-                            <p class="logo_w3l_agile_caption">Tu resort de ensueño</p>
-                        </a></h1>
-                </div>
-                <!-- Collect the nav links, forms, and other content for toggling -->
-                <div class="collapse navbar-collapse navbar-right" id="bs-example-navbar-collapse-1">
-                    <nav class="menu menu--iris">
-                        <ul class="nav navbar-nav menu__list">
-                            <li class="menu__item menu__item--current"><a href="{{ url('/') }}" class="menu__link">Casa</a></li>
-                            <li class="menu__item"><a href="#about" class="menu__link scroll">Acerca de</a></li>
-                            <li class="menu__item"><a href="#team" class="menu__link scroll">Equipo</a></li>
-                            <li class="menu__item"><a href="#gallery" class="menu__link scroll">Galería</a></li>
-                            <li class="menu__item"><a href="#rooms" class="menu__link scroll">Habitaciones</a></li>
-                            <li class="menu__item"><a href="#contact" class="menu__link scroll">Contáctenos</a></li>
-                            <li class="menu__item"><a href="#about" class="menu__link scroll">Acerca de</a></li>
-                            <li class="menu__item"><a href="{{ route('user.create') }}" class="menu__link scroll">Crear cuenta</a></li>
-                            <li class="menu__item"><a href="{{ route('login') }}" class="menu__link scroll">Iniciar sesión</a></li>
-                        </ul>
-                    </nav>
-                </div>
-            </nav>
-
-        </div>
-    </div>
-
-    <!-- banner -->
-<div id="home" class="w3ls-banner">
-    <!-- banner-text -->
-    <div class="slider">
-        <div class="callbacks_container">
-            <ul class="rslides callbacks callbacks1" id="slider4">
-                <li>
-                    <div class="w3layouts-banner-top">
-                        <div class="container">
-                            <div class="agileits-banner-info">
-                                <h4>Nuevo Amanecer</h4>
-                                <h3>Sabemos lo que amas</h3>
-                                <p>Bienvenido a nuestros hoteles</p>
-                                <div class="agileits_w3layouts_more menu__item">
-                                    <a href="#" class="menu__link" data-toggle="modal" data-target="#myModal">leer más</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="w3layouts-banner-top w3layouts-banner-top1">
-                        <div class="container">
-                            <div class="agileits-banner-info">
-                                <h4>AMANECER</h4>
-                                <h3>Quédate con amigos y familias</h3>
-                                <p>Ven y disfruta un momento precioso con nosotros</p>
-                                <div class="agileits_w3layouts_more menu__item">
-                                    <a href="#" class="menu__link" data-toggle="modal" data-target="#myModal">leer más</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-                <li>
-                    <div class="w3layouts-banner-top w3layouts-banner-top2">
-                        <div class="container">
-                            <div class="agileits-banner-info">
-                                <h4>AMANECER</h4>
-                                <h3>¿quiero unas vacaciones lujosas?</h3>
-                                <p>Obtenga alojamiento hoy</p>
-                                <div class="agileits_w3layouts_more menu__item">
-                                    <a href="#" class="menu__link" data-toggle="modal" data-target="#myModal">leer más</a>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                </li>
-            </ul>
-        </div>
-        <div class="clearfix"> </div>
-        <!--banner Slider starts Here-->
-    </div>
-    <div class="thim-click-to-bottom">
-        <a href="#about" class="scroll">
-            <i class="fa fa-long-arrow-down" aria-hidden="true"></i>
-        </a>
-    </div>
-</div>
-<!-- //banner -->
-<!--//Header-->
-<div class="modal fade" id="myModal" tabindex="-1" role="dialog">
-    <!-- Modal1 -->
-    <div class="modal-dialog">
-        <!-- Modal content-->
-        <div class="modal-content">
-            <div class="modal-header">
-                <button type="button" class="close" data-dismiss="modal">&times;</button>
-                <h4>Nuevo <span>Amanecer</span></h4>
-                <img src="{{ asset('image/alojamiento1.jpg') }}" alt=" " class="img-responsive">
-                <h5>Sabemos lo que amas</h5>
-                <p>Ofrecer a los huéspedes vistas únicas y encantadoras desde sus habitaciones con sus comodidades excepcionales, hace que Star Hotel sea uno de los mejores en su tipo. Pruebe nuestro menú de comida, servicios increíbles y un personal amable mientras esté aquí..</p>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- //Modal1 -->
-
-<div id="availability-agileits">
-    <div class="col-md-12 book-form-left-w3layouts">
-        <a href="admin/reservation.php">
-            <h2>RESERVA EL MEJOR AMANECER
-            </h2>
-        </a>
-    </div>
-    <div class="clearfix"> </div>
-</div>
-
-<!-- banner-bottom -->
-<div class="banner-bottom">
+  <header class="header" id="navigation-menu">
     <div class="container">
-        <div class="agileits_banner_bottom">
-            <h3><span>Experimenta una buena estadía, disfruta de fantásticas ofertas</span> Encuentra nuestra acogedora bienvenida
-            </h3>
+      <nav>
+        <a href="{{ asset('/') }}" class="logo"> <img src="image/LOGO3.png" alt=""> </a>
+
+        <ul class="nav-menu">
+          
+          
+          <li> <a href="{{ asset('/') }}" class="nav-link">Hogar</a> </li>
+          <li> <a href="#restaurant" class="nav-link">Restaurante</a> </li>
+          <li> <a href="#gallery" class="nav-link">Galleria</a> </li>
+          <li> <a href="#about" class="nav-link">Acerca de</a> </li>
+		      <li> <a href="{{ asset('login') }}" class="nav-link">Iniciar sesion</a> </li>
+        </ul>
+
+        <div class="hambuger">
+          <span class="bar"></span>
+          <span class="bar"></span>
+          <span class="bar"></span>
         </div>
-        <div class="w3ls_banner_bottom_grids">
-            <ul class="cbp-ig-grid">
-                <li>
-                    <div class="w3_grid_effect">
-                        <span class="cbp-ig-icon w3_road"></span>
-                        <h4 class="cbp-ig-title">DORMITORIOS PRINCIPALES</h4>
-                        <span class="cbp-ig-category">AMANECER</span>
-                    </div>
-                </li>
-                <li>
-                    <div class="w3_grid_effect">
-                        <span class="cbp-ig-icon w3_cube"></span>
-                        <h4 class="cbp-ig-title">BALCON CON VISTA AL MAR</h4>
-                        <span class="cbp-ig-category">AMANECER</span>
-                    </div>
-                </li>
-                <li>
-                    <div class="w3_grid_effect">
-                        <span class="cbp-ig-icon w3_users"></span>
-                        <h4 class="cbp-ig-title">GRAN <br /> CAFÉ</h4>
-                        <span class="cbp-ig-category">AMANECER</span>
-                    </div>
-                </li>
-                <li>
-                    <div class="w3_grid_effect">
-                        <span class="cbp-ig-icon w3_ticket"></span>
-                        <h4 class="cbp-ig-title">COBERTURA <br /> WIFI</h4>
-                        <span class="cbp-ig-category">AMANECER
-                        </span>
-                    </div>
-                </li>
-            </ul>
-        </div>
+      </nav>
     </div>
-</div>
-<!-- //banner-bottom -->
-<!-- /about -->
-<!-- about -->
-<div class="about-wthree" id="about">
-    <div class="container">
-        <div class="ab-w3l-spa">
-            <h3 class="title-w3-agileits title-black-wthree">Acerca de nuestro New Dawn
-            </h3>
-            <p class="about-para-w3ls"> Lorem Ipsum es simplemente un texto simulado de la industria de impresión y composición tipográfica. Laca tempient vestibulum blandit faucibus. Nunc imperdiet, diam nec rhoncus ullamcorper, nisl nulla suscipit ligula, en imperdiet urna
-            </p>
-            <img src="{{ asset('images/about.jpg') }}" class="img-responsive" alt="Hair Salon">
-            <div class="w3l-slider-img">
-                <img src="{{ asset('images/a1.jpg') }}" class="img-responsive" alt="Hair Salon">
-            </div>
-            <div class="w3ls-info-about">
-                <h4>Te encantarán todas las comodidades que ofrecemos
-                    !</h4>
-                <p>que espero disfruta de tus vaciones con nosotros. </p>
-            </div>
-        </div>
-        <div class="clearfix"> </div>
-    </div>
-</div>
-<!-- //about -->
+  </header>
+  <script>
+    const hambuger = document.querySelector('.hambuger');
+    const navMenu = document.querySelector('.nav-menu');
 
-<!--sevices-->
-<div class="advantages">
-    <div class="container">
-        <div class="advantages-main">
-            <h3 class="title-w3-agileits">Nuestros servicios
-            </h3>
-            <div class="advantage-bottom">
-                <div class="col-md-6 advantage-grid left-w3ls wow bounceInLeft" data-wow-delay="0.3s">
-                    <div class="advantage-block ">
-                        <i class="fa fa-credit-card" aria-hidden="true"></i>
-                        <h4>Quédate primero, paga después! </h4>
-                        <p>Sin embargo, en ciertas circunstancias y el deber o la obligación se producen con frecuencia que los placeres tienen a sus funciones,
-                            .</p>
-                        <p><i class="fa fa-check" aria-hidden="true"></i>Habitación decorada, con aire acondicionado
-                        </p>
-                        <p><i class="fa fa-check" aria-hidden="true"></i>Balcón privado
-                        </p>
-                    </div>
-                </div>
-                <div class="col-md-6 advantage-grid right-w3ls wow zoomIn" data-wow-delay="0.3s">
-                    <div class="advantage-block">
-                        <i class="fa fa-clock-o" aria-hidden="true"></i>
-                        <h4>Restaurante las 24 horas
-                        </h4>
-                        <p>Sin embargo, en ciertas circunstancias y el deber o la obligación se producen con frecuencia que los placeres tienen a sus funciones,
-                            .</p>
-                        <p><i class="fa fa-check" aria-hidden="true"></i>24 horas de servicio a la habitación
-                        </p>
-                        <p><i class="fa fa-check" aria-hidden="true"></i>Servicio de conserjería las 24 horas
-                        </p>
-                    </div>
-                </div>
-                <div class="clearfix"> </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!--//sevices-->
-<!-- team -->
-<!-- team -->
-<div class="team" id="team">
-    <div class="container">
-        <h3 class="title-w3-agileits title-black-wthree">Conozca a Nuestro Equipo</h3>
-        <div id="horizontalTab">
-            <ul class="resp-tabs-list">
-                <li><img src="{{ asset('image/alojamiento2.jpg') }}" alt=" " class="img-responsive" /></li>
-                <li><img src="{{ asset('images/teams2.jpg') }}" alt=" " class="img-responsive" /></li>
-                <li><img src="{{ asset('images/teams3.jpg') }}" alt=" " class="img-responsive" /></li>
-                <li><img src="{{ asset('images/teams4.jpg') }}" alt=" " class="img-responsive" /></li>
-            </ul>
-            <div class="resp-tabs-container">
-                <div class="tab1">
-                    <div class="col-md-6 team-img-w3-agile"></div>
-                    <div class="col-md-6 team-Info-agileits">
-                        <h4>tusolutionweb</h4>
-                        <span>Gerente</span>
-                        <p>Lorem ipsum dolor sit amet, elit adipiscing del consectetur, tempor sed y vitalidad, por lo que el trabajo y dolor, algunas cosas importantes que hacer eiusmod. A través de los años por venir, equipo quis.Lorem.</p>
-                        <div class="social-bnr-agileits footer-icons-agileinfo">
-                            <ul class="social-icons3">
-                                <li><a href="#" class="fa fa-facebook icon-border facebook"> </a></li>
-                                <li><a href="#" class="fa fa-twitter icon-border twitter"> </a></li>
-                                <li><a href="#" class="fa fa-google-plus icon-border googleplus"> </a></li>
-                                <li><a href="#" class="fa fa-rss icon-border rss"> </a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="tab2">
-                    <div class="col-md-6 team-img-w3-agile"></div>
-                    <div class="col-md-6 team-Info-agileits">
-                        <h4>Sarah Connor</h4>
-                        <span>Recepcionista</span>
-                        <p>Estamos para ser de tus vaciones las mejor porque savemos que te esuferzas trabajando.te ofrecemos lo mejor .</p>
-                        <div class="social-bnr-agileits footer-icons-agileinfo">
-                            <ul class="social-icons3">
-                                <li><a href="#" class="fa fa-facebook icon-border facebook"> </a></li>
-                                <li><a href="#" class="fa fa-twitter icon-border twitter"> </a></li>
-                                <li><a href="#" class="fa fa-google-plus icon-border googleplus"> </a></li>
-                                <li><a href="#" class="fa fa-rss icon-border rss"> </a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="tab3">
-                    <div class="col-md-6 team-img-w3-agile"></div>
-                    <div class="col-md-6 team-Info-agileits">
-                        <h4>Ivan Simpson</h4>
-                        <span>Manager</span>
-                        <p>Que eresperas para disfrutar los momentos mas inolvidables de tu vida.</p>
-                        <div class="social-bnr-agileits footer-icons-agileinfo">
-                            <ul class="social-icons3">
-                                <li><a href="#" class="fa fa-facebook icon-border facebook"> </a></li>
-                                <li><a href="#" class="fa fa-twitter icon-border twitter"> </a></li>
-                                <li><a href="#" class="fa fa-google-plus icon-border googleplus"> </a></li>
-                                <li><a href="#" class="fa fa-rss icon-border rss"> </a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-                <div class="tab4">
-                    <div class="col-md-6 team-img-w3-agile"></div>
-                    <div class="col-md-6 team-Info-agileits">
-                        <h4>Marc Gutierrez</h4>
-                        <span>Recepcionista</span>
-                        <p>Porque siempre pensamos primero en nuestros clientes mesclamos comodidad con un precio economico.</p>
-                        <div class="social-bnr-agileits footer-icons-agileinfo">
-                            <ul class="social-icons3">
-                                <li><a href="#" class="fa fa-facebook icon-border facebook"> </a></li>
-                                <li><a href="#" class="fa fa-twitter icon-border twitter"> </a></li>
-                                <li><a href="#" class="fa fa-google-plus icon-border googleplus"> </a></li>
-                                <li><a href="#" class="fa fa-rss icon-border rss"> </a></li>
-                            </ul>
-                        </div>
-                    </div>
-                    <div class="clearfix"> </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</div>
-<!-- //team -->
+    hambuger.addEventListener("click", mobileMenu);
 
-<!-- Gallery -->
-<!-- Gallery -->
-<section class="portfolio-w3ls" id="gallery">
-    <h3 class="title-w3-agileits title-black-wthree">Nuestra galería</h3>
-    <div class="col-md-3 gallery-grid gallery1">
-        <a href="{{ asset('image/alojamiento1.jpg') }}" class="swipebox"><img src="{{ asset('image/alojamiento1.jpg') }}" class="img-responsive" alt="/">
-            <div class="textbox">
-                <h4>AMANECER</h4>
-                <p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
-            </div>
-        </a>
-    </div>
-    <div class="col-md-3 gallery-grid gallery1">
-        <a href="{{ asset('image/alojamiento2.jpg') }}" class="swipebox"><img src="{{ asset('image/alojamiento2.jpg') }}" class="img-responsive" alt="/">
-            <div class="textbox">
-                <h4>AMANECER</h4>
-                <p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
-            </div>
-        </a>
-    </div>
-    <div class="col-md-3 gallery-grid gallery1">
-        <a href="{{ asset('image/alojamiento3.jpg') }}" class="swipebox"><img src="{{ asset('image/alojamiento3.jpg') }}" class="img-responsive" alt="/">
-            <div class="textbox">
-                <h4>AMANECER</h4>
-                <p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
-            </div>
-        </a>
-    </div>
-    <div class="col-md-3 gallery-grid gallery1">
-        <a href="{{ asset('image/alojamiento4.jpg') }}" class="swipebox"><img src="{{ asset('image/alojamiento4.jpg') }}" class="img-responsive" alt="/">
-            <div class="textbox">
-                <h4>AMANECER</h4>
-                <p><i class="fa fa-picture-o" aria-hidden="true"></i></p>
-            </div>
-        </a>
-    </div>
-    <!-- Agrega el resto de tus imágenes aquí, siguiendo el mismo patrón -->
-    <div class="clearfix"> </div>
-</section>
-<!-- //gallery -->
-
-<!-- rooms & rates -->
-
-
-
-
-
-
-
-<!--// rooms & rates -->
-<!-- visitors -->
-<div class="w3l-visitors-agile">
-    <div class="container">
-        <h3 class="title-w3-agileits title-black-wthree">Qué otros visitantes experimentaron</h3>
-    </div>
-    <div class="w3layouts_work_grids">
-        <section class="slider">
-            <div class="flexslider">
-                <ul class="slides">
-                    <li>
-                        <div class="w3layouts_work_grid_left">
-                            <img src="{{ asset('images/alojamiento1.jpg') }}" alt=" " class="img-responsive" />
-                            <div class="w3layouts_work_grid_left_pos">
-                                <img src="{{ asset('images/alojamiento2.jpg') }}" alt=" " class="img-responsive" />
-                            </div>
-                        </div>
-                        <div class="w3layouts_work_grid_right">
-                            <h4>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                <i class="fa fa-star" aria-hidden="true"></i>
-                                Vale la pena volver
-                            </h4>
-                            <p>es fascinante y divertido pasar momentos agradables de mis vacaciones en este hotel.</p>
-                            <h5>Julia Rose</h5>
-                            <p>Alemania</p>
-                        </div>
-                        <div class="clearfix"> </div>
-                    </li>
-                    <!-- Agrega el resto de los elementos aquí siguiendo el mismo patrón -->
-                </ul>
-            </div>
-        </section>
-    </div>
-</div>
-<!-- visitors -->
-<!-- contact -->
-
-<section class="contact-w3ls" id="contact">
-    <div class="container">
-        <div class="col-lg-6 col-md-6 col-sm-6 contact-w3-agile2" data-aos="flip-left">
-            <div class="contact-agileits">
-                <h4>Contáctenos</h4>
-                <p class="contact-agile2">Inscríbete a nuestros boletines</p>
-                <!--  -->
-                    @csrf
-                    <div class="control-group form-group">
-                        <label class="contact-p1">Nombre completo:</label>
-                        <input type="text" class="form-control" name="name" id="name" required>
-                        <p class="help-block"></p>
-                    </div>
-                    <div class="control-group form-group">
-                        <label class="contact-p1">Número de teléfono:</label>
-                        <input type="tel" class="form-control" name="phone" id="phone" required>
-                        <p class="help-block"></p>
-                    </div>
-                    <div class="control-group form-group">
-                        <label class="contact-p1">Dirección de correo electrónico:</label>
-                        <input type="email" class="form-control" name="email" id="email" required>
-                        <p class="help-block"></p>
-                    </div>
-                    <input type="submit" name="sub" value="Enviar" class="btn btn-primary">
-                </form>
-                <!-- Aquí puedes manejar la lógica del formulario con Laravel -->
-            </div>
-        </div>
-        <div class="col-lg-6 col-md-6 col-sm-6 contact-w3-agile1" data-aos="flip-right">
-            <h4>Conéctate con nosotros</h4>
-            <p class="contact-agile1"><strong>Teléfono :</strong>+54 9 11 7601-1408</p>
-            <p class="contact-agile1"><strong>Email :</strong> <a href="mailto:info@facturacionweb.site">info@facturacionweb.site</a></p>
-            <p class="contact-agile1"><strong>Dirección :</strong> Buenos Aires, Argentina</p>
-            <div class="social-bnr-agileits footer-icons-agileinfo">
-                <ul class="social-icons3">
-                    <li><a href="#" class="fa fa-facebook icon-border facebook"> </a></li>
-                    <li><a href="#" class="fa fa-twitter icon-border twitter"> </a></li>
-                    <li><a href="#" class="fa fa-google-plus icon-border googleplus"> </a></li>
-                </ul>
-            </div>
-            <!-- Aquí puedes añadir tus redes sociales o cualquier otra información adicional -->
-        </div>
-        <div class="clearfix"></div>
-    </div>
-</section>
-
-<!-- /contact -->
-<div class="copy">
-    <p>© 2024 <a href="{{ url('/') }}">KILBER MARCANO</a> </p>
-</div>
-<!--/footer -->
-<!-- js -->
-<script type="text/javascript" src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
-<!-- contact form -->
-<script src="{{ asset('js/jqBootstrapValidation.js') }}"></script>
-
-<!-- /contact form -->
-<!-- Calendar -->
-<script src="{{ asset('js/jquery-ui.js') }}"></script>
-<script>
-    $(function() {
-        $("#datepicker,#datepicker1,#datepicker2,#datepicker3").datepicker();
-    });
-</script>
-<!-- //Calendar -->
-<!-- gallery popup -->
-<link rel="stylesheet" href="{{ asset('css/swipebox.css') }}">
-<script src="{{ asset('js/jquery.swipebox.min.js') }}"></script>
-<script type="text/javascript">
-    jQuery(function($) {
-        $(".swipebox").swipebox();
-    });
-</script>
-<!-- //gallery popup -->
-<!-- start-smoth-scrolling -->
-<script type="text/javascript" src="{{ asset('js/move-top.js') }}"></script>
-<script type="text/javascript" src="{{ asset('js/easing.js') }}"></script>
-<script type="text/javascript">
-    jQuery(document).ready(function($) {
-        $(".scroll").click(function(event) {
-            event.preventDefault();
-            $('html,body').animate({
-                scrollTop: $(this.hash).offset().top
-            }, 1000);
-        });
-    });
-</script>
-<!-- start-smoth-scrolling -->
-<!-- flexSlider -->
-<script defer src="{{ asset('js/jquery.flexslider.js') }}"></script>
-<script type="text/javascript">
-    $(window).load(function() {
-        $('.flexslider').flexslider({
-            animation: "slide",
-            start: function(slider) {
-                $('body').removeClass('loading');
-            }
-        });
-    });
-</script>
-<!-- //flexSlider -->
-<script src="{{ asset('js/responsiveslides.min.js') }}"></script>
-<script>
-    // You can also use "$(window).load(function() {"
-    $(function() {
-        // Slideshow 4
-        $("#slider4").responsiveSlides({
-            auto: true,
-            pager: true,
-            nav: false,
-            speed: 500,
-            namespace: "callbacks",
-            before: function() {
-                $('.events').append("<li>before event fired.</li>");
-            },
-            after: function() {
-                $('.events').append("<li>after event fired.</li>");
-            }
-        });
-
-    });
-</script>
-<!--search-bar-->
-<script src="{{ asset('js/main.js') }}"></script>
-<!--//search-bar-->
-<!--tabs-->
-<script src="{{ asset('js/easy-responsive-tabs.js') }}"></script>
-<script>
-    $(document).ready(function() {
-        $('#horizontalTab').easyResponsiveTabs({
-            type: 'default', //Types: default, vertical, accordion           
-            width: 'auto', //auto or any width like 600px
-            fit: true, // 100% fit in a container
-            closed: 'accordion', // Start closed if in accordion view
-            activate: function(event) { // Callback function if tab is switched
-                var $tab = $(this);
-                var $info = $('#tabInfo');
-                var $name = $('span', $info);
-                $name.text($tab.text());
-                $info.show();
-            }
-        });
-        $('#verticalTab').easyResponsiveTabs({
-            type: 'vertical',
-            width: 'auto',
-            fit: true
-        });
-    });
-</script>
-<!--//tabs-->
-<!-- smooth scrolling -->
-<script type="text/javascript">
-    $(document).ready(function() {
-        $().UItoTop({
-            easingType: 'easeOutQuart'
-        });
-    });
-</script>
-
-<div class="arr-w3ls">
-    <a href="#home" id="toTop" style="display: block;"> <span id="toTopHover" style="opacity: 1;"> </span></a>
-</div>
-<!-- //smooth scrolling -->
-<script type="text/javascript" src="{{ asset('js/bootstrap-3.1.1.min.js') }}"></script>
-
-<!-- Botón flotante de WhatsApp -->
-<a href="https://wa.me/+5491176011408?text=Quiero%20más%20información%20para%20reservar" target="_blank" class="whatsapp-btn btn btn-primary">
-    <i class="glyphicon glyphicon-phone"></i>
-</a>
-
-<script>
-    function copyToClipboard(text) {
-        var textArea = document.createElement("textarea");
-        textArea.value = text;
-        document.body.appendChild(textArea);
-        textArea.select();
-        document.execCommand('copy');
-        document.body.removeChild(textArea);
-        alert('Mensaje copiado al portapapeles. Pégalo en la ventana de chat de WhatsApp.');
+    function mobileMenu() {
+      hambuger.classList.toggle("active");
+      navMenu.classList.toggle("active");
     }
-</script>
-<!-- Fin Botón flotante de WhatsApp -->
+
+    const navLink = document.querySelectorAll('.nav-link');
+    navLink.forEach((n) => n.addEventListener("click", closeMenu));
+
+    function closeMenu() {
+      hambuger.classList.remove("active");
+      navMenu.classList.remove("active");
+    }
+  </script>
+
+  <section class="home" id="home">
+    <div class="head_container">
+      <div class="box">
+        <div class="text">
+          <h1>BIENVENIDO</h1>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+          <button>MAS INFORMACION</button>
+        </div>
+      </div>
+      <div class="image">
+        <img src="image/home1.0.jpg" class="slide">
+      </div>
+      <div class="image_item">
+        <!-- <img src="image/home1.jpg" alt="" class="slide active" onclick="{{ asset('image/home1.0.jpg') }}"> -->
+        <img src="image/home2.jpg" alt="" class="slide" onclick="img('image/home2.jpg')">
+        <img src="image/home3.jpg" alt="" class="slide" onclick="img('image/home3.jpg')">
+        <img src="image/home4.jpg" alt="" class="slide" onclick="img('image/home4.jpg')">
+      </div>
+    </div>
+  </section>
+  <script>
+    function img(anything) {
+      document.querySelector('.slide').src = anything;
+    }
+
+    function change(change) {
+      const line = document.querySelector('.image');
+      line.style.background = change;
+    }
+  </script>
+  <section class="book">
+    <div class="container flex">
+      <div class="input grid">
+        <div class="box">
+          <label>registrar:</label>
+          <input type="date" placeholder="Check-in-Date">
+        </div>
+        <div class="box">
+          <label>verfifcar:</label>
+          <input type="date" placeholder="Check-out-Date">
+        </div>
+        <div class="box">
+          <label>Adultos:</label> <br>
+          <input type="number" placeholder="0">
+        </div>
+        <div class="box">
+          <label>Niños:</label> <br>
+          <input type="number" placeholder="0">
+        </div>
+      </div>
+      <div class="search">
+        <input type="submit" value="BUSCAR">
+      </div>
+    </div>
+  </section>
+  <section class="about top" id="about">
+    <div class="container flex">
+      <div class="left">
+        <div class="img">
+          <img src="image/hotel.jpg" alt="" class="image1">
+          <img src="image/hotel1.jpg" alt="" class="image2">
+        </div>
+      </div>
+      <div class="right">
+        <div class="heading">
+          <h5>HOTEL MAGNIFICO DE ALTO NIVEL</h5>
+          <h2>BIENVENIDO AL HOTEL LODGING</h2>
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+          <p>Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+          <button class="btn1">LEER MAS</button>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="wrapper top">
+    <div class="container">
+      <div class="text">
+        <h2>NUESTROS SERVCIOS</h2>
+        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+
+        <div class="content">
+          <div class="box flex">
+            <i class="fas fa-swimming-pool"></i>
+            <span>Picsina</span>
+          </div>
+          <div class="box flex">
+            <i class="fas fa-dumbbell"></i>
+            <span>Gym y yoga</span>
+          </div>
+          <div class="box flex">
+            <i class="fas fa-spa"></i>
+            <span>Spa y Masajes</span>
+          </div>
+          <div class="box flex">
+            <i class="fa-brands fa-servicestack"></i>
+            <span>Servico ala Habitacion</span>
+          </div> 
+          <div class="box flex">
+            <i class="fa-solid fa-utensils"></i>
+            <span>Restaurante</span>
+          </div> 
+          
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="room top" id="rooms">
+    <div class="container">
+      <div class="heading_top flex1">
+        <div class="heading">
+          <h5>HABITACIONES DE LIJO</h5>
+          <h2>HABITACIONES</h2>
+        </div>
+        <div class="button">
+          <button class="btn1">VER TODO</button>
+        </div>
+      </div>
+
+      <div class="content grid">
+        <div class="box">
+          <div class="img">
+            <img src="image/r1.jpg" alt="">
+          </div>
+          <div class="text">
+            <h3>HABITACION FAMILIAR</h3>
+            <p> <span>$</span>139 <span>/per night</span> </p>
+            <a href="{{ asset('login') }}">reservar</a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img">
+            <img src="image/r2.jpg" alt="">
+          </div>
+          <div class="text">
+            <h3>HABITACION DOBLE</h3>
+            <p> <span>$</span>129 <span>/per night</span> </p>
+            <a href="{{ asset('login') }}">reservar</a>
+          </div>
+        </div>
+        <div class="box">
+          <div class="img">
+            <img src="image/r3.jpg" alt="">
+          </div>
+          <div class="text">
+            <h3>SUITE</h3>
+            <p> <span>$</span>429 <span>/per night</span> </p>
+            <a href="{{ asset('login') }}">reservar</a>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <section class="wrapper wrapper2 top">
+    <div class="container">
+      <div class="text">
+        <div class="heading">
+          <h5>COMUNICACON DE NUESTROS CLIENTES</h5>
+          <h2>LA GENTE DICE</h2>
+        </div>
+
+        <div class="para">
+          <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. </p>
+
+          <div class="box flex">
+            <div class="img">
+              <img src="image/c.jpg" alt="">
+            </div>
+            <div class="name">
+              <h5>MARIA</h5>
+              <h5>BIEN :)</h5>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+  <section class="restaurant top" id="restaurant">
+    <div class="container flex">
+      <div class="left">
+        <img src="image/restaurant.jpg" alt="">
+      </div>
+      <div class="right">
+        <div class="text">
+          <h2>NUESTRO RESTAURANTE</h2>
+          <p> Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        </div>
+        <div class="accordionWrapper">
+          <div class="accordionItem open">
+            <h2 class="accordionIHeading">Italian Kitchen</h2>
+            <div class="accordionItemContent">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+            </div>
+          </div>
+          <div class="accordionItem close">
+            <h2 class="accordionIHeading">Mexican Kitchen</h2>
+            <div class="accordionItemContent">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+            </div>
+          </div>
+          <div class="accordionItem close">
+            <h2 class="accordionIHeading">Comida de nuestro pais</h2>
+            <div class="accordionItemContent">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+            </div>
+          </div>
+          <div class="accordionItem close">
+            <h2 class="accordionIHeading">Comida de otros paises</h2>
+            <div class="accordionItemContent">
+              <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.
+              </p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+  <script>
+    var accItem = document.getElementsByClassName('accordionItem');
+    var accHD = document.getElementsByClassName('accordionIHeading');
+
+    for (i = 0; i < accHD.length; i++) {
+      accHD[i].addEventListener('click', toggleItem, false);
+    }
+
+    function toggleItem() {
+      var itemClass = this.parentNode.className;
+      for (var i = 0; i < accItem.length; i++) {
+        accItem[i].className = 'accordionItem close';
+      }
+      if (itemClass == 'accordionItem close') {
+        this.parentNode.className = 'accordionItem open';
+      }
+    }
+  </script>
+
+
+
+  <section class="gallary mtop " id="gallery">
+    <div class="container">
+      <div class="heading_top flex1">
+        <div class="heading">
+          <h5>AQUIE ESTA NUESTRA GALERIA</h5>
+          <h2>FOTOS DE NUESTRO HOTEL</h2>
+        </div>
+        <div class="button">
+          <button class="btn1">VER GALLERIA</button>
+        </div>
+      </div>
+
+      <div class="owl-carousel owl-theme">
+       
+        <div class="item">
+          <img src="image/g5.jpg" alt="">
+        </div>
+        <div class="item">
+          <img src="image/g6.jpg" alt="">
+        </div>
+        <div class="item">
+          <img src="image/g7.jpg" alt="">
+        </div>
+        <div class="item">
+          <img src="image/g8.jpg" alt="">
+        </div>
+      </div>
+
+    </div>
+  </section>
+
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.js" integrity="sha512-gY25nC63ddE0LcLPhxUJGFxa2GoIyA5FLym4UJqHDEMHjp8RET6Zn/SHo1sltt3WuVtqfyxECP38/daUc/WVEA==" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/OwlCarousel2/2.3.4/owl.carousel.min.js" integrity="sha512-bPs7Ae6pVvhOSiIcyUClR7/q2OAsRiovw4vAkX+zJbw3ShAeeqezq50RIIcIURq7Oa20rW2n2q+fyXBNcU9lrw==" crossorigin="anonymous"
+    referrerpolicy="no-referrer"></script>
+  <script>
+    $('.owl-carousel').owlCarousel({
+      loop: true,
+      margin: 10,
+      nav: true,
+      dots: false,
+      navText: ["<i class='fas fa-chevron-left'></i>", "<i class='fas fa-chevron-right'></i>"],
+      responsive: {
+        0: {
+          items: 1
+        },
+        768: {
+          items: 2
+        },
+        1000: {
+          items: 4
+        }
+      }
+    })
+  </script>
+
+
+
+
+
+  <footer>
+    <div class="container grid top">
+      <div class="box">
+        
+
+        <p>Métodos de pago aceptados</p>
+        <div class="payment grid">
+          <img src="https://img.icons8.com/color/48/000000/visa.png" />
+          <img src="https://img.icons8.com/color/48/000000/mastercard.png" />
+          <img src="https://img.icons8.com/color-glass/48/000000/paypal.png" />
+          
+        </div>
+      </div>
+
+      <div class="box">
+        <h3>Noticias recientes</h3>
+
+        <ul>
+          <li> Hotel relajante</li>
+          <li>marzo en hotel lodging</li>
+          <li>conciertos en vivo en lodging</li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <h3>Para clientes</h3>
+        <ul>
+          <li>acerca de hotel lodging</li>
+          <li>Atencion al cliente/ayuda</li>
+          <li>Terminos Y condiciones</li>
+        </ul>
+      </div>
+
+      <div class="box">
+        <h3>Contact Us</h3>
+
+        <ul>
+          <li>Contáctenos </li>
+          <li><i class="far fa-envelope"></i>rlozanotique@gmail.com </li>
+          <li><i class="far fa-phone-alt"></i>34234758869 </li>
+          <li><i class="far fa-phone-alt"></i>213465889 </li>
+          <li><i class="far fa-comments"></i>servicio de atencion al cliente 24/7</li>
+        </ul>
+      </div>
+    </div>
+  </footer>
 
 </body>
 
 </html>
-
-
-
-    <!-- Botón de WhatsApp -->
-    <a href="https://api.whatsapp.com/send?phone=3145684168" class="whatsapp-btn" target="_blank">
-        <i class="fa fa-whatsapp"></i>
-    </a>
-
-    <!-- Scripts JavaScript -->
-    <script src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.js') }}"></script>
-    <script src="{{ asset('js/chocolat.js') }}"></script>
-    <script src="{{ asset('js/easy-responsive-tabs.js') }}"></script>
-    <script src="{{ asset('js/jquery-ui.js') }}"></script>
-    <script src="{{ asset('js/jquery.flexslider.js') }}"></script>
-    <script src="{{ asset('js/minicart.js') }}"></script>
-    <script src="{{ asset('js/responsiveslides.min.js') }}"></script>
-    <script>
-        // Aquí puedes agregar tus scripts personalizados si los tienes
-    </script>
-</body>
-
-
-    <!-- Scripts JavaScript -->
-    <script src="{{ asset('js/jquery-2.1.4.min.js') }}"></script>
-    <script src="{{ asset('js/bootstrap.js') }}"></script>
-    <script src="{{ asset('js/chocolat.js') }}"></script>
-    <script src="{{ asset('js/easy-responsive-tabs.js') }}"></script>
-    <script src="{{ asset('js/jquery-ui.js') }}"></script>
-    <script src="{{ asset('js/jquery.flexslider.js') }}"></script>
-    <script src="{{ asset('js/minicart.js') }}"></script>
-    <script src="{{ asset('js/responsiveslides.min.js') }}"></script>
-    <script>
-        // Aquí puedes agregar tus scripts personalizados si los tienes
-    </script>
-</body>
-
-</html>
-
-

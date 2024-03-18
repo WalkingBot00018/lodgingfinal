@@ -14,8 +14,8 @@ return new class extends Migration
     public function up()
     {
         Schema::create('factura_servicio', function (Blueprint $table) {
-            $table->id('Nro_Factura_Servicio');
-            $table->foreignId('Nro_Factura');
+            $table->id();
+            $table->string('Nro_Factura');
             $table->foreignId('ID_Servicio');
             $table->integer('Cantidad');
             $table->foreign('Nro_Factura')->references('Nro_Factura')->on('factura')->onDelete('cascade')->onUpdate('cascade');

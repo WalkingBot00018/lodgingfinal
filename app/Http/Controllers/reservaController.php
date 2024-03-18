@@ -44,27 +44,16 @@ class ReservaController extends Controller
 
     public function update(Request $request, $Nro_Reserva)
     {
-        $reserva = Reserva::find($Nro_Reserva);
-        
-        if (!$reserva) {
-            return redirect('/reserva')->with('error', 'Reserva no encontrada');
-        }
+         // Actualiza el usuario
+         Reserva::where('Nro_Reserva', $Nro_Reserva)->update($request->except('_token', '_method'));
 
-        $reserva->update($request->all());
-
-        return redirect('/reserva')->with('success', 'Reserva actualizada correctamente');
+         return redirect('/reserva')->with('success', 'Usuario actualizado correctamente');
     }
 
     public function destroy($Nro_Reserva)
     {
-        $reserva = Reserva::find($Nro_Reserva);
-
-        if (!$reserva) {
-            return redirect('/reserva')->with('error', 'Reserva no encontrada');
-        }
-
-        $reserva->delete(); 
-
-        return redirect('/reserva')->with('success', 'Reserva eliminada correctamente');
+        $users = Reserva::find($Nro_Reserva);
+        $users->delete(); 
+        return redirect('/reserva')->with('success', 'Usuario eliminado correctamente');
     }
 }
