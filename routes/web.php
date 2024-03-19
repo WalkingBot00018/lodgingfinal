@@ -142,3 +142,5 @@ Route::get('/inventario/{inventario}', [inventarioController::class, 'show'])->n
 Route::get('/inventario/{metodo_pago}/editar', [inventarioController::class, 'edit'])->name('inventario.edit');
 Route::put('/inventario/{inventario}', [inventarioController::class, 'update'])->name('inventario.update');
 Route::delete('/inventario/{inventario}', [inventarioController::class, 'destroy'])->name('inventario.destroy');
+
+Route::resource('/habitaciones_vistas',habitaciones_vistasController::class);
