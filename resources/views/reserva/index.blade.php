@@ -33,11 +33,11 @@
                         
                         <a href="{{ route('reserva.edit', $reservas->Nro_Reserva) }}">Editar</a>
 
-                        <form method="POST" action="{{ route('reserva.destroy', $reservas->Nro_Reserva) }}">
-                        @csrf
-                        @method('DELETE')
-                        <input type="submit" class="btn btn-danger btn-sm" value="Eliminar">
-                    </form>
+                        <form action="{{url('/reserva/'.$reservas->Nro_Reserva)}}" method="post">
+                            @csrf
+                            {{method_field('DELETE')}}
+                            <input type="submit" onclick="return confirm('Quieres eliminar el metodo de pago?')" value="Eliminar">
+                        </form>
                     </td>
                 </tr>
             @empty
