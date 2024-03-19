@@ -58,6 +58,8 @@
     <input type="submit" name="send" value="Crear">
 
     </form>
+
+  
 </body>
 
 @endsection 

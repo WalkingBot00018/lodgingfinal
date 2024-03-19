@@ -64,11 +64,13 @@
                 @error('ID_rol')
                     <h6>{{ $message }}</h6>
                 @enderror
-                <input class="crear"type="submit" name="send" value="Crear">
+                <input    class="crear"type="submit" name="send" value="Crear">
 
             </form>
         </article>
     </section>
+
+ 
 
 </body>
 
