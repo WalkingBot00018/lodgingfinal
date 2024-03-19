@@ -1,17 +1,17 @@
 <body>
-    <a class="regresar" href="{{url('usuarios')}}">Regresar</a>
+    <a class="regresar" href="{{url('/login')}}">Regresar</a>
     <section class="contenidoC">
         <h1>Usuarios</h1>
         <article>
             <link rel="stylesheet" href="{{ asset('css/register.css') }}">
             <form action="{{ route('user.store') }}" method="post">
                 @csrf
-                
+
                 @if (session('mensaje'))
-                    <h6>{{ session('mensaje') }}</h6>   
+                    <h6>{{ session('mensaje') }}</h6>
                 @endif
 
-                
+
                 <input class="contenedorinput" type="text" name="Nro_doc" id="" placeholder="Numero de documento" value="{{ old('Nro_doc') }}">
                 @error('Nro_doc')
                     <h6>{{ $message }}</h6>
@@ -26,7 +26,7 @@
                 @error('Apellido')
                     <h6>{{ $message }}</h6>
                 @enderror
-            
+
                 <input type="email" name="email" id="" placeholder="Correo" value="{{ old('email') }}">
                 @error('email')
                     <h6>{{ $message }}</h6>
@@ -42,7 +42,7 @@
                     <h6>{{ $message }}</h6>
                 @enderror
 
-                
+
                 <select name="Estado" id="Estado">
                     <option value="Activo">Activo</option>
                     <option value="Inactivo">Inactivo</option>
@@ -59,17 +59,17 @@
                     <option value="5">PERSONAL DE LIMPIEZA</option>
                     <option value="6">SEGURIDAD</option>
                 </select>
-                
-                
+
+
                 @error('ID_rol')
                     <h6>{{ $message }}</h6>
                 @enderror
                 <input class="crear"type="submit" name="send" value="Crear">
 
-            </form> 
+            </form>
         </article>
     </section>
-   
+
 </body>
 
 

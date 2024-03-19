@@ -17,7 +17,9 @@ use App\Http\Controllers\serviciosController;
 
 use App\Http\Controllers\FacturaController;
 use App\Http\Controllers\FacturaServicioController;
+use App\Http\Controllers\inventarioController;
 use App\Http\Controllers\MetodoPagoController;
+use App\Http\Controllers\Factura_ServicioController;
 
 
 
@@ -122,3 +124,20 @@ Route::delete('/servicio/{servicio}', [serviciosController::class, 'destroy'])->
 
 
 
+Route::get('/metodo_pago', [MetodoPagoController::class, 'index'])->name('metodo_pago.index');
+Route::get('/metodo_pago/create', [MetodoPagoController::class, 'create'])->name('metodo_pago.create');
+Route::post('/metodo_pago/store', [MetodoPagoController::class, 'store'])->name('metodo_pago.store');
+Route::get('/metodo_pago/{metodo_pago}', [MetodoPagoController::class, 'show'])->name('metodo_pago.show');
+Route::get('/metodo_pago/{metodo_pago}/editar', [MetodoPagoController::class, 'edit'])->name('metodo_pago.edit');
+Route::put('/metodo_pago/{metodo_pago}', [MetodoPagoController::class, 'update'])->name('metodo_pago.update');
+Route::delete('/metodo_pago/{metodo_pago}', [MetodoPagoController::class, 'destroy'])->name('metodo_pago.destroy');
+
+
+
+Route::get('/inventario', [inventarioController::class, 'index'])->name('inventario.index');
+Route::get('/inventario/create', [inventarioController::class, 'create'])->name('inventario.create');
+Route::post('/inventario/store', [inventarioController::class, 'store'])->name('inventario.store');
+Route::get('/inventario/{inventario}', [inventarioController::class, 'show'])->name('inventario.show');
+Route::get('/inventario/{metodo_pago}/editar', [inventarioController::class, 'edit'])->name('inventario.edit');
+Route::put('/inventario/{inventario}', [inventarioController::class, 'update'])->name('inventario.update');
+Route::delete('/inventario/{inventario}', [inventarioController::class, 'destroy'])->name('inventario.destroy');

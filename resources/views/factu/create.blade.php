@@ -1,8 +1,12 @@
 
+<head>
+    <a class="regresar" href="{{ asset('home') }}" >Regresar</a>
+</head>
 <form method="post" action="{{ route('factu.store') }}" class="my-form">
+<link rel="stylesheet" href="{{ asset('css/factu/create.css') }}"> 
 
     @csrf
-    
+    <h3>CREAR FACTURA</h3>
     <div class="form-group">
         <label for="Nro_Factura">Numero de factura:</label>
         <input type="text" name="Nro_Factura" id="Nro_Factura" class="form-control"/>

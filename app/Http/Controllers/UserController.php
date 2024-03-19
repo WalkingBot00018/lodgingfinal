@@ -21,14 +21,14 @@ class UserController extends Controller
     public function store(Request $request)
     {
         $request->validate([
-            "Nro_doc"=> "required|string|min:2|max:10",
-            "Nombre"=> "required|string|min:5|max:20",
-            "Apellido"=> "required|string|min:5|max:20",
-            "email"=> "required|email|min:2|max:20",
-            "password"=> "required|min:2|max:225",
-            "Telefono"=> "required|string|min:2|max:10",
-            "Estado"=> "required|string|min:5|max:20",
-            "ID_rol"=> "required|exists:rol,ID_rol", // Asegura que el ID de rol enviado existe en la tabla de roles
+            "Nro_doc" => "required|string|min:2|max:10",
+            "Nombre" => "required|string|min:2|max:20",
+            "Apellido" => "required|string|min:2|max:20",
+            "email" => "required|email|max:255",
+            "password" => "required|string|min:5|max:128", // Ajustado el mínimo y máximo para una contraseña más razonable
+            "Telefono" => "required|string|regex:/^[0-9]+$/|min:2|max:15", // Ajustado el máximo para permitir números de teléfono más largos
+            "Estado" => "required|string|min:5|max:50", // Ajustado el máximo para estados con nombres más largos
+            "ID_rol" => "required|exists:rol,ID_rol",// Asegura que el ID de rol enviado existe en la tabla de roles
         ]);
 
         // User::create($request->all());
