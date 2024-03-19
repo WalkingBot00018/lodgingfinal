@@ -173,13 +173,19 @@
     <div class="container">
       <div class="heading_top flex1">
         <div class="heading">
-          <h5>HABITACIONES DE LIJO</h5>
+          <h5>HABITACIONES DE LUJO</h5>
           <h2>HABITACIONES</h2>
         </div>
         <div class="button">
-          <button class="btn1">VER TODO</button>
+          <button class="btn1" onclick="redirectToAnotherFile()">VER TODO</button>
         </div>
       </div>
+      <script>
+        function redirectToAnotherFile() {
+          window.location.href = '/habitaciones_vistas';
+        }
+      </script>
+      
 
       <div class="content grid">
         <div class="box">

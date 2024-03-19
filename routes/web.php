@@ -20,6 +20,7 @@ use App\Http\Controllers\FacturaServicioController;
 use App\Http\Controllers\inventarioController;
 use App\Http\Controllers\MetodoPagoController;
 use App\Http\Controllers\Factura_ServicioController;
+use App\Http\Controllers\habitaciones_vistasController;
 
 
 
@@ -91,7 +92,7 @@ Route::get('/facturaservicio/{factura_servicio}/editar', [Factura_ServicioContro
 Route::put('/facturaservicio/{factura_servicio}', [Factura_ServicioController::class, 'update'])->name('factuser.update');
 Route::delete('/facturaservicio/{factura_servicio}', [Factura_ServicioController::class, 'destroy'])->name('factuser.destroy');
 
-
+Route::resource('/habitaciones_vistas',habitaciones_vistasController::class);
 
 
 
