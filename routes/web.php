@@ -120,3 +120,5 @@ Route::put('/servicio/{servicio}', [serviciosController::class, 'update'])->name
 Route::delete('/servicio/{servicio}', [serviciosController::class, 'destroy'])->name('servicio.destroy');
 
 
+
+
