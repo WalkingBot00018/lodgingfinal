@@ -45,7 +45,7 @@ Route::get('/', function () {
 
 Route::get('/role', [rolController::class, 'index'])->name('role.index');
 
-
+/** */
 Route::get('/usuarios', [UserController::class, 'index'])->name('user.index');
 Route::get('/usuarios/create', [UserController::class, 'create'])->name('user.create');
 Route::post('/usuarios/store', [UserController::class, 'store'])->name('user.store');
@@ -92,7 +92,7 @@ Route::get('/facturaservicio/{factura_servicio}/editar', [Factura_ServicioContro
 Route::put('/facturaservicio/{factura_servicio}', [Factura_ServicioController::class, 'update'])->name('factuser.update');
 Route::delete('/facturaservicio/{factura_servicio}', [Factura_ServicioController::class, 'destroy'])->name('factuser.destroy');
 
-Route::resource('/habitaciones_vistas',habitaciones_vistasController::class);
+Route::resource('/habitaciones_vistas',habitaciones_vistasController::class)->middleware('auth');
 
 
 
@@ -144,3 +144,10 @@ Route::put('/inventario/{inventario}', [inventarioController::class, 'update'])-
 Route::delete('/inventario/{inventario}', [inventarioController::class, 'destroy'])->name('inventario.destroy');
 
 Route::resource('/habitaciones_vistas',habitaciones_vistasController::class);
+
+
+
+Route::get('/generar-factura', [FacturaController::class, 'factura_generada'])->name('factura_generada.factura_generada');
+Route::get('/generar-factura', [FacturaController::class, 'calcularIVA'])->name('factura_generada.calcular-iva');
+
+

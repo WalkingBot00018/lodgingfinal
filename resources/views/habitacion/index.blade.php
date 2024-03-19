@@ -6,7 +6,9 @@
     <thead>
         <tr>
             <th>Numero de Habitacion</th>
-            <th>Tipo de habitacion Asociados</th>
+            <th>Descripcion</th>
+            <th>Precio</th>
+            <th>Disponibilidad</th>
             <th>Acciones</th>
         </tr>
     </thead>
@@ -14,13 +16,9 @@
         @forelse ($habitacion as $habitaciones)
             <tr>
                 <td>{{ $habitaciones->Nro_Habitacion }}</td>
-                <td>
-                    @forelse ($habitaciones->tipo_habitacion as $tipo_habitacion)
-                        <p>{{ $tipo_habitacion->Descripcion }}</p>
-                    @empty
-                        <p>No hay usuarios asociados a este rol</p>
-                    @endforelse
-                </td>
+                <td>{{ $habitaciones->Descripcion }}</td>
+                <td>{{ $habitaciones->Precio }}</td>
+                <td>{{ $habitaciones->Disponibilidad }}</td>
                 <td>
                     <a href="{{ route('habitacion.show', $habitaciones->id) }}">Ver</a>
                     <a href="{{ route('habitacion.edit', $habitaciones->id) }}">Editar</a>
