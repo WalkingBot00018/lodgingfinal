@@ -7,6 +7,48 @@
     <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-T3c6CoIi6uLrA9TneNEoa7RxnatzjcDSCmG1MXxSR1GAsXEV/Dwwykc2MPK8M2HN" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/app.css') }}">
     <title> @yield('title', 'Sistema Hotelero Lodging') </title>
+    <style>
+        body {
+            background-color: #f8f9fa;
+        }
+
+        main {
+            margin-top: 50px;
+            text-align: center;
+        }
+
+        nav menu {
+            display: flex;
+            justify-content: center;
+            gap: 20px;
+            margin-top: 20px;
+        }
+
+        nav menu a {
+            color: #007bff;
+            text-decoration: none;
+            transition: color 0.3s ease-in-out;
+        }
+
+        nav menu a:hover {
+            color: #0056b3;
+        }
+
+        button {
+            margin-top: 20px;
+            background-color: #dc3545;
+            color: #fff;
+            border: none;
+            padding: 8px 16px;
+            border-radius: 5px;
+            cursor: pointer;
+            transition: background-color 0.3s ease-in-out;
+        }
+
+        button:hover {
+            background-color: #c82333;
+        }
+    </style>
 </head>
 <body>
 
