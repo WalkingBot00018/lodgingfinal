@@ -3,72 +3,100 @@
 namespace App\Http\Controllers;
 
 use App\Http\Controllers\Controller;
+use App\Models\MetodoPago;
 use Illuminate\Http\Request;
 
-class metodoPagoController extends Controller
+class MetodoPagoController extends Controller
 {
+    /**
+     * Display a listing of the resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function index()
     {
-        $metodosDePago = MetodoDePago::all();
-        return view('metodo_de_pago.index', ['metodosDePago' => $metodosDePago]);
+        //
+        $Metodopago['metodopago']=MetodoPago::all();
+        return view('metodo_pago.index',$Metodopago);
     }
 
+    /**
+     * Show the form for creating a new resource.
+     *
+     * @return \Illuminate\Http\Response
+     */
     public function create()
     {
-        return view("metodo_de_pago.create");
+        //
+        return view('metodo_pago.create');
     }
 
+    /**
+     * Store a newly created resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @return \Illuminate\Http\Response
+    //  */
     public function store(Request $request)
     {
-        $request->validate([
-            // Valida los campos del formulario de creación de método de pago
-        ]);
-
-        MetodoDePago::create([
-            // Asigna los valores del formulario al modelo MetodoDePago
-        ]);
-
-        return redirect()->route("metodo_de_pago.index")->with("success", "Método de pago registrado exitosamente");
+        //
+        $insertarMP= request()->except('_token');
+        MetodoPago::insert($insertarMP);
+        return redirect('metodo_pago')->with('mensaje','El metodo de pago se agrego con exito');
     }
 
-    public function show($id)
+    /**
+     * Display the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function show($Id_Metodo_Pago)
     {
-        $metodoDePago = MetodoDePago::find($id);
-
-        if (!$metodoDePago) {
-            return redirect()->route('metodo_de_pago.index')->with('error', 'Método de pago no encontrado');
-        }
-
-        return view('metodo_de_pago.show', ['metodoDePago' => $metodoDePago]);
+        //
+        $verMetodoPago=MetodoPago::find($Id_Metodo_Pago);
+        return view('metodo_pago.show',compact('verMetodoPago'));
     }
 
-    public function edit($id)
+    /**
+     * Show the form for editing the specified resource.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function edit($Id_Metodo_Pago)
     {
-        $metodoDePago = MetodoDePago::find($id);
-        return view('metodo_de_pago.edit', ['metodoDePago' => $metodoDePago]);
+        //
+        $MeP=MetodoPago::findOrFail($Id_Metodo_Pago);
+        return view('metodo_pago.edit',compact('MeP'));
     }
 
-    public function update(Request $request, $id)
+    /**
+     * Update the specified resource in storage.
+     *
+     * @param  \Illuminate\Http\Request  $request
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function update(Request $request, $Id_Metodo_Pago)
     {
-        $request->validate([
-            // Valida los campos del formulario de edición de método de pago
-        ]);
-
-        MetodoDePago::where('id', $id)->update([
-            // Actualiza los campos del método de pago
-        ]);
-
-        return redirect()->route("metodo_de_pago.index")->with("success", "Método de pago actualizado exitosamente");
+        //
+        $insertarMP= request()->except(['_token','_method']);
+        MetodoPago::where('$Id_Metodo_Pago','=',$Id_Metodo_Pago)->update($insertarMP);    
+        $MetodoP=MetodoPago::findOrFail($Id_Metodo_Pago);
+        return view('metodo_pago.edit',compact('MetodoP'));
     }
 
-    public function destroy($id)
+    /**
+     * Remove the specified resource from storage.
+     *
+     * @param  int  $id
+     * @return \Illuminate\Http\Response
+     */
+    public function destroy($Id_Metodo_Pago)
     {
-        MetodoDePago::destroy($id);
-        return redirect()->route("metodo_de_pago.index")->with("success", "Método de pago eliminado exitosamente");
-
-
-
-
-
+        //
+        MetodoPago::destroy($Id_Metodo_Pago);
+        return redirect('metodo_pago')->with('mensaje','El metodo de pago fue eliminado exitosamente');
     }
 }

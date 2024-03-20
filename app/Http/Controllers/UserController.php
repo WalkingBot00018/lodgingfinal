@@ -78,6 +78,7 @@ class UserController extends Controller
     }
 
     return view('user.shows', ['user' => $user]);
+    
 }
 
 
