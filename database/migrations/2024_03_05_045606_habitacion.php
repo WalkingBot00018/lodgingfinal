@@ -14,9 +14,11 @@ return new class extends Migration
     public function up()
     {
         Schema::create('habitacion', function (Blueprint $table) {
-            $table->id('Nro_Habitacion');
-            $table->foreignId('Id_Tipo_Habitacion');
-            $table->foreign('Id_Tipo_Habitacion')->references('Id_Tipo_Habitacion')->on('tipo_habitacion')->onDelete('cascade')->onUpdate('cascade');
+            $table->id();
+            $table->string('Nro_Habitacion')->unique();
+            $table->text('Descripcion');
+            $table->decimal('Precio', 10, 2);
+            $table->string('Disponibilidad');
             $table->timestamps();
         });
     }

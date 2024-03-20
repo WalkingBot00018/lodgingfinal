@@ -1,0 +1,59 @@
+ /* Estilos generales
+ body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f4f4f4;
+}
+
+.container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+h2 {
+    text-align: center;
+    margin-bottom: 20px;
+}
+
+nav {
+    margin-bottom: 20px;
+}
+
+nav a {
+    display: block;
+    margin-bottom: 10px;
+    padding: 10px;
+    background-color: #09cd3a;
+    color: #fff;
+    text-decoration: none;
+    border-radius: 5px;
+}
+
+nav a:hover {
+    background-color: #0056b3;
+}
+
+.btn-logout {
+    background-color: #dc3545;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    border-radius: 5px;
+    cursor: pointer;
+}
+
+.btn-logout:hover {
+    background-color: #c82333;
+}
+
+@media screen and (max-width: 768px) {
+    nav a {
+        margin-bottom: 8px;
+    }
+
+    .btn-logout {
+        padding: 8px 16px;
+    }
+} */

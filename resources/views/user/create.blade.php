@@ -1,17 +1,16 @@
 @extends('layouts.app')
 
-@section('content')
-
+@section('content') 
 <body>
-   <form action="{{ route('user.store') }}" method="post">
+    <form action="{{ route('user.store') }}" method="post">
     @csrf
-    
+
     @if (session('mensaje'))
-        <h6>{{ session('mensaje') }}</h6>   
+        <h6>{{ session('mensaje') }}</h6>
     @endif
 
-    
-    <input type="text" name="Nro_doc" id="" placeholder="Document Number" value="{{ old('Nro_doc') }}">
+
+    <input type="text" name="Nro_doc" id="" placeholder="Numero de documento" value="{{ old('Nro_doc') }}">
     @error('Nro_doc')
         <h6>{{ $message }}</h6>
     @enderror
@@ -24,12 +23,12 @@
     @error('Apellido')
         <h6>{{ $message }}</h6>
     @enderror
-  
-    <input type="email" name="email" id="" placeholder="Email" value="{{ old('email') }}">
+
+    <input type="email" name="email" id="" placeholder="Correo electronico:" value="{{ old('email') }}">
     @error('email')
         <h6>{{ $message }}</h6>
     @enderror
-    <input type="password" name="password" id="" placeholder="Password" value="{{ old('password') }}">
+    <input type="password" name="password" id="" placeholder="Contraseña:" value="{{ old('password') }}">
 
     @error('password')
         <h6>{{ $message }}</h6>
@@ -44,16 +43,25 @@
         <h6>{{ $message }}</h6>
     @enderror
 
-    <input type="text" name="ID_rol" id="" placeholder="Role Id" value="4">
-    
+    <select name="ID_rol" id="ID_rol">
+        <option value="1">ADMINISTRADOR</option>
+        <option value="2">CLIENTE</option>
+        <option value="3">RECEPSIONISTA</option>
+        <option value="4">MANTENIMIENTO SISTEMA</option>
+        <option value="5">PERSONAL DE LIMPIEZA</option>
+        <option value="6">SEGURIDAD</option>
+    </select>
+
     @error('ID_rol')
         <h6>{{ $message }}</h6>
     @enderror
-    <input type="submit" name="send" value="Send">
+    <input type="submit" name="send" value="Crear">
 
-    </form> 
+    </form>
+
+  
 </body>
 
-@endsection
+@endsection 
 
 </html>

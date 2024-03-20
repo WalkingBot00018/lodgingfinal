@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function index(){
         $users = User::all();
-        return view('user.index', ['users'=>$users]);
+        return view('home', ['users'=>$users]);
     }
 
     public function create()
@@ -17,17 +17,35 @@ class UserController extends Controller
         return view("auth.register");
     }
 
-
+/**
+ * La funcion store toma los datos traidos del formalario registro
+ * con el objeto request se ejecuta la funcion validate y esta valida todos los datos con los parametros perminentes
+ *Crea un objeto User y se le da como atributos
+ *
+ *
+ *
+ *
+ *
+ */
     public function store(Request $request)
     {
         $request->validate([
-            "Nombre"=> "required|string|min:5|max:20",
-            "Apellido"=> "required|string|min:5|max:20",
-            "email"=> "required|email|min:2|max:20",
-            "password"=> "required|min:2|max:225",
-            "Telefono"=> "required|string|min:2|max:10",
-            "Estado"=> "required|string|min:5|max:20",
-            "ID_rol"=> "required|string|min:1|max:10",
+            "Nro_doc" => "required|numeric|digits:10",
+            "Nombre" => "required|string|min:2|max:20",
+            "Apellido" => "required|string|min:2|max:20",
+            "email" => "required|email|max:255|unique:users,email",
+            "password" => [
+                "required",
+                "string",
+                "min:8", // Longitud mínima
+                "max:128", // Longitud máxima
+                "regex:/^(?=.*[A-Z])(?=.*\d)(?=.*[@$!%*?&])[A-Za-z\d@$!%*?&]+$/", // Requiere al menos una letra mayúscula, un número y un caracter especial
+            ], // Ajustado el mínimo y máximo para una contraseña más razonable
+            "Telefono" => "required|string|regex:/^[0-9]+$/|min:2|max:15", // Ajustado el máximo para permitir números de teléfono más largos
+            "Estado" => "required|string|min:5|max:50", // Ajustado el máximo para estados con nombres más largos
+            "ID_rol" => "required|exists:rol,ID_rol",// Asegura que el ID de rol enviado existe en la tabla de roles
+        ],[
+            'password.required'=>'el campo es obligatorio'
         ]);
 
         // User::create($request->all());
@@ -38,17 +56,17 @@ class UserController extends Controller
             "Apellido"=> $request->Apellido,
             "email"=> $request->email,
             "password"=> Hash::make($request->password),
-            "Telefono"=> $request->Nombre,
-            "Estado"=> $request->Nombre,
-            "id_rol"=> $request->id_rol,
+            "Telefono"=> $request->Telefono,
+            "Estado"=> $request->Estado,
+            "ID_rol"=> $request->ID_rol,
         ]);
-        
-        $users = User::with('roles')->get();
+
+        $users = User::with('rol')->get();
 
         auth()->attempt($request->only('','email','password'));
 
         return redirect()->route("user.index")->with("success","usuario registrado exitosamente");
-        
+
     }
     public function show($ID_Usuario)
 {
@@ -71,7 +89,7 @@ public function edit($ID_Usuario)
 
     public function update(Request $request, $ID_Usuario)
     {
-       
+
 
         // Actualiza el usuario
         User::where('ID_usuario', $ID_Usuario)->update($request->except('_token', '_method'));
@@ -79,16 +97,16 @@ public function edit($ID_Usuario)
         return redirect('/usuarios')->with('success', 'Usuario actualizado correctamente');
     }
 
-        
 
-    
+
+
 
 public function destroy($ID_Usuario)
     {
-        
+
         $users = User::find($ID_Usuario);
-        $users->delete(); 
+        $users->delete();
         return redirect('/usuarios')->with('success', 'Usuario eliminado correctamente');
-        
+
     }
 }
