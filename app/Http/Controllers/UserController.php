@@ -44,8 +44,6 @@ class UserController extends Controller
             "Telefono" => "required|string|regex:/^[0-9]+$/|min:2|max:15", // Ajustado el máximo para permitir números de teléfono más largos
             "Estado" => "required|string|min:5|max:50", // Ajustado el máximo para estados con nombres más largos
             "ID_rol" => "required|exists:rol,ID_rol",// Asegura que el ID de rol enviado existe en la tabla de roles
-        ],[
-            'password.required'=>'el campo es obligatorio'
         ]);
 
         // User::create($request->all());
