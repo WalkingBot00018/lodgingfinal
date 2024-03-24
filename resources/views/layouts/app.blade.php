@@ -51,8 +51,6 @@
     </style>
 </head>
 <body>
-
-
     <main>
         <h2>
         </h2>
@@ -71,6 +69,9 @@
                                 <a href="{{ route('user.index') }}">Gestionar usarios</a>
                             </menu>
                         </nav>
+                <div class="col-md-9">
+                    @yield('content')
+                </div>
                 @elseif (auth()->user()->ID_rol == 2)
                     <nav>
                         <p>Rol: Cliente</p>
