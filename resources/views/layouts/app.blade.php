@@ -19,19 +19,20 @@
 
         nav menu {
             display: flex;
+            background-color: #44ba7d;
             justify-content: center;
             gap: 20px;
             margin-top: 20px;
         }
 
         nav menu a {
-            color: #007bff;
+            color: white;
             text-decoration: none;
             transition: color 0.3s ease-in-out;
         }
 
         nav menu a:hover {
-            color: #0056b3;
+            color: black;
         }
 
         button {
@@ -52,8 +53,6 @@
 </head>
 <body>
     <main>
-        <h2>
-        </h2>
         @auth
             <p>Bienvenido {{ auth()->user()->Nombre }}</p>
                 @if (auth()->user()->ID_rol == 1)
@@ -69,9 +68,9 @@
                                 <a href="{{ route('user.index') }}">Gestionar usarios</a>
                             </menu>
                         </nav>
-                <div class="col-md-9">
+                
                     @yield('content')
-                </div>
+
                 @elseif (auth()->user()->ID_rol == 2)
                     <nav>
                         <p>Rol: Cliente</p>
@@ -132,7 +131,7 @@
         @endauth
 
     </main>
-    @yield('content')
+    
 
 </body>
 </html>

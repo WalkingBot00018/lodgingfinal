@@ -1,4 +1,6 @@
-<!-- Agrega el enlace al archivo CSS de Bootstrap -->
+@extends('layouts.app')
+
+@section('content')
 <link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
 <a href="{{ route('servicio.index') }}" class="btn btn-secondary mb-3">REGRESAR</a>
@@ -25,5 +27,5 @@
         <input type="submit" value="Create" class="btn btn-primary">
     </form>
 </div>
-
+@endsection
 
