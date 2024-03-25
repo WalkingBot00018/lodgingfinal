@@ -1,5 +1,5 @@
 <h1>Editar Tipo Habitacion</h1>
-<form method="POST" action="{{ route('tipoha.update', $tipo_habitacion->id) }}">
+<form method="POST" action="{{ route('tipo_habitacion.update', $tipo_habitacion->id) }}">
 
     @csrf
     @method('PUT')
@@ -16,5 +16,5 @@
     <input type="text" name="Disponibilidad" value="{{ $tipo_habitacion->Disponibilidad }}">
 
     <button type="submit">Actualizar</button>
-    <a href="{{ route('tipoha.show', $tipo_habitacion->id) }}">Ver Detalles</a>
+    <a href="{{ route('tipo_habitacion.show', $tipo_habitacion->id) }}">Ver Detalles</a>
 </form>

@@ -10,7 +10,7 @@
     <p>Disponibilidad: {{ $tipo_habitacion->Disponibilidad }}</p>
 
     
-    <a href="{{ route('tipoha.index') }}">Volver al Listado</a>
+    <a href="{{ route('tipo_habitacion.index') }}">Volver al Listado</a>
 @else
     <p>Rol no encontrado</p>
 @endif

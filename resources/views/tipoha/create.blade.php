@@ -1,4 +1,4 @@
-<form method="post" action="{{ route('tipoha.store') }}" class="my-form">
+<form method="post" action="{{ route('tipo_habitacion.store') }}" class="my-form">
     @csrf
     
     <div class="form-group">

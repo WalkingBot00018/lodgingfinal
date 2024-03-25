@@ -12,7 +12,7 @@
     <p>Id Metodo Pago: {{ $factura->Id_Metodo_Pago }}</p>
 
     
-    <a href="{{ route('factu.index') }}">Volver al Listado</a>
+    <a href="{{ route('factura.index') }}">Volver al Listado</a>
 @else
     <p>Rol no encontrado</p>
 @endif

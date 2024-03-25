@@ -1,5 +1,5 @@
 
-<a href="{{ route('tipoha.create') }}">Crear nuevo tipo de  habitacion</a>
+<a href="{{ route('tipo_habitacion.create') }}">Crear nuevo tipo de  habitacion</a>
 
 
     <table>
@@ -21,10 +21,10 @@
                 <td>{{ $tipo_habitacion->Disponibilidad }}</td>
                 
                 <td>
-                    <a href="{{ route('tipoha.show', $tipo_habitacion->id) }}">Ver</a>
-                    <a href="{{ route('tipoha.edit', $tipo_habitacion->id) }}">Editar</a>
+                    <a href="{{ route('tipo_habitacion.show', $tipo_habitacion->id) }}">Ver</a>
+                    <a href="{{ route('tipo_habitacion.edit', $tipo_habitacion->id) }}">Editar</a>
 
-                    <form method="POST" action="{{ route('tipoha.destroy', $tipo_habitacion->id) }}">
+                    <form method="POST" action="{{ route('tipo_habitacion.destroy', $tipo_habitacion->id) }}">
                         @csrf
                         @method('DELETE')
                         <input type="submit" class="btn btn-danger btn-sm" value="Eliminar">

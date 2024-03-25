@@ -40,7 +40,7 @@ class Tipo_HabitacionController extends Controller
         $tipo_habitacion->save();
 
         // Redirigir a la vista index con un mensaje de éxito
-        return redirect()->route("tipoha.index")->with("success","Tipo de habitación registrada exitosamente");
+        return redirect()->route("tipo_habitacion.index")->with("success","Tipo de habitación registrada exitosamente");
     }
 
     public function show($id)
