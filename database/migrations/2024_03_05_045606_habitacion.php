@@ -18,7 +18,7 @@ return new class extends Migration
             $table->string('Nro_Habitacion')->unique();
             $table->text('Descripcion');
             $table->decimal('Precio', 10, 2);
-            $table->string('Disponibilidad');
+            $table->string('Estado');
             $table->timestamps();
         });
     }
