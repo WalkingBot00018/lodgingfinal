@@ -55,6 +55,7 @@ Route::put('/usuarios/{user}', [UserController::class, 'update'])->name('user.up
 Route::delete('/usuarios/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 
 
+
 Route::get('/reserva', [reservaController::class, 'index'])->name('reserva.index');
 Route::get('/reserva/create', [reservaController::class, 'create'])->name('reserva.create');
 Route::post('/reserva/store', [reservaController::class, 'store'])->name('reserva.store');
@@ -72,7 +73,7 @@ Route::post('login', [LoginController::class,'store']);
 
 
 //Vista de usuario logueado
-Route::get('/home', [HomeController::class,'index'])->name('home.index')->middleware('auth');
+Route::get('/home', [HomeController::class,'index'])->name('home.index');
 
 
 Route::get('/factura', [FacturaController::class, 'index'])->name('factu.index');
