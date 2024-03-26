@@ -13,7 +13,12 @@
     <p>IVA (16%): {{ $iva }}</p>
     <p>Total con IVA: {{ $totalConIVA }}</p>
 
+<<<<<<< HEAD
     <a href="{{ route('factu.index') }}">Volver al Listado</a>
+=======
+    
+    <a href="{{ route('factura.index') }}">Volver al Listado</a>
+>>>>>>> ramaRomario
 @else
     <p>Factura no encontrada</p>
 @endif

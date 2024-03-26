@@ -4,7 +4,7 @@
         <h1>Usuarios</h1>
         <article>
             <link rel="stylesheet" href="{{ asset('css/register.css') }}">
-            <form action="{{ route('user.store') }}" method="post">
+            <form action="{{ route('usuarios.store') }}" method="post">
                 @csrf
 
                 @if (session('mensaje'))

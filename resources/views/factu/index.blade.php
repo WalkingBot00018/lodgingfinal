@@ -2,7 +2,7 @@
  
 </style>
 
-<a href="{{ route('factu.create') }}">Crear nueva factura</a>
+<a href="{{ route('factura.create') }}">Crear nueva factura</a>
 
 <link rel="stylesheet" href="{{ asset('css/factu/index.css') }}"> 
 
@@ -28,10 +28,10 @@
                 <td>{{ $factura->Id_Metodo_Pago }}</td>
                 
                 <td>
-                    <a href="{{ route('factu.show', $factura->id) }}">Ver</a>
-                    <a href="{{ route('factu.edit', $factura->id) }}">Editar</a>
+                    <a href="{{ route('factura.show', $factura->id) }}">Ver</a>
+                    <a href="{{ route('factura.edit', $factura->id) }}">Editar</a>
 
-                    <form method="POST" action="{{ route('factu.destroy', $factura->id) }}">
+                    <form method="POST" action="{{ route('factura.destroy', $factura->id) }}">
                         @csrf
                         @method('DELETE')
                         <input type="submit" class="btn btn-danger btn-sm" value="Eliminar">

@@ -65,8 +65,8 @@ class UserController extends Controller
 
         auth()->attempt($request->only('','email','password'));
 
-        return redirect()->route("user.index")->with("success","usuario registrado exitosamente");
-
+        return redirect()->route("usuarios.index")->with("success","usuario registrado exitosamente");
+        
     }
     public function show($ID_Usuario)
 {

@@ -2,7 +2,7 @@
 <head>
     <a class="regresar" href="{{ asset('home') }}" >Regresar</a>
 </head>
-<form method="post" action="{{ route('factu.store') }}" class="my-form">
+<form method="post" action="{{ url('factura/store') }}" class="my-form">
 <link rel="stylesheet" href="{{ asset('css/factu/create.css') }}"> 
 
     @csrf

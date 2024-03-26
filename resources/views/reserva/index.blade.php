@@ -1,10 +1,8 @@
 {{-- @extends('layouts.app')
 
 @section('content') --}}
-    <a href="{{ route('reserva.create') }}">Crear nueva reserva</a>
+<a href="{{ route('reserva.create') }}">Crear nueva reserva</a>
 @auth
-
-
     <table>
         <thead>
             <tr>
@@ -18,41 +16,33 @@
             </tr>
         </thead>
         <tbody>
-
-            @foreach($reservas as $reservas)
-
-                @if (auth()->user()->Nro_doc==$reservas->Nro_doc)
-            <tr>
-                <td>{{ $reservas->Nro_Reserva }}</td>
-                <td>{{ $reservas->Nro_doc }}</td>
-                <td>{{ $reservas->Nro_Habitacion }}</td>
-                <td>{{ $reservas->FechaEntrada }}</td>
-                <td>{{ $reservas->FechaSalida }}</td>
-                <td>{{ $reservas->Estado_Reserva }}</td>
-                <td>{{ $reservas->users ? $reservas->users->Nombre : 'sin nada' }}</td>
-                <td>
-
-
-                    <a href="{{ route('reserva.show', $reservas->Nro_Reserva) }}">Ver</a>
-
-
-                    <a href="{{ route('reserva.edit', $reservas->Nro_Reserva) }}">Editar</a>
-
-                    <form method="POST" action="{{ route('reserva.destroy', $reservas->Nro_Reserva) }}">
-                    @csrf
-                    @method('DELETE')
-                    <input type="submit" class="btn btn-danger btn-sm" value="Eliminar">
-                </form>
-                </td>
-            </tr>
-            <tr>
-                <td colspan="6">No hay datos</td>
-            </tr>
-            @endif
-
-            @endforeach
-
+            @forelse($reservas as $reserva)
+                @if (auth()->user()->Nro_doc == $reserva->Nro_doc)
+                    <tr>
+                        <td>{{ $reserva->Nro_Reserva }}</td>
+                        <td>{{ $reserva->Nro_doc }}</td>
+                        <td>{{ $reserva->Nro_Habitacion }}</td>
+                        <td>{{ $reserva->FechaEntrada }}</td>
+                        <td>{{ $reserva->FechaSalida }}</td>
+                        <td>{{ $reserva->Estado_Reserva }}</td>
+                        <td>{{ $reserva->users ? $reserva->users->Nombre : 'sin nada' }}</td>
+                        <td>
+                            <a href="{{ route('reserva.show', $reserva->Nro_Reserva) }}">Ver</a>
+                            <a href="{{ route('reserva.edit', $reserva->Nro_Reserva) }}">Editar</a>
+                            <form action="{{url('/reserva/'.$reserva->Nro_Reserva)}}" method="post">
+                                @csrf
+                                {{method_field('DELETE')}}
+                                <input type="submit" onclick="return confirm('Quieres eliminar el metodo de pago?')" value="Eliminar">
+                            </form>
+                        </td>
+                    </tr>
+                @endif
+            @empty
+                <tr>
+                    <td colspan="7">No hay datos</td>
+                </tr>
+            @endforelse
         </tbody>
     </table>
-    @endauth
+@endauth
 {{-- @endsection --}}

@@ -42,7 +42,7 @@
             <h6>{{ $message }}</h6>
         @enderror
 
-        <a href="{{ route('user.create') }}">crear cuenta</a>
+        <a href="{{ route('usuarios.create') }}">crear cuenta</a>
 
         <input class="boton"  type="submit" name="login" value="Iniciar sesión">
     
