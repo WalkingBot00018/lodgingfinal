@@ -3,7 +3,7 @@
 <section class="contenedor3">
     <article>
         <h1>Editar Usuario</h1>
-        <form method="POST" action="{{ route('user.update', $users->ID_Usuario) }}">
+        <form method="POST" action="{{ route('usuarios.update', $users->ID_Usuario) }}">
             @csrf
             @method('PUT')
             
@@ -24,6 +24,6 @@
 
             <button type="submit">Actualizar</button>
         </form>
-        <a href="{{ route('user.shows', $users->ID_Usuario) }}">Ver Detalles</a>
+        <a href="{{ url('/usuarios/'. $users->ID_Usuario) }}">Ver listado</a>
     </article>
 </section>

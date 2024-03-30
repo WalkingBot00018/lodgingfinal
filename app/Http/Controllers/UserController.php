@@ -9,7 +9,7 @@ class UserController extends Controller
 {
     public function index(){
         $users = User::all();
-        return view('home', ['users'=>$users]);
+        return view('user.index', ['users'=>$users]);
     }
 
     public function create()
@@ -44,6 +44,33 @@ class UserController extends Controller
             "Telefono" => "required|string|regex:/^[0-9]+$/|min:2|max:15", // Ajustado el máximo para permitir números de teléfono más largos
             "Estado" => "required|string|min:5|max:50", // Ajustado el máximo para estados con nombres más largos
             "ID_rol" => "required|exists:rol,ID_rol",// Asegura que el ID de rol enviado existe en la tabla de roles
+        ],[
+
+            'Nro_doc.numeric'=>'No Poner numeros',
+            'Nro_doc.required'=>'Es obligatorio',
+            'Nro_doc.digits'=>'debe tener almenos 10 digitos',
+            'Nombre.string'=>'No Poner numeros',
+            'Nombre.required'=>'Es Obligatorio',
+            'Nombre.min'=>'Escriba minimo 2 caracter',
+            'Nombre.max'=>'Supero el limite de caracteres',
+            'Apellido.string'=>'No Poner numeros',
+            'Apellido.required'=>'Es Obligatorio',
+            'Apellido.min'=>'Escriba minimo 2 caracter',
+            'Apellido.max'=>'Supero el limite de caracteres',
+            'email.email'=>'no es efectivo como correo',
+            'email.required'=>'Es Obligatorio',
+            'email.min'=>'Escriba minimo 2 caracter',
+            'email.max'=>'Supero el limite de caracteres',
+            'Telefono.string'=>'No Poner letras',
+            'Telefono.required'=>'Es Obligatorio',
+            'Telefono.min'=>'Escriba minimo 2 caracter',
+            'Telefono.max'=>'Supero el limite de caracteres',
+            'Telefono.regex'=>'es numerico y tener almenos 10 digitos',
+            'password.required'=>'Obligatorio',
+            'password.min'=>'Escriba minimo 7 caracter',
+            'password.max'=>'Supera el limite de caracteres',
+            'password.regex'=>'Requiere al menos una letra mayúscula, un número y un caracter especial',
+            'Id_rol.required'=> 'Es Obligatorio'
         ]);
 
         // User::create($request->all());
@@ -63,8 +90,8 @@ class UserController extends Controller
 
         auth()->attempt($request->only('','email','password'));
 
-        return redirect()->route("user.index")->with("success","usuario registrado exitosamente");
-
+        return redirect()->route("usuarios.index")->with("success","usuario registrado exitosamente");
+        
     }
     public function show($ID_Usuario)
 {

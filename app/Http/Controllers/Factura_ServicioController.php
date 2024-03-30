@@ -26,7 +26,7 @@ class Factura_ServicioController extends Controller
         Factura_Servicio::create($request->all());
 
 
-        return redirect()->route("factuser.index")->with("success","factura servicio creada con exito");
+        return redirect()->route("facturaservicio.index")->with("success","factura servicio creada con exito");
     }
 
     public function show($id)

@@ -1,5 +1,5 @@
 <h1>Editar Factura servicio</h1>
-<form method="POST" action="{{ route('factuser.update', $factura_servicio->id) }}">
+<form method="POST" action="{{ route('facturaservicio.update', $factura_servicio->id) }}">
 
     @csrf
     @method('PUT')
@@ -13,5 +13,5 @@
     <input type="date" name="Cantidad" value="{{ $factura_servicio->Cantidad }}">
 
     <button type="submit">Actualizar</button>
-    <a href="{{ route('factuser.show', $tipo_habitacion->id) }}">Ver Detalles</a>
+    <a href="{{ route('facturaservicio.show', $factura_servicio->id) }}">Ver Detalles</a>
 </form>

@@ -1,59 +1,28 @@
- /* Estilos generales
- body {
-    font-family: Arial, sans-serif;
-    margin: 0;
-    padding: 0;
-    background-color: #f4f4f4;
+
+/* Estilos para el menú desplegable */
+
+.navbar-toggler-icon {
+    color: #d62e2e; /* Color del icono de la hamburguesa */
 }
 
-.container {
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 20px;
+.navbar-nav .nav-link {
+    color: #fff; /* Color de los enlaces del menú */
 }
 
-h2 {
-    text-align: center;
-    margin-bottom: 20px;
+main.container {
+    margin-top: 120px;
+    margin-bottom: 50px; /* Distancia en la parte inferior de la pantalla */
+    background-color: #acf3c9; /* Color de fondo deseado */
+    padding: 30px; /* Espacio interior para separar el contenido del borde */
+    border-radius: 10px; /* Bordes redondeados para la sección */
 }
 
-nav {
-    margin-bottom: 20px;
-}
-
-nav a {
-    display: block;
-    margin-bottom: 10px;
-    padding: 10px;
-    background-color: #09cd3a;
-    color: #fff;
+.logo2 {
+    display: inline-block;
     text-decoration: none;
-    border-radius: 5px;
 }
 
-nav a:hover {
-    background-color: #0056b3;
+.logo-imgs {
+    width: 180px; /* Ajusta el ancho de la imagen según sea necesario */
+    height: auto; /* Para mantener la proporción de la imagen */
 }
-
-.btn-logout {
-    background-color: #dc3545;
-    color: #fff;
-    border: none;
-    padding: 10px 20px;
-    border-radius: 5px;
-    cursor: pointer;
-}
-
-.btn-logout:hover {
-    background-color: #c82333;
-}
-
-@media screen and (max-width: 768px) {
-    nav a {
-        margin-bottom: 8px;
-    }
-
-    .btn-logout {
-        padding: 8px 16px;
-    }
-} */

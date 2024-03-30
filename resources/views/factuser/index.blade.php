@@ -1,5 +1,5 @@
 
-<a href="{{ route('factuser.create') }}">Crear nueva factura_servivio</a>
+<a href="{{ route('facturaservicio.create') }}">Crear nueva factura_servivio</a>
 
 
     <table>
@@ -18,10 +18,10 @@
                 <td>{{ $factura->ID_Servicio }}</td>
                 <td>{{ $factura->Cantidad }}</td>
                 <td>
-                    <a href="{{ route('factuser.show', $factura->id) }}">Ver</a>
-                    <a href="{{ route('factuser.edit', $factura->id) }}">Editar</a>
+                    <a href="{{ route('facturaservicio.show', $factura->id) }}">Ver</a>
+                    <a href="{{ route('facturaservicio.edit', $factura->id) }}">Editar</a>
 
-                    <form method="POST" action="{{ route('factuser.destroy', $factura->id) }}">
+                    <form method="POST" action="{{ route('facturaservicio.destroy', $factura->id) }}">
                         @csrf
                         @method('DELETE')
                         <input type="submit" class="btn btn-danger btn-sm" value="Eliminar">

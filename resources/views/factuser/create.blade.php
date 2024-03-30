@@ -1,5 +1,5 @@
 
-<form method="post" action="{{ route('factuser.store') }}" class="my-form">
+<form method="post" action="{{ route('facturaservicio.store') }}" class="my-form">
 
     @csrf
     

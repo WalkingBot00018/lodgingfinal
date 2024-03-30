@@ -4,40 +4,41 @@
         <h1>Usuarios</h1>
         <article>
             <link rel="stylesheet" href="{{ asset('css/register.css') }}">
-            <form action="{{ route('user.store') }}" method="post">
+            <form action="{{ route('usuarios.store') }}" method="post">
                 @csrf
+                
 
                 @if (session('mensaje'))
                     <h6>{{ session('mensaje') }}</h6>
                 @endif
 
 
-                <input class="contenedorinput" type="text" name="Nro_doc" id="" placeholder="Numero de documento" value="{{ old('Nro_doc') }}">
+                <input class="contenedorinput" type="text" name="Nro_doc" id="" placeholder="Numero de documento" value="{{ old('Nro_doc') }}" required>
                 @error('Nro_doc')
                     <h6>{{ $message }}</h6>
                 @enderror
 
-                <input type="text" name="Nombre" id="" placeholder="Nombre" value="{{ old('Nombre') }}">
+                <input type="text" name="Nombre" id="" placeholder="Nombre" value="{{ old('Nombre') }}" required>
                 @error('Nombre')
                     <h6>{{ $message }}</h6>
                 @enderror
 
-                <input type="text" name="Apellido" id="" placeholder="Apellido" value="{{ old('Apellido') }}">
+                <input type="text" name="Apellido" id="" placeholder="Apellido" value="{{ old('Apellido') }}" required>
                 @error('Apellido')
                     <h6>{{ $message }}</h6>
                 @enderror
 
-                <input type="email" name="email" id="" placeholder="Correo" value="{{ old('email') }}">
+                <input type="email" name="email" id="" placeholder="Correo" value="{{ old('email') }}" required>
                 @error('email')
                     <h6>{{ $message }}</h6>
                 @enderror
-                <input type="password" name="password" id="" placeholder="Contraseña" value="{{ old('password') }}">
+                <input type="password" name="password" id="" placeholder="Contraseña" value="{{ old('password') }}" required>
 
                 @error('password')
                     <h6>{{ $message }}</h6>
                 @enderror
 
-                <input type="text" name="Telefono" id="" placeholder="telefono" value="{{ old('Telefono') }}">
+                <input type="text" name="Telefono" id="" placeholder="telefono" value="{{ old('Telefono') }}" required>
                 @error('Telefono')
                     <h6>{{ $message }}</h6>
                 @enderror
@@ -64,7 +65,7 @@
                 @error('ID_rol')
                     <h6>{{ $message }}</h6>
                 @enderror
-                <input    class="crear"type="submit" name="send" value="Crear">
+                <button   class="crear"type="submit" name="send" value="Crear">CREAR</button>
 
             </form>
         </article>

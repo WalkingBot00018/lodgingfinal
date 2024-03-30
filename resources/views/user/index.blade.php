@@ -13,7 +13,7 @@
             <section class="Centrar">
                 <article>
                     <h1>MODIFICAR USUARIOS</h1>
-                    <a class="olo" href="{{ route('user.create') }}">Crear nuevo usuario</a>
+                    <a class="olo" href="{{ route('usuarios.create') }}">Crear nuevo usuario</a>
                 </article>
             </section>
             
@@ -27,9 +27,10 @@
                     <span>{{ $user->Estado }}</span>
                     <span>{{ $user->rol ? $user->rol->Nombre : 'sin rol' }}</span>
                     <div class="user-actions">
-                        <a href="{{ route('user.shows', $user->ID_Usuario) }}">Ver</a>
-                        <a href="{{ route('user.edit', $user->ID_Usuario) }}">Editar</a>
-                        <form method="POST" action="{{ route('user.destroy', $user) }}">
+                        <a href="{{ url('/usuarios/'. $user->ID_Usuario.'/edit') }}">Editar</a>
+                        <a href="{{ url('/usuarios/'. $user->ID_Usuario) }}">Ver</a>
+                    
+                        <form method="POST" action="{{ route('usuarios.destroy', $user) }}">
                             @csrf
                             @method('DELETE')
                             <input type="submit" class="btn btn-danger btn-sm" value="Eliminar">
