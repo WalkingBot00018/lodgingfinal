@@ -8,7 +8,7 @@
     <p>Fecha Emision: {{ $factura_servicio->Cantidad }}</p>
 
     
-    <a href="{{ route('factuser.index') }}">Volver al Listado</a>
+    <a href="{{ route('facturaservicio.index') }}">Volver al Listado</a>
 @else
     <p>Rol no encontrado</p>
 @endif

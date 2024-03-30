@@ -6,7 +6,7 @@
     <a class="regresar" href="{{ asset('home') }}" >Regresar</a>
 </head>
 
-<form method="POST" action="{{ route('factu.update', $factura->id) }}" class="my-form">
+<form method="POST" action="{{ route('factura.update', $factura->id) }}" class="my-form">
     @csrf
     @method('PUT')
     <h3>Editar Factura</h3>
@@ -36,5 +36,5 @@
     </div>
 
     <input type="submit" value="Actualizar" class="btn btn-primary">
-    <a href="{{ route('factu.show', $factura->id) }}">Ver Detalles</a>
+    <a href="{{ route('factura.show', $factura->id) }}">Ver Detalles</a>
 </form>

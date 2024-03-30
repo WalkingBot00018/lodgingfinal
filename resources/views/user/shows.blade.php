@@ -7,8 +7,10 @@
     <title>Ver usuarios</title>
 </head>
 <body>
-    <a class="regresar2" href="{{ route('user.edit', ['user' => $user->ID_Usuario]) }}">Ir a la edición</a>
-    <a class="regresar2" href="{{ route('user.index') }}">Volver al listado</a>
+    <a class="regresar2" href="{{ url('usuarios/'.$user->ID_Usuario.'/edit') }}">Ir a la edición</a>
+    <a class="regresar2" href="{{ url('usuarios/') }}">Volver al listado</a>
+     
+    
     <section class="body2">
         <article>   
         <section class="contenedor2">

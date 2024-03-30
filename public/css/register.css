@@ -1,4 +1,7 @@
 /* public/css/register.css */
+*{
+    font-family: sans-serif;
+}
 
 body {
     display:flex;
@@ -53,9 +56,12 @@ input{
     color: white;
 }
 .crear{
+    margin-top: 20px;
+    padding: 20px;
     margin-left: 12%;
     width: 400px;
     background-color: #000;
+    border-radius: 20px;
     color: white;
 }
 .crear:hover{
@@ -67,5 +73,10 @@ input{
     color: white;
 }
 
-
+input:invalid {
+    border-color: red;
+}
+input:valid {
+        border-color: green;
+    }
 

@@ -11,12 +11,6 @@
   
   <a class="regresar" href="{{ asset('/') }}" >Regresar</a>
   
-
- 
-
-
-    
-
     <form action="{{ route('login') }}" method="POST" novalidate>
         @csrf
         <h3>Hotel Lodging <br>Inicia Sesión</h3>
@@ -25,34 +19,29 @@
         @endif
 
         <div class="input-group">
-            
             <label for="Email">Email</label>
-            <input type="email" name="email" placeholder="Correo electrónico" value="{{ old('email') }}">
+            <input type="email" name="email" placeholder="Correo electrónico" value="{{ old('email') }}" required>
         </div>
         @error('email')
             <h6>{{ $message }}</h6>
         @enderror
 
         <div class="input-group">
-            
             <label for="Password">Password</label>
-            <input type="password" name="password" placeholder="Contraseña">
+            <input type="password" name="password" placeholder="Contraseña" required>
         </div>
         @error('password')
             <h6>{{ $message }}</h6>
         @enderror
 
-        <a href="{{ route('user.create') }}">crear cuenta</a>
+        <a href="{{ route('usuarios.create') }}">crear cuenta</a>
 
         <input class="boton"  type="submit" name="login" value="Iniciar sesión">
     
-
         <div class="social">
             <div class="go"><i class="fab fa-google"></i>  Google</div>
             <div class="fb"><i class="fab fa-facebook"></i>  Facebook</div>
         </div>
     </form>
-</div>
-    
 </body>
 </html>
