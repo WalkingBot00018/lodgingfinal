@@ -52,8 +52,7 @@ class ReservaController extends Controller
 
     public function destroy($Nro_Reserva)
     {
-        $reserva=Reserva::find($Nro_Reserva);
-        $reserva->delete();
-        return redirect('/reserva')->with('success','reserva eliminada');
+        Reserva::destroy($Nro_Reserva);
+        return redirect('/reserva')->with('mensaje','Eliminado exitosamente');
     }
 }

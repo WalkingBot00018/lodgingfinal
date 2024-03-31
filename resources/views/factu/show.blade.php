@@ -1,18 +1,24 @@
 @if ($factura)
-
-    <h1>factura DETAlle</h1>
-    <p>Numero de Factura: {{ $factura->Nro_Factura }}</p>
-
-    <p>Numero de Reserva: {{ $factura->Nro_Reserva }}</p>
-
-    <p>Fecha Emision: {{ $factura->FechaEmision }}</p>
-
+    <h1>Factura Detalle</h1>
+    <p>Número de Factura: {{ $factura->Nro_Factura }}</p>
+    <p>Fecha Emisión: {{ $factura->FechaEmision }}</p>
     <p>Monto Total: {{ $factura->Monto_Total }}</p>
 
-    <p>Id Metodo Pago: {{ $factura->Id_Metodo_Pago }}</p>
+    {{-- Calcular el IVA --}}
+    @php
+        $iva = $factura->Monto_Total * 0.16; // Suponiendo un IVA del 16%
+        $totalConIVA = $factura->Monto_Total + $iva;
+    @endphp
 
+    <p>IVA (16%): {{ $iva }}</p>
+    <p>Total con IVA: {{ $totalConIVA }}</p>
+
+<<<<<<< HEAD
+    <a href="{{ route('factu.index') }}">Volver al Listado</a>
+=======
     
     <a href="{{ route('factura.index') }}">Volver al Listado</a>
+>>>>>>> ramaRomario
 @else
-    <p>Rol no encontrado</p>
+    <p>Factura no encontrada</p>
 @endif

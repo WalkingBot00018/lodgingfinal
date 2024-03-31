@@ -16,6 +16,9 @@ return new class extends Migration
         Schema::create('habitacion', function (Blueprint $table) {
             $table->id();
             $table->string('Nro_Habitacion')->unique();
+            $table->text('Descripcion');
+            $table->decimal('Precio', 10, 2);
+            $table->string('Estado');
             $table->timestamps();
         });
     }

@@ -1,21 +1,31 @@
-<!-- @extends('layouts.app') -->
+@extends('layouts.app')
 
+@section('content')
+<link href="https://stackpath.bootstrapcdn.com/bootstrap/4.5.2/css/bootstrap.min.css" rel="stylesheet">
 
-<!-- <link rel="stylesheet" href="{{ asset('css/users.css') }}">  -->
-<a href="{{ route('servicio.index') }}">REGRESAR</a>
-<form method="post" action="{{ route('servicio.store') }}" class="my-form">
+<a href="{{ route('servicio.index') }}" class="btn btn-secondary mb-3">REGRESAR</a>
 
-    @csrf
-    
-    <label for="Nombre">Nombre del servicio</label>
-    <input type="text" name="Nombre" id="Nombre">
+<div class="container mt-5">
+    <form method="post" action="{{ route('servicio.store') }}" class="my-form">
+        @csrf
 
-    <label for="Descripcion">Descripcion del servicio</label>
-    <input type="text" name="Descripcion" id="Descripcion" >
+        <div class="form-group">
+            <label for="Nombre">Nombre del servicio</label>
+            <input type="text" name="Nombre" id="Nombre" class="form-control">
+        </div>
 
-    <label for="Nro_Habitacion">Numero de la habitacion</label>
-    <input type="text" name="Nro_Habitacion" id="Nro_Habitacion" >
+        <div class="form-group">
+            <label for="Descripcion">Descripción del servicio</label>
+            <input type="text" name="Descripcion" id="Descripcion" class="form-control">
+        </div>
 
-    <input type="submit" value="Create" class="btn btn-primary"/>
+        <div class="form-group">
+            <label for="Nro_Habitacion">Número de la habitación</label>
+            <input type="text" name="Nro_Habitacion" id="Nro_Habitacion" class="form-control">
+        </div>
 
-</form>
+        <input type="submit" value="Create" class="btn btn-primary">
+    </form>
+</div>
+@endsection
+

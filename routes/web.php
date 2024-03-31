@@ -99,15 +99,7 @@ Route::resource('/habitaciones_vistas',habitaciones_vistasController::class);
 
 
 
-Route::resource('/tipo_habitacion',Tipo_HabitacionController::class);
 
-// Route::get('/tipo_habitacion', [Tipo_HabitacionController::class, 'index'])->name('tipoha.index');
-// Route::get('/tipo_habitacion/create',[Tipo_HabitacionController::class, 'create'])->name('tipoha.create');
-// Route::post('/tipo_habitacion/store', [Tipo_HabitacionController::class, 'store'])->name('tipoha.store');
-// Route::get('/tipo_habitacion/{tipo_habitacion}', [Tipo_HabitacionController::class, 'show'])->name('tipoha.show');
-// Route::get('/tipo_habitacion/{tipo_habitacion}/editar', [Tipo_HabitacionController::class, 'edit'])->name('tipoha.edit');
-// Route::put('/tipo_habitacion/{tipo_habitacion}', [Tipo_HabitacionController::class, 'update'])->name('tipoha.update');
-// Route::delete('/tipo_habitacion/{tipo_habitacion}', [Tipo_HabitacionController::class, 'destroy'])->name('tipoha.destroy');
 
 Route::resource('/habitacion',habitacionController::class);
 // Route::get('/habitacion', [habitacionController::class, 'index'])->name('habitacion.index');

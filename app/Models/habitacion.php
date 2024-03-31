@@ -11,14 +11,15 @@ class Habitacion extends Model
 
     protected $table = 'habitacion';
 
-    
+
 
     protected $fillable = [
         'Nro_Habitacion',
+        'Descripcion',
+        'Precio',
+        'Disponibilidad',
 
     ];
 
-    public function Tipo_Habitacion(){
-        return $this->hasMany(Tipo_Habitacion::class, 'Nro_Habitacion', 'Nro_Habitacion');
-    }
+
 }

@@ -49,7 +49,7 @@ class FacturaController extends Controller
 
     public function update(Request $request, $id)
     {
-       
+
 
         // Actualiza el usuario
         Factura::where('id', $id)->update($request->except('_token', '_method'));
@@ -57,16 +57,25 @@ class FacturaController extends Controller
         return redirect('/factura')->with('success', 'Usuario actualizado correctamente');
     }
 
-        
+    // En el FacturaController
+    private function calcularIVA($montoTotal)
+    {
+        $iva = $montoTotal * 0.16; // Suponiendo un IVA del 16%
+        $totalConIVA = $montoTotal + $iva;
+        return ['iva' => $iva, 'totalConIVA' => $totalConIVA];
+    }
 
-    
+
+
+
+
 
 public function destroy($id)
     {
-        
+
         $users = Factura::find($id);
-        $users->delete(); 
+        $users->delete();
         return redirect('/factura')->with('success', 'Usuario eliminado correctamente');
-        
+
     }
 }

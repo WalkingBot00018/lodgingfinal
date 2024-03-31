@@ -45,10 +45,10 @@
 
     <select name="ID_rol" id="ID_rol">
         <option value="1">ADMINISTRADOR</option>
-        <option value="2">CLIENTE</option>
-        <option value="3">RECEPSIONISTA</option>
-        <option value="4">MANTENIMIENTO SISTEMA</option>
-        <option value="5">PERSONAL DE LIMPIEZA</option>
+        <option value="2">RECEPCIONISTA</option>
+        <option value="3">MESERO</option>
+        <option value="4">ROOMSERVICE</option>
+        <option value="5">CLIENTE</option>
         <option value="6">SEGURIDAD</option>
     </select>
 
@@ -58,6 +58,8 @@
     <input type="submit" name="send" value="Crear">
 
     </form>
+
+  
 </body>
 
 @endsection 

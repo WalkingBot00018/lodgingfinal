@@ -1,33 +1,90 @@
 @extends('layouts.app')
 
+@section('content')
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Crear Reserva</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 0;
+        }
 
-<!-- <link rel="stylesheet" href="{{ asset('css/users.css') }}">  -->
-<a href="{{ route('reserva.index') }}">REGRESAR</a>
-<form method="post" action="{{ route('reserva.store') }}" class="my-form">
+        .container {
+            max-width: 600px;
+            margin: 20px auto;
+            background-color: #fff;
+            padding: 20px;
+            border-radius: 8px;
+            box-shadow: 0px 0px 10px rgba(0, 0, 0, 0.1);
+        }
 
-    @csrf
-    
-    <label for="Nro_doc">Numero de Documento</label>
-    <input type="text" name="Nro_doc" id="Nro_doc">
+        h1 {
+            text-align: center;
+            margin-bottom: 20px;
+        }
 
-    <label for="Nro_Habitacion">Numero habitacion</label>
-    <input type="text" name="Nro_Habitacion" id="Nro_Habitacion" >
+        form {
+            display: flex;
+            flex-direction: column;
+        }
 
-    <label for="FechaEntrada">Fecha de entrada</label>
-    <input type="date" name="FechaEntrada" id="FechaEntrada" >
+        label {
+            margin-bottom: 8px;
+        }
 
-    <label for="FechaSalida">Fecha salida</label>
-    <input type="date" name="FechaSalida" id="FechaSalida">
+        input[type="text"],
+        input[type="date"],
+        input[type="submit"] {
+            padding: 10px;
+            margin-bottom: 15px;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+        }
 
-    <label for="Estado_Reserva">Estado de Reserva</label>
-    <select name="Estado_Reserva" id="Estado_Reserva">
+        input[type="submit"] {
+            background-color: #007bff;
+            color: #fff;
+            cursor: pointer;
+            transition: background-color 0.3s ease;
+        }
 
-        <option value="Reservado">Reservado</option>
-        <option value="No Reservado">No Reservado</option>
-        <option value="No Reservado">Disponible</option>
-    </select>
+        input[type="submit"]:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>Crear Reserva</h1>
 
+        <form method="post" action="{{ route('reserva.store') }}" class="my-form">
+            @csrf
 
-    <input type="submit" value="Create" class="btn btn-primary"/>
+            <label for="Nro_doc">Numero de Documento:</label>
+            <input type="text" name="Nro_doc" id="Nro_doc" placeholder="Ingrese el numero de documento">
 
-</form>
+            <label for="Nro_Habitacion">Numero de Habitacion:</label>
+            <input type="text" name="Nro_Habitacion" id="Nro_Habitacion" placeholder="Ingrese el numero de habitacion">
+
+            <label for="FechaEntrada">Fecha de entrada:</label>
+            <input type="date" name="FechaEntrada" id="FechaEntrada">
+
+            <label for="FechaSalida">Fecha de salida:</label>
+            <input type="date" name="FechaSalida" id="FechaSalida">
+
+            <!-- Input oculto para el Estado_Reserva -->
+            <input name="Estado_Reserva" id="Estado_Reserva" value="Reservado" hidden>
+
+            <input type="submit" value="Crear Reserva">
+        </form>
+    </div>
+</body>
+</html>
+
+@endsection
