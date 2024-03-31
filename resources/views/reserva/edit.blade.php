@@ -1,3 +1,6 @@
+@extends('layouts.app')
+
+
 h1>Editar Reserva</h1>
 <form method="POST" action="{{ route('reserva.update', $reserva->Nro_Reserva) }}">
     @csrf
@@ -23,3 +26,5 @@ h1>Editar Reserva</h1>
     <button type="submit">Actualizar</button>
 </form>
 <a href="{{ route('reserva.show', $reserva->Nro_Reserva) }}">Ver Detalles</a>
+
+
