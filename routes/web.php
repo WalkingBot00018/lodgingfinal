@@ -43,7 +43,7 @@ Route::get('/', function () {
 
 //roles
 
-Route::resource('/rol',rolController::class);
+Route::resource('/rol',rolController::class)->middleware(['auth']);
 
 
 Route::resource('/usuarios',UserController::class);
@@ -55,7 +55,7 @@ Route::resource('/usuarios',UserController::class);
 // Route::delete('/usuarios/{user}', [UserController::class, 'destroy'])->name('user.destroy');
 
 
-Route::resource('/reserva',reservaController::class);
+Route::resource('/reserva',reservaController::class)->middleware(['auth']);
 // Route::get('/reserva', [reservaController::class, 'index'])->name('reserva.index');
 // Route::get('/reserva/create', [reservaController::class, 'create'])->name('reserva.create');
 // Route::post('/reserva/store', [reservaController::class, 'store'])->name('reserva.store');
@@ -75,7 +75,7 @@ Route::post('login', [LoginController::class,'store']);
 //Vista de usuario logueado
 Route::get('/home', [HomeController::class,'index'])->name('home.index')->middleware('auth');
 
-Route::resource('/factura',FacturaController::class);
+Route::resource('/factura',FacturaController::class)->middleware(['auth']);
 // Route::get('/factura', [FacturaController::class, 'index'])->name('factu.index');
 // Route::get('/factura/create',[FacturaController::class, 'create'])->name('factu.create');
 // Route::post('/factura/store', [FacturaController::class, 'store'])->name('factu.store');
@@ -85,7 +85,7 @@ Route::resource('/factura',FacturaController::class);
 // Route::delete('/factura/{factura}', [FacturaController::class, 'destroy'])->name('factu.destroy');
 
 
-Route::resource('/facturaservicio',Factura_ServicioController::class);
+Route::resource('/facturaservicio',Factura_ServicioController::class)->middleware(['auth']);
 // Route::get('/facturaservicio', [Factura_ServicioController::class, 'index'])->name('factuser.index');
 // Route::get('/facturaservicio/create',[Factura_ServicioController::class, 'create'])->name('factuser.create');
 // Route::post('/facturaservicio/store', [Factura_ServicioController::class, 'store'])->name('factuser.store');
@@ -101,7 +101,7 @@ Route::resource('/habitaciones_vistas',habitaciones_vistasController::class);
 
 
 
-Route::resource('/habitacion',habitacionController::class);
+Route::resource('/habitacion',habitacionController::class)->middleware(['auth']);
 // Route::get('/habitacion', [habitacionController::class, 'index'])->name('habitacion.index');
 // Route::get('/habitacion/create', [habitacionController::class, 'create'])->name('habitacion.create');
 // Route::post('/habitacion/store', [habitacionController::class, 'store'])->name('habitacion.store');
@@ -110,7 +110,7 @@ Route::resource('/habitacion',habitacionController::class);
 // Route::put('/habitacion/{habitaciones}', [habitacionController::class, 'update'])->name('habitacion.update');
 // Route::delete('/habitacion/{habitaciones}', [habitacionController::class, 'destroy'])->name('habitacion.destroy');
 
-Route::resource('/servicio',serviciosController::class);
+Route::resource('/servicio',serviciosController::class)->middleware(['auth']);
 // Route::get('/servicio', [serviciosController::class, 'index'])->name('servicio.index');
 // Route::get('/servicio/create', [serviciosController::class, 'create'])->name('servicio.create');
 // Route::post('/servicio/store', [serviciosController::class, 'store'])->name('servicio.store');
@@ -121,7 +121,7 @@ Route::resource('/servicio',serviciosController::class);
 
 
 
-Route::resource('/metodo_pago',MetodoPagoController::class);
+Route::resource('/metodo_pago',MetodoPagoController::class)->middleware(['auth']);
 // Route::get('/metodo_pago', [MetodoPagoController::class, 'index'])->name('metodo_pago.index');
 // Route::get('/metodo_pago/create', [MetodoPagoController::class, 'create'])->name('metodo_pago.create');
 // Route::post('/metodo_pago/store', [MetodoPagoController::class, 'store'])->name('metodo_pago.store');
@@ -131,7 +131,7 @@ Route::resource('/metodo_pago',MetodoPagoController::class);
 // Route::delete('/metodo_pago/{metodo_pago}', [MetodoPagoController::class, 'destroy'])->name('metodo_pago.destroy');
 
 
-Route::resource('/inventario',inventarioController::class);
+Route::resource('/inventario',inventarioController::class)->middleware(['auth']);
 // Route::get('/inventario', [inventarioController::class, 'index'])->name('inventario.index');
 // Route::get('/inventario/create', [inventarioController::class, 'create'])->name('inventario.create');
 // Route::post('/inventario/store', [inventarioController::class, 'store'])->name('inventario.store');
