@@ -82,9 +82,11 @@ class MetodoPagoController extends Controller
     {
         //
         $insertarMP= request()->except(['_token','_method']);
-        MetodoPago::where('$Id_Metodo_Pago','=',$Id_Metodo_Pago)->update($insertarMP);    
-        $MetodoP=MetodoPago::findOrFail($Id_Metodo_Pago);
-        return view('metodo_pago.edit',compact('MetodoP'));
+        MetodoPago::where('Id_Metodo_Pago','=',$Id_Metodo_Pago)->update($insertarMP);
+
+        $MeP=MetodoPago::findOrFail($Id_Metodo_Pago);
+        return view('metodo_pago.edit',compact('MeP'));
+        
     }
 
     /**
