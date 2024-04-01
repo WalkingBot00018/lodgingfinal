@@ -315,7 +315,7 @@
     <div class="container">
       <div class="heading_top flex1">
         <div class="heading">
-          <h5>AQUIE ESTA NUESTRA GALERIA</h5>
+          <h5>AQUI ESTA NUESTRA GALERIA</h5>
           <h2>FOTOS DE NUESTRO HOTEL</h2>
         </div>
         <div class="button">
@@ -323,6 +323,10 @@
         </div>
       </div>
 
+      <div class="arrow-indicator">
+          <i class="fas fa-chevron-right"></i>
+          <p>Desliza hacia la derecha para ver más imágenes</p>
+      </div>
       <div class="owl-carousel owl-theme">
        
         <div class="item">

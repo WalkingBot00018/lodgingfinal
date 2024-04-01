@@ -82,7 +82,9 @@ header ul li a {
 header ul li a:hover {
   color: #C1B086;
 }
-
+.arrow-indicator{
+  color: #44ba7d;
+}
 @media only screen and (max-width: 768px) {
   header ul {
     display: block;
@@ -150,6 +152,7 @@ header ul li a:hover {
   font-size: 80px;
   font-weight: 400;
 }
+
 
 .home p {
   font-weight: 400;
@@ -584,6 +587,15 @@ footer li:hover {
 
 footer p{
   color: #fff;
+}
+.item {
+  background-color: rgba(0, 0, 0, 0.6);
+  opacity: 1; 
+  transition: 0.5s;
+}
+
+.item:hover {
+  opacity: 0.7; 
 }
 
 /*--------------footer--------*/

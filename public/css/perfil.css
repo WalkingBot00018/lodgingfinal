@@ -1,0 +1,49 @@
+.contenido {
+    display: flex;
+    justify-content: center; 
+    margin-top: 110px;
+    background-color: #393939;
+    padding: 50px;
+    margin-left: 250px;
+    margin-right: 250px;
+    box-shadow: 0px 10px 40px 40px rgba(0, 0, 0, 0.1);
+    transition: transform 0.5s ease;
+}
+
+.contenido:hover {
+    background-color: #555; 
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.3); 
+    transform: scale(1.05); 
+}
+
+.contenido ul{
+    list-style: none;
+}
+
+.lista{
+    margin-left: -40px;
+}
+
+h1,p{
+    color: white;
+    font-size: 40px;
+}
+ul,li{
+    font-size: 25px;
+    color: white;    
+}
+a {
+    font-size: 20px;
+    text-decoration: none;
+    display: inline-block; 
+    border: 2px solid #393939;
+    border-radius: 10px;
+    padding: 10px 20px; 
+    background-color: #fff; 
+    color: #393939; 
+}
+
+a:hover {
+    background-color: #44ba7d; 
+    color: #393939; /* Cambia el color del texto al pasar el ratón sobre el botón */
+}

@@ -29,7 +29,7 @@
                         
                         <div class="collapse navbar-collapse" id="navbarCollapse">
                             <ul class="navbar-nav ml-auto">
-                                <li class="nav-item active"><a class="nav-link" href="#">Mi cuenta</a></li>
+                                <li class="nav-item active"><a class="nav-link" href="{{route('perfil.index')}}">Mi cuenta</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('rol.index') }}">Gestionar roles</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('reserva.index') }}">Gestionar reservas</a></li>
                                 <li class="nav-item"><a class="nav-link" href="{{ route('habitacion.index') }}">Gestionar habitaciones</a></li>
