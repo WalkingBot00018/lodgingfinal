@@ -82,14 +82,35 @@
                     </nav>
 
                 @elseif (auth()->user()->ID_rol == 5)
-                    <p>cliente </p>
-                    <nav>
-                        <menu>
-                            <a href="#">Mi Cuenta</a>
-                            <a href="{{ route('reserva.create') }}">Hacer Una Reserva </a>
-                            <a href="{{ route('reserva.store') }}">Consultar Reservas </a>
+                <nav class="navbar navbar-custom navbar-expand-lg navbar-dark bg-dark fixed-top">
+                    <div class="container-fluid">
+                        <a href="" class="logo2">
+                            <img src="{{ asset('image/LOGO3.png') }}" alt="LOGO" class="logo-imgs">
+                        </a>
 
-                        </menu>
+                        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarCollapse" aria-controls="navbarCollapse" aria-expanded="false" aria-label="Toggle navigation">
+                            <span class="navbar-toggler-icon"></span>
+                        </button>
+                        
+                        <div class="collapse navbar-collapse" id="navbarCollapse">
+                            <ul class="navbar-nav ml-auto">
+                                <li class="nav-item active"><a class="nav-link" href="{{route('perfil.index')}}">Mi cuenta</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('reserva.create') }}">Crear reservas</a></li>
+                                <li class="nav-item"><a class="nav-link" href="{{ route('reserva.store') }}">Gestionar habitaciones</a></li>
+                                <li class="nav-item">
+                                <form action="{{ route('logout') }}" method="POST">
+                                    @csrf
+                                    <button type="submit" class="btn btn-link nav-link">Cerrar sesión</button>
+                                </form> 
+                            </ul>
+                        </div>
+                    </div>
+                </nav>
+
+                <main role="main" class="container">
+                    
+                    @yield("content")
+                </main>
                     </nav>
 
                 @elseif (auth()->user()->ID_rol == 6)
@@ -105,12 +126,6 @@
                     <p>Rol no encontrado</p>
                 @endif
 
-                <form action="{{ route('logout') }}" method="POST">
-                    @csrf
-                    <button>
-                        Cerrar sesión
-                    </button>
-                </form>
         @endauth
 
     </main>
