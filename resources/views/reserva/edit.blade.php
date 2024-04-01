@@ -1,5 +1,5 @@
 @extends('layouts.app')
-
+@section('content')
 
 h1>Editar Reserva</h1>
 <form method="POST" action="{{ route('reserva.update', $reserva->Nro_Reserva) }}">
@@ -28,3 +28,4 @@ h1>Editar Reserva</h1>
 <a href="{{ route('reserva.show', $reserva->Nro_Reserva) }}">Ver Detalles</a>
 
 
+@endsection
