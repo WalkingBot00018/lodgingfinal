@@ -4,16 +4,21 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="{{ asset('css/formularios/formularioIndex.css') }}">  
-    <title>Document</title>
+    <title>Usuarios</title>
 </head>
 <body>
-<a class="salir" href="{{url('/home')}}">regresar</a>
+    <a class="salir" href="{{url('/home')}}">Regresar</a>
     <section class="contenedor">
         <article>
             <section class="Centrar">
                 <article>
                     <h1>MODIFICAR USUARIOS</h1>
                     <a class="olo" href="{{ route('usuarios.create') }}">Crear nuevo usuario</a>
+                    
+                    <form action="{{ route('usuarios.buscar') }}" method="GET">
+                        <input type="text" name="buscar" placeholder="Buscar usuarios...">
+                        <button type="submit">Buscar</button>
+                    </form>
                 </article>
             </section>
             
@@ -43,6 +48,5 @@
 
         </article>
     </section>
-    
 </body>
 </html>

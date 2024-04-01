@@ -21,6 +21,7 @@ use App\Http\Controllers\inventarioController;
 use App\Http\Controllers\MetodoPagoController;
 use App\Http\Controllers\Factura_ServicioController;
 use App\Http\Controllers\habitaciones_vistasController;
+use App\Http\Controllers\PerfilController;
 
 
 
@@ -47,6 +48,7 @@ Route::resource('/rol',rolController::class)->middleware(['auth']);
 
 
 Route::resource('/usuarios',UserController::class);
+Route::get('/usuarios/buscar', 'UserController@buscar')->name('usuarios.buscar');
 // Route::get('/usuarios/create', [UserController::class, 'create'])->name('user.create');
 // Route::post('/usuarios/store', [UserController::class, 'store'])->name('user.store');
 // Route::get('/usuarios/{user}', [UserController::class, 'show'])->name('user.shows');
@@ -141,3 +143,6 @@ Route::resource('/inventario',inventarioController::class)->middleware(['auth'])
 // Route::delete('/inventario/{inventario}', [inventarioController::class, 'destroy'])->name('inventario.destroy');
 
 Route::resource('/habitaciones_vistas',habitaciones_vistasController::class);
+
+
+Route::resource('/perfil',PerfilController::class);

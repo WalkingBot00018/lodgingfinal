@@ -99,7 +99,7 @@ class UserController extends Controller
 
     if (!$user) {
         // Manejar el caso cuando el usuario no existe
-        return redirect()->route('user.index')->with('error', 'Usuario no encontrado');
+        return redirect()->route('usuarios.index')->with('error', 'Usuario no encontrado');
     }
 
     return view('user.shows', ['user' => $user]);
@@ -133,5 +133,15 @@ public function destroy($ID_Usuario)
         $users->delete();
         return redirect('/usuarios')->with('success', 'Usuario eliminado correctamente');
 
+}
+public function buscar(Request $request){
+        $query = $request->input('buscar');
+        $users = User::where('Nombre', 'LIKE', "%$query%")
+        ->orwhere('Apellido', 'LIKE', "%$query%")
+        ->orwhere('email', 'LIKE', "%$query%")
+        ->get();
+
+        return view('usuarios.buscar', compact('users'));
     }
 }
+
