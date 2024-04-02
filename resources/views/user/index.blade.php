@@ -14,11 +14,6 @@
                 <article>
                     <h1>MODIFICAR USUARIOS</h1>
                     <a class="olo" href="{{ route('usuarios.create') }}">Crear nuevo usuario</a>
-                    
-                    <form action="{{ route('usuarios.buscar') }}" method="GET">
-                        <input type="text" name="buscar" placeholder="Buscar usuarios...">
-                        <button type="submit">Buscar</button>
-                    </form>
                 </article>
             </section>
             

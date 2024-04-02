@@ -48,7 +48,6 @@ Route::resource('/rol',rolController::class)->middleware(['auth']);
 
 
 Route::resource('/usuarios',UserController::class);
-Route::get('/usuarios/buscar', 'UserController@buscar')->name('usuarios.buscar');
 // Route::get('/usuarios/create', [UserController::class, 'create'])->name('user.create');
 // Route::post('/usuarios/store', [UserController::class, 'store'])->name('user.store');
 // Route::get('/usuarios/{user}', [UserController::class, 'show'])->name('user.shows');

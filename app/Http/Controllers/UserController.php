@@ -134,14 +134,5 @@ public function destroy($ID_Usuario)
         return redirect('/usuarios')->with('success', 'Usuario eliminado correctamente');
 
 }
-public function buscar(Request $request){
-        $query = $request->input('buscar');
-        $users = User::where('Nombre', 'LIKE', "%$query%")
-        ->orwhere('Apellido', 'LIKE', "%$query%")
-        ->orwhere('email', 'LIKE', "%$query%")
-        ->get();
-
-        return view('usuarios.buscar', compact('users'));
-    }
 }
 
