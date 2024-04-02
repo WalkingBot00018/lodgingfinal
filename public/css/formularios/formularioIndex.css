@@ -1,7 +1,7 @@
 
 .Centrar,a{
     text-align: center;  
-    margin-bottom: 20px;  
+    margin-bottom: 20px;    
 }
 .user-actions {
     margin-left: 595px;
@@ -30,7 +30,7 @@ input{
     width: 70%;
     margin: 0 auto;
     padding: 40px;
-    background-color: #f9f9f9;
+    background-color: #acf3c9;
     border-radius: 30px;
     transition: transform 0.5s ease;
     box-shadow: 0px 0px 50px rgba(0, 0, 0, 0.5);
