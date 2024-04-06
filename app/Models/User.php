@@ -53,4 +53,18 @@ class User extends Authenticatable
     protected $casts = [
         'email_verified_at' => 'datetime',
     ];
+    /**SCOPE*/
+    public function scopeNro_doc($query, $Nro_doc)
+    {
+        if($Nro_doc)
+            return $query->where('Nro_doc', 'LIKE', "%$Nro_doc%");
+        
+    }
+    public function scopeNombre($query, $Nombre)
+    {
+        if($Nombre)
+            return $query->where('Nombre', 'LIKE', "%$Nombre%");
+        
+    }
+
 }

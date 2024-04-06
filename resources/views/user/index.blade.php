@@ -14,6 +14,20 @@
                 <article>
                     <h1>MODIFICAR USUARIOS</h1>
                     <a class="olo" href="{{ route('usuarios.create') }}">Crear nuevo usuario</a>
+                    <h1>
+                        BUSCADOR DE USUARIOS
+                        {{Form::open(['route' => 'usuarios.index','method'=>'GET','class'=> 'form-inline pull-right'])}}
+                            <section class="formulario">
+                                {{Form::number('Nro_doc', request('Nro_doc') ,['class' => 'form-control', 'placeholder' => 'Numero de documento:'])}}
+                            </section>
+                            <section class="formulario">
+                                {{Form::text('Nombre', request('Nombre'),['class' => 'form-control', 'placeholder' => 'Nombre del usuario:'])}}
+                            </section>
+                            <section class="formulario">
+                                <button type="submit">Buscar</button>
+                            </section>
+                        {{Form::close()}}
+                    </h1>
                 </article>
             </section>
             

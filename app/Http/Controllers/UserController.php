@@ -7,9 +7,19 @@ use Illuminate\Support\Facades\Hash;
 
 class UserController extends Controller
 {
-    public function index(){
-        $users = User::all();
-        return view('user.index', ['users'=>$users]);
+    public function index(Request $request){
+        $Nro_doc = $request->get('Nro_doc');
+        $Nombre = $request->get('Nombre');
+
+        $users = User::query();//Otra consulta
+        if ($Nro_doc) {
+            $users->where('Nro_doc', 'LIKE', "%$Nro_doc%");
+        }
+        if ($Nombre) {
+            $users->where('Nombre', 'LIKE', "%$Nombre%");
+        }
+        $users = $users->get(); // Con este get ejecutamos la consulta y obtenemos los usuarios que estamo indicando en las condicionales if  
+        return view('user.index', compact('users'));
     }
 
     public function create()
