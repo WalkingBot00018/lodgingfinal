@@ -86,7 +86,8 @@
                     <nav>
                         <menu>
                             <a href="#">Mi Cuenta</a>
-                            <a href="#"></a>
+                            <a href="{{ route('reserva.create') }}">Hacer Una Reserva </a>
+                            <a href="{{ route('reserva.store') }}">Consultar Reservas </a>
 
                         </menu>
                     </nav>

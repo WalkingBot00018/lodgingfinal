@@ -27,5 +27,5 @@
         <input type="submit" value="Create" class="btn btn-primary">
     </form>
 </div>
-@endsection
 
+@endsection

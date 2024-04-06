@@ -49,7 +49,7 @@
         <option value="3">MESERO</option>
         <option value="4">ROOMSERVICE</option>
         <option value="5">CLIENTE</option>
-        <option value="6">SEGURIDAD</option>
+        
     </select>
 
     @error('ID_rol')

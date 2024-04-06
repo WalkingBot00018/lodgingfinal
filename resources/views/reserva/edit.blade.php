@@ -1,6 +1,6 @@
 @extends('layouts.app')
-
 @section('content')
+
 h1>Editar Reserva</h1>
 <form method="POST" action="{{ route('reserva.update', $reserva->Nro_Reserva) }}">
     @csrf
